@@ -144,7 +144,7 @@ let stock = { valentine: 5 };
 function ajouterProduit(id) {
   if(stock[id] <= 0) return;
 
-  let produit = { titre:'The Sound Sky : Valentine', prix:16, poids:0.5, type:'livre' };
+  let produit = { titre:'The Sound Sky : Valentine', prix:20, poids:0.5, type:'livre' };
   panier.push(produit);
   localStorage.setItem('panier', JSON.stringify(panier));
 
