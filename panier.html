@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier - Justine Pottier</title>
+
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background:url('fondbeige.PNG') no-repeat center center fixed;
+  background-size:cover;
+  text-align:center;
+}
+
+.top-banner img {
+  max-height:200px;
+  margin-top:20px;
+}
+
+.banner-text {
+  font-size:2.2rem;
+  margin:20px 0;
+}
+
+.panier-box {
+  max-width:850px;
+  margin:40px auto;
+  background:#fff8e1;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  text-align:left;
+}
+
+.item {
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  border-bottom:1px solid #ddd;
+}
+
+.total, .frais {
+  text-align:right;
+  font-size:1.2rem;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.btn {
+  background:#1A2A40;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  width:100%;
+  margin-top:15px;
+}
+
+.btn:hover {
+  background:#3c5a80;
+}
+
+.small-btn {
+  background:#ccc;
+  border:none;
+  padding:8px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+hr {
+  margin:30px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="logo">
+</div>
+
+<div class="banner-text">Votre panier</div>
+
+<div class="panier-box">
+
+  <div id="liste"></div>
+
+  <div class="frais">
+    Frais de port : <span id="shipping">0€</span>
+  </div>
+
+  <div class="total">
+    Total : <span id="total">0€</span>
+  </div>
+
+  <button class="small-btn" onclick="viderPanier()">Vider le panier</button>
+
+  <hr>
+
+  <!-- FORMULAIRE EMAIL -->
+  <form id="form"
+    action="https://formsubmit.co/justinepottier.commande@gmail.com"
+    method="POST">
+
+    <h3>Finaliser la commande</h3>
+
+    <input type="text" name="nom" placeholder="Nom / Prénom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="adresse" placeholder="Adresse complète" required>
+
+    <input type="hidden" name="panier" id="panierInput">
+    <input type="hidden" name="total" id="totalInput">
+    <input type="hidden" name="frais" id="fraisInput">
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="merci.html">
+
+    <button class="btn" type="submit" onclick="prepareMail()">Valider la commande</button>
+  </form>
+
+</div>
+
+<script>
+
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
+let promo = 0;
+
+/* AFFICHAGE PANIER */
+function afficher() {
+  const div = document.getElementById("liste");
+  div.innerHTML = "";
+
+  if (panier.length === 0) {
+    div.innerHTML = "<p>Panier vide</p>";
+    updateTotal();
+    return;
+  }
+
+  panier.forEach((p, i) => {
+    let el = document.createElement("div");
+    el.className = "item";
+    el.innerHTML = `
+      <span>${p.titre}</span>
+      <span>${p.prix.toFixed(2)}€</span>
+      <button onclick="supprimer(${i})">❌</button>
+    `;
+    div.appendChild(el);
+  });
+
+  updateTotal();
+}
+
+/* SUPPRESSION */
+function supprimer(i) {
+  panier.splice(i,1);
+  localStorage.setItem("panier", JSON.stringify(panier));
+  afficher();
+}
+
+/* VIDAGE */
+function viderPanier() {
+  panier = [];
+  localStorage.removeItem("panier");
+  afficher();
+}
+
+/* FRAIS DE PORT AU POIDS */
+function calculFrais(poids) {
+  if (poids <= 0.8) return 4.20;
+  if (poids <= 2) return 5.90;
+  return 7.90;
+}
+
+/* TOTAL */
+function updateTotal() {
+
+  let total = panier.reduce((s,p)=>s+p.prix,0);
+  let poids = panier.reduce((s,p)=>s+(p.poids || 0.5),0);
+
+  let frais = calculFrais(poids);
+
+  let final = total + frais;
+
+  document.getElementById("total").textContent = final.toFixed(2) + "€";
+  document.getElementById("shipping").textContent = frais.toFixed(2) + "€";
+}
+
+/* EMAIL CLEAN */
+function prepareMail() {
+
+  let poids = panier.reduce((s,p)=>s+(p.poids || 0.5),0);
+  let frais = calculFrais(poids);
+  let total = panier.reduce((s,p)=>s+p.prix,0) + frais;
+
+  document.getElementById("panierInput").value =
+    panier.map(p => `${p.titre} - ${p.prix}€`).join(" | ");
+
+  document.getElementById("totalInput").value = total.toFixed(2) + "€";
+  document.getElementById("fraisInput").value = frais.toFixed(2) + "€";
+}
+
+/* INIT */
+afficher();
+
+</script>
+
+</body>
+</html>

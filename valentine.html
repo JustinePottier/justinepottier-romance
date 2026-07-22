@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sound Sky : Valentine - Justine Pottier</title>
+<style>
+  body { margin:0; padding:0; font-family:'Playfair Display', serif; color:#1A2A40;
+    background:url('fondbeige.PNG') no-repeat center center fixed; background-size:cover; text-align:center;}
+  .top-banner {text-align:center; margin-top:20px;}
+  .top-banner img {max-height:200px; margin:10px;}
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+  .auteur-text { font-family: 'Great Vibes', cursive; font-size:2rem; color:#f28f8f; text-shadow:1px 1px 3px rgba(0,0,0,0.2); margin-top:15px; transition: transform 0.3s, color 0.3s;}
+  .auteur-text:hover { color:#d65c5c; transform: scale(1.05);}
+  .menu {text-align:center; margin:20px 0; position:relative;}
+  .menu a, .dropbtn { margin:0 15px; text-decoration:none; font-weight:bold; color:#1A2A40; background:none; border:none; cursor:pointer; font-size:1rem;}
+  .dropbtn { padding:5px 0; }
+  .menu a:hover, .dropbtn:hover { text-decoration:underline; }
+  .dropdown { display:inline-block; position:relative; }
+  .dropdown-content { display:none; position:absolute; background-color:#fff8e1; min-width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.1); border-radius:10px; z-index:1; top:25px; left:0; text-align:left;}
+  .dropdown-content a { display:block; padding:10px 15px; color:#1A2A40; text-decoration:none; font-weight:normal;}
+  .dropdown-content a:hover { background-color:#f2c1c1; }
+  .dropdown:hover .dropdown-content { display:block; }
+  .panier-lien { position:absolute; right:20px; top:0;}
+  .banner-text { font-size:3rem; font-weight:bold; color:#1A2A40; text-align:center; margin:30px 0 20px 0; text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
+  .alert-stock {margin-top:20px; font-weight:bold; color:#803020;}
+  .book-page { max-width:700px; margin:50px auto; background: rgba(250, 245, 230, 0.85); padding:30px; border-radius:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-bottom:50px;}
+  .book-page img{width:100%;border-radius:10px;}
+  h1,h2{margin-top:20px;}
+  p.price{font-weight:bold;font-size:1.2rem;margin:15px 0;}
+  .stock{font-weight:bold; color:#803020; margin-bottom:10px;}
+  .btn{display:inline-block;margin:10px 5px;padding:10px 20px;background:#1A2A40;color:white;text-decoration:none;border-radius:10px;cursor:pointer;}
+  .btn:hover{background:#3c5a80;}
+  .btn.disabled{background:gray; cursor:not-allowed;}
+  .resume{margin-top:20px;text-align:left;line-height:1.5;}
+  .suggestions {max-width: 900px; margin: 50px auto; text-align: center;}
+  .suggestions h3 {margin-bottom: 20px;}
+  .suggestions .suggestion-item {display: inline-block; margin: 0 15px; vertical-align: top;}
+  .suggestions .suggestion-item img {width: 200px; height: 250px; object-fit: cover; border-radius: 10px; cursor: pointer; transition: transform 0.3s;}
+  .suggestions .suggestion-item img:hover {transform: scale(1.05);}
+  .suggestions .suggestion-item p {margin-top: 10px; font-weight: bold;}
+  footer { background-color:#F5F0E6; padding:40px 0; text-align:center; font-family:'Playfair Display', serif; color:#1A2A40;}
+  .social-icons { display:flex; justify-content:center; gap:25px; }
+  .social-link img { transition: transform 0.3s, filter 0.3s; width:35px; height:35px; }
+  .social-link:hover img { transform:scale(1.2); filter:brightness(1.2); }
+  @media (max-width:768px) {
+    .banner-text { font-size:2rem; margin:20px 10px; }
+    .book-page { margin:30px 15px; padding:20px; }
+    .resume { font-size:0.95rem; }
+    .suggestions .suggestion-item img { width:120px; height:150px; }
+    .suggestions .suggestion-item { margin:8px; }
+    .menu a, .dropbtn { margin:0 8px; font-size:0.9rem; }
+    .panier-lien { position:static; margin-top:10px; display:inline-block; }
+    .top-banner img { max-height:150px; }
+    .social-link img { width:30px; height:30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="Logo Justine Pottier">
+</div>
+<p class="auteur-text">Auteure de romances contemporaines</p>
+
+<nav class="menu">
+  <a href="index.html">Accueil</a>
+  <div class="dropdown">
+    <button class="dropbtn">Boutique ▼</button>
+    <div class="dropdown-content">
+      <a href="nida.html">Nous interdire d’aimer</a>
+      <a href="valentine.html">The Sound Sky : Valentine</a>
+      <a href="cqnl.html">Ceux qui nous lient</a>
+      <a href="nmfl.html">Noël, ma famille et lui</a>
+      <a href="pageebook.html">Les Ebooks</a>
+      <a href="asdt.html">À un shoot de toi</a>
+    </div>
+  </div>
+  <a href="apropos.html">Qui suis-je</a>
+  <a href="contact.html">Contact</a>
+<p>
+  <a href="mentions.html">Mentions légales</a> |
+  <a href="rgpd.html">Politique de confidentialité</a> |
+  <a href="cgv.html">CGV</a>
+</p>
+  <a href="ou-me-rencontrer.html">Où me rencontrer</a>
+  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+</nav>
+
+<h1>The Sound Sky : Valentine</h1>
+
+<div class="alert-stock">
+  ⚠️ Toutes les éditions Caméléon sont disponibles <strong>jusqu'à épuisement des stocks</strong> !
+</div>
+
+<div class="book-page">
+  <img src="tss_valentine.webp" alt="The Sound Sky : Valentine">
+  <h2>The Sound Sky : Valentine <span class="promo">-20%</span></h2>
+<p class="price"><s>20€</s> 16€ <span class="small-promo">(prix déjà réduit)</span></p>
+  <p class="stock">Stock : <span id="stock-valentine">4</span> exemplaires</p>
+ <div class="resume">
+
+  <p><strong>Deux âmes brisées. Une musique qui pourrait tout réparer.</strong></p>
+
+  <p>
+    Accompagnée de sa guitare et de son sweat à capuche, Valentine cache un passé difficile.  
+    Ancien membre du groupe The Sound Sky, Lorenzo tente de se remettre d’un événement douloureux.
+  </p>
+
+  <p>
+    Mais la musique rassemble les gens… et une rencontre dans un lieu inattendu pourrait bien bouleverser leur quotidien.
+  </p>
+
+  <p>
+    Au-delà de leur culpabilité, réussiront-ils à s’ouvrir… et à s’autoriser à aimer ?
+  </p>
+
+  <p><strong>Parfois, aimer demande plus de courage que tout le reste…</strong></p>
+
+</div>
+  <button id="btn-valentine" class="btn" onclick="ajouterProduit('valentine')">Ajouter au panier</button>
+</div>
+
+<div class="suggestions">
+  <h3>Vous pourriez aussi aimer</h3>
+  <div class="suggestion-item">
+    <a href="nida.html"><img src="nia_1.webp" alt="Nous interdire d'aimer"></a>
+    <p>Nous interdire d'aimer</p>
+  </div>
+  <div class="suggestion-item">
+    <a href="cqnl.html"><img src="cqnl_famille.png" alt="Ceux qui nous lient"></a>
+    <p>Ceux qui nous lient</p>
+  </div>
+  <div class="suggestion-item">
+    <a href="asdt.html"><img src="Broché.png" alt="À un shoot de toi"></a>
+    <p>À un shoot de toi</p>
+  </div>
+</div>
+
+<script>
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
+let stock = { valentine: 5 };
+
+function ajouterProduit(id) {
+  if(stock[id] <= 0) return;
+
+  let produit = { titre:'The Sound Sky : Valentine', prix:16, poids:0.5, type:'livre' };
+  panier.push(produit);
+  localStorage.setItem('panier', JSON.stringify(panier));
+
+  stock[id]--;
+  document.getElementById('stock-'+id).textContent = stock[id];
+
+  if(stock[id] === 0){
+    let btn = document.getElementById('btn-'+id);
+    btn.textContent = 'Rupture de stock';
+    btn.classList.add('disabled');
+    btn.onclick = null;
+  }
+
+  alert(produit.titre + ' a été ajouté au panier !');
+  mettreAJourTotal();
+}
+
+function mettreAJourTotal() {
+  const total = panier.reduce((acc, produit) => acc + produit.prix, 0);
+  document.getElementById('total-panier').textContent = total.toFixed(2)+'€';
+}
+
+mettreAJourTotal();
+</script>
+
+<footer>
+  <p>Suivez-moi sur les réseaux sociaux :</p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/justinepottier.auteure/" target="_blank" class="social-link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100012297214034" target="_blank" class="social-link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@justinepottierauteure" target="_blank" class="social-link">
+      <img src="tiktok.png" alt="TikTok">
+    </a>
+  </div>
+  <p>&copy; 2025 Justine Pottier. Tous droits réservés.</p>
+  <p>
+    <a href="mentions-legales.html" style="color:#1A2A40; text-decoration:underline;">Mentions légales</a> | 
+    <a href="cgv.html" style="color:#1A2A40; text-decoration:underline;">CGV</a> | 
+    <a href="politique-confidentialite.html" style="color:#1A2A40; text-decoration:underline;">Politique de confidentialité</a>
+  </p>
+</footer>
+
+</body>
+</html>

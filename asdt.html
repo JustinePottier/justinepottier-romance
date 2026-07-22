@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Précommande - À un shoot de toi</title>
+<style>
+  body {
+    margin:0;
+    padding:0;
+    font-family:'Playfair Display', serif;
+    color:#1A2A40;
+    background:url('fondbeige.PNG') no-repeat center center fixed;
+    background-size:cover;
+    text-align:center;
+  }
+  .top-banner{text-align:center; margin-top:20px;}
+  .top-banner img{max-height:200px; margin:10px; border-radius:10px;}
+  .banner-text{text-align:center; color:#1A2A40; font-size:2.5rem; margin-top:20px;}
+
+  /* Menu identique à index.html, centré */
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centrer tous les éléments du menu */
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+  }
+  .menu a, .dropbtn {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1A2A40;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .menu a:hover, .dropbtn:hover { text-decoration: underline; }
+
+  .dropdown { display:inline-block; position:relative; }
+  .dropdown-content {
+    display:none;
+    position:absolute;
+    background-color:#fff8e1;
+    min-width:220px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    border-radius:10px;
+    z-index:1;
+    top:25px;
+    left:0;
+    text-align:left;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    color: #1A2A40;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .dropdown-content a:hover { background-color:#f2c1c1; }
+  .dropdown:hover .dropdown-content { display:block; }
+
+  .panier-lien { margin-left:20px; }
+
+  /* Produits */
+  .produit {
+    border:1px solid #ccc;
+    padding:20px;
+    margin:20px auto;
+    border-radius:10px;
+    max-width:500px;
+    background:#fff8e1;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    text-align:left;
+  }
+  h2{text-align:center;}
+  button {
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background:#1A2A40;
+    color:white;
+    cursor:pointer;
+    margin-top:10px;
+  }
+  button:hover{background:#3c5a80;}
+  select, input[type=checkbox]{margin-top:8px;}
+  .option-livres{margin:10px 0 10px 20px;}
+
+
+.resume-livre-romance {
+  max-width: 800px;
+  margin: 60px auto;
+  background: linear-gradient(145deg, rgba(255, 250, 240, 0.95), rgba(255, 235, 220, 0.9));
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(26,42,64,0.1);
+  font-family: 'Playfair Display', serif;
+  color: #1A2A40;
+  line-height: 1.8;
+  text-align: justify;
+  animation: fadeInUp 1s ease both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-livre-romance:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(26,42,64,0.15);
+}
+
+/* Titre du résumé */
+.resume-livre-romance h3 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #3E5879;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.resume-livre-romance h3::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #3E5879;
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+/* Première lettre stylisée */
+.resume-livre-romance .premiere-lettre {
+  float: left;
+  font-size: 3.6rem;
+  font-weight: bold;
+  color: #3E5879;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+/* Surbrillance douce */
+.resume-livre-romance .surligne {
+  background: linear-gradient(120deg, rgba(246,223,179,0.4), rgba(255,255,200,0.3));
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Phrases interrogatives */
+.resume-livre-romance .question {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  color: #1A2A40;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Animation fade + up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.produit img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(26,42,64,0.2);
+  transition: all 0.3s ease;
+}
+
+  /* Footer */
+  footer{
+    text-align:center;
+    margin-top:50px;
+    font-size:14px;
+  }
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .produit{max-width:400px; padding:15px;}
+    .menu{gap:10px;}
+    .menu a, .dropbtn{font-size:0.95rem;}
+  }
+  @media (max-width:600px){
+    .top-banner img{max-width:140px;}
+    .produit{text-align:center;}
+    .dropdown-content{position:relative; top:0; left:0; box-shadow:none;}
+    .menu{flex-direction:column; gap:5px; align-items:center;}
+  }
+.avis {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background: linear-gradient(145deg, #fff4dc, #fff8e1);
+  border-left: 5px solid #3E5879;
+  border-radius: 15px;
+  font-style: italic;
+  box-shadow: 0 5px 15px rgba(26,42,64,0.1);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.avis strong {
+  display: block;
+  margin-top: 15px;
+  text-align: right;
+  font-style: normal;
+  color: #3E5879;
+}
+
+.avis {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background: linear-gradient(145deg, #fff4dc, #fff8e1);
+  border-left: 5px solid #3E5879;
+  border-radius: 15px;
+  font-style: italic;
+  box-shadow: 0 5px 15px rgba(26,42,64,0.1);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.avis strong {
+  display: block;
+  margin-top: 15px;
+  text-align: right;
+  font-style: normal;
+  color: #3E5879;
+}
+
+
+  
+
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="Logo Justine Pottier">
+</div>
+
+<div class="banner-text">Découvrez : "À un shoot de toi"</div>
+
+<!-- Menu -->
+<nav class="menu">
+  <a href="index.html">Accueil</a>
+  <div class="dropdown">
+    <button class="dropbtn">Boutique ▼</button>
+    <div class="dropdown-content">
+      <a href="nida.html">Nous interdire d’aimer</a>
+      <a href="valentine.html">The Sound Sky : Valentine</a>
+      <a href="cqnl.html">Ceux qui nous lient</a>
+      <a href="nmfl.html">Noël, ma famille et lui</a>
+      <a href="pageebook.html">Ebook</a>
+      <a href="asdt.html">À un shoot de toi</a>
+    </div>
+  </div>
+  <a href="apropos.html">Qui suis-je</a>
+  <a href="contact.html">Contact</a>
+ <a href="ou-me-rencontrer.html">Où me rencontrer</a>
+  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+</nav>
+
+<div class="resume-livre-romance">
+  <h3>Résumé</h3>
+  <p>
+    <span class="premiere-lettre">G</span>abriel n’a qu’un objectif : <span class="surligne">intégrer l’équipe masculine de basket de Duke</span> et réaliser le rêve de <em>Bella</em>, celle qu’il a aimée… et perdue trop tôt.<br><br>
+    Quand il foule enfin le parquet de l’université, il croit pouvoir tourner la page. <span class="surligne">Jusqu’à ce qu’elle réapparaisse</span>, bien vivante, dans l’équipe féminine.<br><br>
+    Entre <em>culpabilité</em>, <em>colère</em> et <em>sentiments refoulés</em>, Gabriel vacille. Bella, elle, cache un secret plus lourd que ses silences.<br><br>
+    <span class="question">Pourquoi est-elle là ?</span><br>
+    <span class="question">Et surtout… pourront-ils rejouer le match que la vie leur a volé ?</span>
+  </p>
+</div>
+
+
+ 
+
+<div class="avis">
+  <p>"Ce roman est une claque émotionnelle. Les personnages sont incroyables, brisés mais forts, et leur lien est juste magnétique.
+Le basket n'est pas qu'un décor, c'est un battement de cœur, un langage, une thérapie. 
+C'est intense, addictif, douloureusement beau ❤️ Le genre d'histoire qui te hante longtemps après la dernière page !
+Clairement : je suis fan, obsédée et émotionnellement touchée 🫶🏼"<br><strong>- Emeline</strong></p>
+</div>
+
+<div class="produit">
+  <img src="Broché.png" alt="Broché - À un shoot de toi" style="width:200px; max-width:80%; display:block; margin:0 auto 15px; border-radius:10px;">
+  <h2>Broché</h2>
+  <p>Prix : 20€</p>
+  <button onclick="ajouterPanier('Broché - À un shoot de toi', 20, 0.5, 'livre')">Ajouter au panier</button>
+<p style="font-size:0.9rem;text-align:center;">Expédition après réception des livres de l'imprimeur.</p>
+</div>
+
+
+
+
+
+<div class="produit">
+  <img src="marquepage.png" alt="Marque-page en bois" style="width:160px; max-width:80%; display:block; margin:0 auto 15px; border-radius:10px;">
+  <h2>Marque-page en bois</h2>
+  <p>Prix : 10€</p>
+ <p style="font-style:italic; font-size:0.95rem; text-align:center;">
+    Marque-page en bois réalisé par une créatrice indépendante
+  </p>
+  <button onclick="ajouterPanier('Marque-page en bois', 10, 0.1, 'goodie')">
+    Ajouter au panier
+  </button>
+</div>
+<div class="avis">
+  <p>"Des les premières lignes, on sait que cette histoire ne va pas nous laisser indemne. 
+Les personnages sont attachants et touchants, ils ont vécus l’enfer mais en ressortent encore plus fort. 
+L’univers du basket n’est pas la que pour faire joli il est présent juste comme il faut, leur permettant une échappatoire. 
+J’avais vraiment l’impression de faire partie de l’histoire et de vivre ce qu’ils vivaient en même temps qu’eux 🥰"<br><strong>- Clémence</strong></p>
+</div>
+
+<footer>
+  <p>
+    <a href="/mentions.html">Mentions légales</a> |
+    <a href="/rgpd.html">Politique de confidentialité</a> |
+    <a href="/cgv.html">CGV</a>
+  </p>
+  <p>&copy; 2025 Justine Pottier</p>
+</footer>
+
+<script>
+  // Panier
+  let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+  function afficherPanier(){
+    const totalPanierElem = document.getElementById('total-panier');
+    if(totalPanierElem){
+      const total = panier.reduce((sum,item)=>sum+item.prix,0);
+      totalPanierElem.textContent = total.toFixed(2)+'€';
+    }
+  }
+
+  function ajouterPanier(titre, prix, poids=0.5, type='livre'){
+    panier.push({titre, prix, poids, type});
+    localStorage.setItem('panier', JSON.stringify(panier));
+    alert(`${titre} ajouté au panier !`);
+    afficherPanier();
+  }
+
+  function ajouterPackDecouverte(){
+    const select = document.getElementById('formatASDT');
+    const titreFormat = select.value;
+    const prixFormat = parseFloat(select.selectedOptions[0].dataset.prix);
+    ajouterPanier(`${titreFormat} - À un shoot de toi`, prixFormat, titreFormat==='Broché'?0.5:2,'livre');
+    const checkboxes = document.querySelectorAll('.option-livres input[type=checkbox]:checked');
+    checkboxes.forEach(cb=>ajouterPanier(cb.value, parseFloat(cb.dataset.prix),0.5,'livre'));
+  }
+
+  afficherPanier();
+</script>
+<!-- Encarts avis alpha flottants -->
+
+
+</body>
+</html>
+

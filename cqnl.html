@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ceux qui nous lient - Justine Pottier</title>
+  <style>
+    body {
+      margin:0; padding:0; font-family:'Playfair Display', serif; color:#1A2A40;
+      background:url('fondbeige.PNG') no-repeat center center fixed; 
+      background-size:cover; text-align:center;
+    }
+
+    .top-banner{text-align:center;margin-top:20px;}
+    .top-banner img{max-height:200px;margin:10px;}
+    .banner-text{text-align:center;color:#1A2A40;font-size:2.5rem;margin-top:20px;}
+
+    /* Menu */
+    .menu{
+      display:flex; justify-content:center; flex-wrap:wrap; align-items:center; margin:20px 0;
+      gap:10px;
+    }
+    .menu a, .dropbtn{
+      margin:0 10px; text-decoration:none; font-weight:bold; color:#1A2A40;
+      cursor:pointer; background:none; border:none; font-size:1rem;
+    }
+    .menu a:hover, .dropbtn:hover{text-decoration:underline;}
+
+    .dropdown{position:relative; display:inline-block;}
+    .dropdown-content{
+      display:none; position:absolute; background:#fff8e1; min-width:200px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.2); border-radius:8px; text-align:left; z-index:1000;
+    }
+    .dropdown-content a{display:block; padding:10px; color:#1A2A40; text-decoration:none;}
+    .dropdown-content a:hover{background:#f0e6d5;}
+
+    /* Book pages */
+    .book-page {
+      max-width:700px;
+      margin:50px auto;
+      background: rgba(250, 245, 230, 0.85);
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1); box-sizing: border-box;
+    }
+    .book-page img{width:100%; border-radius:10px;}
+    h1,h2{margin-top:20px;}
+    p.price{font-weight:bold;font-size:1.2rem;margin:15px 0;}
+    .stock{font-weight:bold; color:#803020; margin-bottom:10px;}
+    .btn{
+      display:inline-block;margin:10px 5px;padding:10px 20px;background:#1A2A40;
+      color:white;text-decoration:none;border-radius:10px;cursor:pointer;
+    }
+    .btn:hover{background:#3c5a80;}
+    .btn.disabled{
+      background:gray;
+      cursor:not-allowed;
+    }
+    .resume{margin-top:20px;text-align:left;line-height:1.5;}
+    .promo{color:#803020; font-weight:bold; margin-left:10px;}
+
+    /* Suggestions */
+    .suggestions{max-width:900px;margin:50px auto; text-align:center;}
+    .suggestions h3{margin-bottom:20px;}
+    .suggestions .suggestion-item{
+      display:inline-block; margin:0 15px; vertical-align:top; width:200px;
+    }
+    .suggestions .suggestion-item img{
+      width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s;
+    }
+    .suggestions .suggestion-item img:hover{transform: scale(1.05);}
+    .suggestions .suggestion-item p{margin-top:10px; font-weight:bold;}
+
+    /* Mobile / Tablette */
+    @media (max-width:768px){
+      .book-page {
+        margin:20px auto;
+        padding:20px;
+        width: 100%;
+      }
+      .banner-text{font-size:2rem;}
+      .menu{flex-direction:column;}
+      .dropdown-content{position:static; width:100%; box-shadow:none;}
+      .suggestions .suggestion-item{width:45%; margin-bottom:20px;}
+    }
+
+    @media (max-width:480px){
+      body{overflow-x:hidden;}
+      .book-page{margin:20px 10px; padding:15px;}
+      .top-banner img{max-width:90%; height:auto;}
+    }
+    .alert-stock {
+      margin-top:20px; font-weight:bold; color:#803020;
+    }
+.book-summary {
+  max-width:700px;
+  margin:30px auto;
+  background:rgba(250,245,230,0.85);
+  padding:25px;
+  border-radius:15px;
+  text-align:left;
+  line-height:1.6;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.book-summary h3 {
+  text-align:center;
+  margin-bottom:15px;
+  color:#1A2A40;
+}
+
+.book-summary .hook {
+  font-weight:bold;
+  color:#803020;
+}
+
+.book-summary .tw {
+  margin-top:15px;
+  font-size:0.9rem;
+  color:#5a3a3a;
+}
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">
+    <img src="logo.png" alt="Logo Justine Pottier">
+  </div>
+
+  <div class="banner-text">Vous êtes mes marchands de rêve</div>
+
+  <nav class="menu">
+    <a href="index.html">Accueil</a>
+    <div class="dropdown">
+      <button class="dropbtn">Boutique ▼</button>
+      <div class="dropdown-content">
+        <a href="nida.html">Nous interdire d’aimer</a>
+        <a href="valentine.html">The Sound Sky : Valentine</a>
+        <a href="cqnl.html">Ceux qui nous lient</a>
+        <a href="nmfl.html">Noël, ma famille et lui</a>
+        <a href="pageebook.html">Les Ebooks</a>
+        <a href="asdt.html">À un shoot de toi</a>
+      </div>
+    </div>
+    <a href="apropos.html">Qui suis-je</a>
+    <a href="contact.html">Contact</a>
+    <a href="ou-me-rencontrer.html">Où me rencontrer</a>
+    <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+  </nav>
+
+  <h1>Ceux qui nous lient</h1>
+
+  <div class="alert-stock">
+    ⚠️ Toutes les réductions sont valables jusqu’à épuisement des stocks !
+  </div>
+
+  <!-- Tome 1 -->
+  <div class="book-page">
+    <img src="cqnl_famille.png" alt="Ceux qui nous lient : la famille">
+    <h2>Tome 1 : La famille <span class="promo">-20%</span></h2>
+   <p class="price"><s>21€</s> 16.80€ <span class="small-promo">(prix déjà réduit)</span></p>
+    <p class="stock">Stock : <span id="stock-t1">2</span> exemplaires</p>
+    <div class="resume">
+      <p>Claire et Liam n’ont rien en commun… jusqu’à Léonie.<br><br>
+      Entre eux, l’attirance est électrique...</p>
+    </div>
+    <button id="btn-t1" class="btn" onclick="ajouterProduit('t1')">Ajouter au panier</button>
+  </div>
+
+  <!-- Tome 2 -->
+  <div class="book-page">
+    <img src="cqnl-intrus.png" alt="Ceux qui nous lient : l'intrus">
+    <h2>Tome 2 : L'intrus <span class="promo">-20%</span></h2>
+    <p class="price"><s>21€</s> 16.80€ <span class="small-promo">(prix déjà réduit)</span></p>
+    <p class="stock">Stock : <span id="stock-t2">4</span> exemplaires</p>
+    <div class="resume">
+      <p>Il est son refuge. Elle est son interdiction...</p>
+    </div>
+    <button id="btn-t2" class="btn" onclick="ajouterProduit('t2')">Ajouter au panier</button>
+  </div>
+
+ <!-- Édition reliée -->
+<div class="book-page">
+  <img src="cqnl_reliés.webp" alt="Édition reliée Ceux qui nous lient">
+  <h2>Édition reliée <span class="promo">-20%</span></h2>
+<p class="price"><s>54€</s> 43.20€ <span class="small-promo">(prix déjà réduit)</span></p>
+  <p class="stock">Stock : <span id="stock-relie">4</span> exemplaires</p>
+  <div class="resume">
+    <p>Duologie complète en édition reliée ultra limitée.</p>
+  </div>
+<button id="btn-relie" class="btn" onclick="ajouterProduit('relie')">Ajouter au panier</button>
+
+<div class="book-summary">
+
+<h3>Tome 1</h3>
+
+<p class="hook">Claire et Liam n’auraient jamais dû se rencontrer. Encore moins s’aimer.</p>
+
+<p>
+Claire et Liam n’ont rien en commun… jusqu’à Léonie.<br><br>
+
+Entre eux, l’attirance est électrique, mais teintée d’amertume. Rien n’aurait dû les rapprocher, et pourtant, quelque chose d’invisible les relie sans qu’ils le sachent encore.<br><br>
+
+Liés par un passé qu’ils ignorent, ils vont devoir mettre de côté leurs différends pour affronter des vérités qui menacent de tout faire s’effondrer.<br><br>
+
+Mais comment se reconstruire quand tout vacille ?<br>
+Comment aimer quand les blessures refusent de guérir ?<br><br>
+
+Dans un monde où les liens familiaux sont aussi forts que destructeurs, Claire et Liam vont découvrir que certaines rencontres changent une vie… même quand elles font mal.
+</p>
+
+<p class="tw">
+⚠️ TW : violence, séquestration, traumatismes psychologiques, références à des agressions.
+</p>
+
+</div>
+<div class="book-summary">
+
+<h3>Tome 2</h3>
+
+<p class="hook">Il aurait dû la fuir. Il n’a jamais réussi à s’en empêcher.</p>
+
+<p>
+Il est son refuge. Elle est son interdiction.<br><br>
+
+Xander a toujours su où était sa place : protéger ceux qu’il aime sans jamais franchir la ligne. Mais avec Léonie, tout vacille.<br><br>
+
+Elle est la petite sœur de son meilleur ami, celle qu’il s’est interdit d’aimer. Pourtant, il est incapable de l’éloigner.<br><br>
+
+Léonie tente de se reconstruire après le cauchemar qu’elle a vécu. Elle sourit pour ne pas sombrer, cache ses blessures derrière des éclats de rire. Mais certains secrets pèsent plus lourd que d’autres, et le sien pourrait tout bouleverser.<br><br>
+
+Entre silences et regards brûlants, jusqu’où pourront-ils lutter contre l’évidence ?
+</p>
+
+<p class="tw">
+⚠️ TW : romance sombre et psychologique, traumatismes, thèmes sensibles.
+</p>
+
+</div> <!-- <-- fermeture ajoutée ici -->
+
+   
+
+  <!-- Suggestions -->
+  <div class="suggestions">
+    <h3>Vous pourriez aussi aimer</h3>
+    <div class="suggestion-item">
+      <a href="nida.html"><img src="nia_1.webp" alt="Nous interdire d’aimer"></a>
+      <p>Nous interdire d’aimer <span class="promo">-20%</span></p>
+    </div>
+    <div class="suggestion-item">
+      <a href="valentine.html"><img src="tss_valentine.webp" alt="The Sound Sky : Valentine"></a>
+      <p>The Sound Sky : Valentine <span class="promo">-20%</span></p>
+    </div>
+</div>
+  </div>
+
+  <script>
+    const dropbtn = document.querySelector(".dropbtn");
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    dropbtn.addEventListener("click", () => {
+      dropdownContent.style.display =
+        dropdownContent.style.display === "block" ? "none" : "block";
+    });
+
+    window.addEventListener("click", function(e) {
+      if (!dropbtn.contains(e.target)) dropdownContent.style.display = "none";
+    });
+
+    let stock = {
+      t1: 6,
+      t2: 8,
+      relie: 10
+    };
+
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+    function ajouterProduit(id) {
+      if (stock[id] <= 0) return;
+
+      let produit = {
+        titre: id === "t1" ? "Ceux qui nous lient – Tome 1" :
+               id === "t2" ? "Ceux qui nous lient – Tome 2" :
+               "Ceux qui nous lient – Édition reliée",
+        prix: id === "relie" ? 43.20 : 16.80,
+        poids: id === "relie" ? 1.6 : 0.5,
+        type: "livre"
+      };
+
+      panier.push(produit);
+      localStorage.setItem('panier', JSON.stringify(panier));
+
+      stock[id]--;
+      document.getElementById("stock-" + id).textContent = stock[id];
+
+      if (stock[id] === 0) {
+        let btn = document.getElementById("btn-" + id);
+        btn.textContent = "Rupture de stock";
+        btn.classList.add("disabled");
+        btn.onclick = null;
+      }
+
+      alert(produit.titre + " a été ajouté au panier !");
+      mettreAJourTotal();
+    }
+
+    function mettreAJourTotal() {
+      const total = panier.reduce((acc, produit) => acc + produit.prix, 0);
+      document.getElementById('total-panier').textContent =
+        total.toFixed(2) + "€";
+    }
+
+    mettreAJourTotal();
+  </script>
+
+  <footer style="text-align:center; margin-top:50px; font-size:14px;">
+    <p>
+      <a href="/mentions.html">Mentions légales</a> |
+      <a href="/rgpd.html">Politique de confidentialité</a> |
+      <a href="/cgv.html">CGV</a>
+    </p>
+    <p>&copy; 2025 Justine Pottier</p>
+  </footer>
+
+</body>
+</html>

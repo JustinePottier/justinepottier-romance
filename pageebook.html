@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ebooks - Justine Pottier</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family:'Playfair Display', serif;
+color:#1A2A40;
+background:url('fondbeige.PNG') no-repeat center center fixed;
+background-size:cover;
+text-align:center;
+}
+
+/* MENU */
+.menu{text-align:center;margin:20px 0; position:relative;}
+
+.menu a, .dropbtn {
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+color:#1A2A40;
+background:none;
+border:none;
+cursor:pointer;
+font-size:1rem;
+}
+
+.menu a:hover, .dropbtn:hover {text-decoration:underline;}
+
+.dropdown {display:inline-block; position:relative;}
+
+.dropdown-content {
+display:none;
+position:absolute;
+background-color:#fff8e1;
+min-width:220px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+border-radius:10px;
+z-index:1;
+top:25px;
+left:0;
+text-align:left;
+}
+
+.dropdown-content a {
+display:block;
+padding:10px 15px;
+color:#1A2A40;
+text-decoration:none;
+}
+
+.dropdown-content a:hover {background-color:#f2c1c1;}
+
+.dropdown:hover .dropdown-content {display:block;}
+
+.panier-lien {position:absolute; right:20px; top:0;}
+
+/* INTRO */
+.intro{
+margin-top:20px;
+}
+
+/* SECTIONS */
+.section{
+max-width:900px;
+margin:40px auto;
+background:rgba(255,248,225,0.92);
+padding:30px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* GRID */
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+}
+
+/* CARD (FIX IMPORTANT ICI) */
+.card{
+width:240px;
+padding:15px;
+border-radius:14px;
+background:rgba(255,255,255,0.4); /* 👉 plus blanc dur */
+backdrop-filter: blur(6px);
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+text-align:center;
+transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* IMAGES */
+.card img{
+width:100%;
+border-radius:12px;
+display:block;
+}
+
+/* PACK IMAGES */
+.pack-images{
+display:flex;
+gap:6px;
+justify-content:center;
+margin:10px 0;
+}
+
+.pack-images img{
+width:70px;
+border-radius:8px;
+}
+
+/* BUTTON */
+.btn{
+margin-top:10px;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#f2c1c1;
+color:#1A2A40;
+cursor:pointer;
+transition:0.2s;
+}
+
+.btn:hover{
+background:#e8a9a9;
+}
+
+h1,h2{margin-top:20px;}
+p{margin:6px 0;}
+
+</style>
+</head>
+
+<body>
+
+<h1>📚 Boutique ebooks</h1>
+
+<!-- MENU -->
+<nav class="menu">
+
+  <a href="index.html">Accueil</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Boutique ▼</button>
+    <div class="dropdown-content">
+      <a href="nida.html">Nous interdire d’aimer</a>
+      <a href="valentine.html">The Sound Sky : Valentine</a>
+      <a href="cqnl.html">Ceux qui nous lient</a>
+      <a href="nmfl.html">Noël, ma famille et lui</a>
+      <a href="pageebook.html">Ebooks</a>
+    </div>
+  </div>
+
+  <a href="apropos.html">Qui suis-je</a>
+  <a href="contact.html">Contact</a>
+
+  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+
+</nav>
+
+<div class="intro">
+<p>📩 Envoi par mail après confirmation du paiement</p>
+<p>📱 Format EPUB (liseuse, téléphone, tablette)</p>
+</div>
+
+<!-- PACKS -->
+<div class="section">
+<h2>🎁 Packs</h2>
+
+<div class="grid">
+
+<div class="card">
+<p><strong>Nous interdire d’aimer</strong></p>
+
+<div class="pack-images">
+  <img src="NIDAebook1.webp">
+  <img src="NIDAebook2.webp">
+</div>
+
+<p>7,99 €</p>
+<p><em>Romance à suspense · Amour interdit · Tension</em></p>
+
+<button class="btn" onclick="addToCart('Pack NIDA ebook', 7.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<p><strong>Ceux qui nous lient</strong></p>
+
+<div class="pack-images">
+  <img src="CQNLebook1.webp">
+  <img src="CQNLebook2.webp">
+</div>
+
+<p>7,99 €</p>
+<p><em>Romance intense · Secrets · Famille</em></p>
+
+<button class="btn" onclick="addToCart('Pack CQNL ebook', 7.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<p><strong>Cocooning</strong></p>
+
+<div class="pack-images">
+  <img src="TSSebook.webp">
+  <img src="NOELebook.png">
+</div>
+
+<p>6,99 €</p>
+<p><em>Reconstruction · Deuil · Douceur</em></p>
+
+<button class="btn" onclick="addToCart('Pack Cocooning ebook', 6.99)">Ajouter</button>
+</div>
+
+</div>
+</div>
+
+<!-- ROMANS -->
+<div class="section">
+<h2>❤️ Romans</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="NIDAebook1.webp">
+<p><strong>NIDA T1</strong></p>
+<p><strong>3,99 €</strong></p>
+<p>Romance à suspense · Amour interdit · Danger</p>
+<p><em>Quand aimer devient risqué.</em></p>
+<button class="btn" onclick="addToCart('NIDA T1 ebook', 3.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<img src="NIDAebook2.webp">
+<p><strong>NIDA T2</strong></p>
+<p><strong>4,99 €</strong></p>
+<p>Romance à suspense · Amour interdit · Danger</p>
+<p><em>Plus de retour possible.</em></p>
+<button class="btn" onclick="addToCart('NIDA T2 ebook', 4.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<img src="TSSebook.webp">
+<p><strong>The Sound Sky</strong></p>
+<p><strong>3,99 €</strong></p>
+<p>Romance musicale · Reconstruction · Deuil</p>
+<p><em>Se reconstruire par la musique.</em></p>
+<button class="btn" onclick="addToCart('TSS ebook', 3.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<img src="NOELebook.png">
+<p><strong>Noël, ma famille et lui</strong></p>
+<p><strong>3,99 €</strong></p>
+<p>Romance douce · YA · Feel good</p>
+<p><em>Une histoire qui réchauffe.</em></p>
+<button class="btn" onclick="addToCart('Noel ebook', 3.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<img src="CQNLebook1.webp">
+<p><strong>CQNL T1</strong></p>
+<p><strong>3,99 €</strong></p>
+<p>Romance intense · Secrets · Famille</p>
+<p><em>Les vérités changent tout.</em></p>
+<button class="btn" onclick="addToCart('CQNL T1 ebook', 3.99)">Ajouter</button>
+</div>
+
+<div class="card">
+<img src="CQNLebook2.webp">
+<p><strong>CQNL T2</strong></p>
+<p><strong>4,99 €</strong></p>
+<p>Romance intense · Secrets · Famille</p>
+<p><em>Impossible de rompre certains liens.</em></p>
+<button class="btn" onclick="addToCart('CQNL T2 ebook', 4.99)">Ajouter</button>
+</div>
+
+</div>
+</div>
+
+<script>
+
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+function addToCart(titre, prix){
+  panier.push({
+    titre: titre,
+    prix: prix,
+    type: "ebook"
+  });
+
+  localStorage.setItem('panier', JSON.stringify(panier));
+  alert(titre + " ajouté au panier !");
+  updatePanier();
+}
+
+function updatePanier(){
+  const total = panier.reduce((s,i)=>s+i.prix,0);
+  document.getElementById('total-panier').textContent = total.toFixed(2) + "€";
+}
+
+updatePanier();
+
+</script>
+
+</body>
+</html>

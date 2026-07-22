@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nous interdire d'aimer - Justine Pottier</title>
+
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background:url('fondbeige.PNG') no-repeat center center fixed;
+  background-size:cover;
+  text-align:center;
+}
+
+/* HEADER */
+.top-banner { margin-top:20px; }
+.top-banner img { max-height:200px; margin:10px; }
+.banner-text { font-size:2.5rem; margin-top:20px; }
+
+/* MENU */
+.menu { position:relative; margin:20px 0; }
+.menu a, .dropbtn {
+  margin:0 15px;
+  font-weight:bold;
+  color:#1A2A40;
+  text-decoration:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.dropdown { display:inline-block; position:relative; }
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:#fff8e1;
+  min-width:220px;
+  border-radius:10px;
+  top:25px;
+  left:0;
+  text-align:left;
+}
+.dropdown-content a {
+  display:block;
+  padding:10px 15px;
+}
+.dropdown:hover .dropdown-content { display:block; }
+
+.panier-lien {
+  position:absolute;
+  right:20px;
+  top:0;
+}
+
+/* BOOK */
+.book-page {
+  max-width:700px;
+  margin:50px auto;
+  background:rgba(250,245,230,0.85);
+  padding:30px;
+  border-radius:15px;
+}
+
+.book-page img {
+  width:100%;
+  border-radius:10px;
+}
+
+.price { font-weight:bold; font-size:1.2rem; }
+.stock { font-weight:bold; color:#803020; }
+
+.btn {
+  display:inline-block;
+  margin:10px 5px;
+  padding:10px 20px;
+  background:#1A2A40;
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+}
+.btn:hover { background:#3c5a80; }
+
+/* SUGGESTIONS */
+.suggestions {
+  max-width:900px;
+  margin:50px auto;
+}
+
+.suggestion-item {
+  display:inline-block;
+  margin:0 15px;
+}
+
+/* 🔥 ICI TOUT EST HARMONISÉ */
+.suggestion-item img {
+  width:180px;
+  height:270px; /* uniforme */
+  object-fit:cover;
+  border-radius:10px;
+  transition:transform 0.3s;
+}
+
+.suggestion-item img:hover {
+  transform:scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+
+  .banner-text { font-size:1.8rem; }
+
+  .suggestion-item img {
+    width:120px;
+    height:180px;
+  }
+
+  .panier-lien {
+    position:static;
+    margin-top:10px;
+    display:inline-block;
+  }
+}
+.book-summary {
+  max-width:700px;
+  margin:40px auto;
+  background:rgba(250,245,230,0.85);
+  padding:25px;
+  border-radius:15px;
+  text-align:left;
+  line-height:1.6;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.book-summary h3 {
+  text-align:center;
+  margin-bottom:15px;
+  color:#1A2A40;
+}
+.book-summary strong {
+  font-size:1.05rem;
+  color:#803020;
+}
+</style>
+</head>
+<script>
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+/* PRODUITS */
+const produits = {
+  t1: { titre: "Nous interdire d'aimer - Tome 1", prix: 16 },
+  t2: { titre: "Nous interdire d'aimer - Tome 2", prix: 15.20 }
+};
+
+/* AJOUT PANIER */
+function ajouterProduit(id) {
+  const produit = produits[id];
+  if (!produit) return;
+
+  panier.push(produit);
+  localStorage.setItem('panier', JSON.stringify(panier));
+
+  alert(produit.titre + " ajouté au panier !");
+  updateTotal();
+}
+
+/* TOTAL */
+function updateTotal() {
+  const total = panier.reduce((sum, p) => sum + p.prix, 0);
+  const el = document.getElementById("total-panier");
+  if (el) el.textContent = total.toFixed(2) + "€";
+}
+
+/* INIT */
+updateTotal();
+</script>
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="Logo">
+</div>
+
+<div class="banner-text">Vous êtes mes marchands de rêve</div>
+
+
+<nav class="menu">
+
+<a href="index.html">Accueil</a>
+
+<div class="dropdown">
+<button class="dropbtn">Boutique ▼</button>
+<div class="dropdown-content">
+<a href="nida.html">Nous interdire d’aimer</a>
+<a href="valentine.html">The Sound Sky : Valentine</a>
+<a href="cqnl.html">Ceux qui nous lient</a>
+<a href="nmfl.html">Noël, ma famille et lui</a>
+<a href="asdt.html">À un shoot de toi</a>
+<a href="pageebook.html">Les Ebooks</a>
+</div>
+</div>
+
+<a href="apropos.html">Qui suis-je</a> <a href="contact.html">Contact</a>
+<p>
+  <a href="mentions.html">Mentions légales</a> |
+  <a href="rgpd.html">Politique de confidentialité</a> |
+  <a href="cgv.html">CGV</a>
+</p>
+
+ <a href="ou-me-rencontrer.html">Où me rencontrer</a> <a href="panier.html">🛒 Mon panier</a>
+
+</nav>
+
+
+<h1>Nous interdire d'aimer</h1>
+
+<div class="book-page">
+  <img src="nia_1.webp">
+  <h2>Tome 1</h2>
+  <p class="price">16€</p>
+  <p class="stock">Stock : 1</p>
+  <button class="btn" onclick="ajouterProduit('t1')">Ajouter au panier</button>
+
+<div class="book-page">
+  <img src="nia_2.webp">
+  <h2>Tome 2</h2>
+  <p class="price">15.20€</p>
+  <p class="stock">Stock : 1</p>
+<button class="btn" onclick="ajouterProduit('t2')">Ajouter au panier</button>
+</div>
+<div class="book-summary">
+  <h3>Résumé</h3>
+
+  <p>
+    <strong>Une rencontre qu’ils n’auraient jamais dû vivre… et pourtant impossible à oublier.</strong><br><br>
+
+    Élevée par sa grand-mère, Ariana a appris à vivre dans la bienveillance et la générosité. Seule ombre au tableau, l'homme qui partage sa vie n'est plus vraiment son âme sœur.<br><br>
+
+    Ezra, lui, est un homme à femmes. Blessé, arrogant, fidèle en amitié et diablement sexy, il croise le regard d'Ariana lors d'une arrestation.<br><br>
+
+    Après plusieurs rencontres explosives, le désir est bien trop fort pour être ignoré. Entre doutes, trahisons et force des sentiments, leur confiance est mise à rude épreuve...<br><br>
+
+    <strong>Certaines attirances ne se contrôlent pas… elles détruisent tout sur leur passage.</strong>
+  </p>
+</div>
+<!-- SUGGESTIONS -->
+<div class="suggestions">
+
+  <h3>Vous pourriez aussi aimer</h3>
+
+  <div class="suggestion-item">
+    <img src="cqnl_famille.png">
+    <p>Ceux qui nous lient</p>
+  </div>
+
+  <div class="suggestion-item">
+    <img src="tss_valentine.webp">
+    <p>The Sound Sky : Valentine</p> 
+  </div>
+
+  <div class="suggestion-item">
+    <img src="Broché.png">
+    <p>À un shoot de toi</p>
+  </div>
+
+</div>
+
+</body>
+</html>

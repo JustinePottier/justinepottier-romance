@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos - Justine Pottier</title>
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background:url('fondbeige.PNG') no-repeat center center fixed;
+  background-size:cover;
+  text-align:center;
+}
+
+/* Top banner */
+.top-banner {
+  text-align:center;
+  margin-top:20px;
+}
+.top-banner img {
+  max-height:200px;
+  margin:10px;
+}
+
+/* Banner texte */
+.banner-text {
+  text-align:center;
+  color:#1A2A40;
+  font-size:2.5rem;
+  margin-top:20px;
+}
+
+/* Menu */
+.menu{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:20px 0;
+  gap:10px;
+}
+.menu a, .dropbtn{
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+  color:#1A2A40;
+  cursor:pointer;
+  background:none;
+  border:none;
+  font-size:1rem;
+}
+.menu a:hover, .dropbtn:hover{text-decoration:underline;}
+.dropdown{position:relative; display:inline-block;}
+.dropdown-content{
+  display:none;
+  position:absolute;
+  background:#fff8e1;
+  min-width:200px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  border-radius:8px;
+  text-align:left;
+  z-index:1000;
+}
+.dropdown-content a{display:block; padding:10px; color:#1A2A40; text-decoration:none;}
+.dropdown-content a:hover{background:#f0e6d5;}
+
+/* Bookpage style pour photo + texte */
+.book-page {
+  max-width:900px;
+  margin:50px auto;
+  padding:20px;
+  border-radius:15px;
+  background: rgba(250, 245, 230, 0.85);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.book-content {
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+}
+.book-content img {
+  max-width:300px;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  object-fit:cover;
+}
+.book-text {
+  flex:1;
+  text-align:left;
+  line-height:1.6;
+  font-size:1.1rem;
+}
+
+/* Footer liens */
+.footer-links a{
+  color:#1A2A40;
+  text-decoration:none;
+  margin:0 5px;
+}
+.footer-links a:hover{text-decoration:underline;}
+
+/* Social icons */
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+/* Responsive tablette */
+@media (max-width:1024px){
+  .book-content {
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .book-text { text-align:center; }
+  .book-content img { max-width:250px; margin-bottom:20px; }
+  .banner-text { font-size:2rem; }
+  .menu{flex-direction:column;}
+  .dropdown-content{position:static; width:100%; box-shadow:none;}
+}
+
+/* Responsive mobile */
+@media (max-width:600px){
+  .book-content img { max-width:200px; }
+  .book-text { font-size:1rem; }
+  .banner-text { font-size:1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top banner -->
+<div class="top-banner">
+  <img src="logo.png" alt="Logo Justine Pottier">
+</div>
+
+<div class="banner-text">Vous êtes mes marchands de rêve</div>
+
+<!-- Menu -->
+<nav class="menu">
+  <a href="index.html">Accueil</a>
+  <div class="dropdown">
+    <button class="dropbtn">Boutique ▼</button>
+    <div class="dropdown-content">
+      <a href="nida.html">Nous interdire d’aimer</a>
+      <a href="valentine.html">The Sound Sky : Valentine</a>
+      <a href="cqnl.html">Ceux qui nous lient</a>
+      <a href="nmfl.html">Noël, ma famille et lui</a>
+      <a href="ri.html">Le recueil interdit</a>
+      <a href="asdt.html">À un shoot de toi</a>
+    </div>
+  </div>
+  <a href="apropos.html">Qui suis-je</a>
+  <a href="contact.html">Contact</a>
+  <a href="ou-me-rencontrer.html">Où me rencontrer</a>
+  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+</nav>
+
+<!-- Script dropdown + panier -->
+<script>
+const dropbtn = document.querySelector(".dropbtn");
+const dropdownContent = document.querySelector(".dropdown-content");
+dropbtn.addEventListener("click", () => {
+  dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+});
+window.addEventListener("click", function(e) {
+  if (!dropbtn.contains(e.target)) { dropdownContent.style.display = "none"; }
+});
+
+// Panier
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
+function mettreAJourTotal(){
+  const total = panier.reduce((acc, produit) => acc + produit.prix, 0);
+  document.getElementById('total-panier').textContent = total.toFixed(2) + "€";
+}
+mettreAJourTotal();
+</script>
+
+<!-- Section À propos -->
+<div class="book-page">
+  <div class="book-content">
+    <img src="photo_moi.jpg" alt="Justine Pottier">
+    <div class="book-text">
+      <h1>À propos de moi</h1>
+      <p>
+        Auteure de romance, j'écris depuis dix ans pour m'évader. J'aime imaginer mes personnages, explorer leurs vies et surtout leurs ressentis face aux événements qu'ils traversent. L'humain est complexe, et me mettre à la place de mes personnages me permet toujours de voir les choses sous différents angles. Une maxime guide ma vie : <em>« Mets-toi à la place des autres »</em>.
+      </p>
+      <p>
+        Lorsque j'écris leurs histoires, je ressens tout ce qu'ils vivent et fais de mon mieux pour que cela transparaîsse dans mes romans. Les émotions sont la première chose que je souhaite offrir à mes lecteurs.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center; margin-top:30px; font-size:14px;" class="footer-links">
+  <p>
+    <a href="/mentions.html">Mentions légales</a> |
+    <a href="/rgpd.html">Politique de confidentialité</a> |
+    <a href="/cgv.html">CGV</a>
+  </p>
+</div>
+
+<footer style="background-color: #F5F0E6; padding: 40px 0; text-align: center; font-family: 'Playfair Display', serif; color: #1A2A40;">
+  <p style="margin-bottom: 20px; font-size: 16px;">Suivez-moi sur les réseaux sociaux :</p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/justinepottier.auteure/" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:35px;height:35px;">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100012297214034" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:35px;height:35px;">
+    </a>
+    <a href="https://www.tiktok.com/@justinepottierauteure" target="_blank">
+      <img src="tiktok.png" alt="TikTok" style="width:35px;height:35px;">
+    </a>
+  </div>
+
+  <p style="margin-top: 25px; font-size: 14px;">&copy; 2025 Justine Pottier. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

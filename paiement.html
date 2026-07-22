@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Paiement - Justine Pottier</title>
+<style>
+  body {margin:0;padding:0;font-family:'Playfair Display', serif;color:#1A2A40;background:url('fondbeige.PNG') no-repeat center center fixed;background-size:cover;text-align:center;}
+  .top-banner{text-align:center; margin-top:20px;}
+  .top-banner img{max-height:200px; margin:10px;}
+  .banner-text{text-align:center; color:#1A2A40; font-size:2.5rem; margin-top:20px;}
+  .menu{text-align:center; margin:20px 0;}
+  .menu a{margin:0 15px; text-decoration:none; font-weight:bold; color:#1A2A40;}
+  .menu a:hover{text-decoration:underline;}
+  .paiement-section{max-width:700px;margin:50px auto;background:#fff8e1;padding:30px;border-radius:15px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;}
+  ul{list-style:none;padding:0;text-align:left;}
+  ul li{padding:5px 0;border-bottom:1px solid #e0e0e0;}
+  .btn{display:inline-block;margin:10px 5px;padding:10px 20px;background:#1A2A40;color:white;text-decoration:none;border-radius:10px;cursor:pointer;}
+  .btn:hover{background:#3c5a80;}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="Logo Justine Pottier">
+</div>
+
+<div class="banner-text">Paiement de votre commande</div>
+
+<nav class="menu">
+  <a href="index.html">Accueil</a>
+
+  <div class="dropdown" style="display:inline-block; position:relative;">
+    <button class="dropbtn" style="background:none;border:none;font-weight:bold;color:#1A2A40;cursor:pointer;">Livres ▼</button>
+    <div class="dropdown-content" style="display:none; position:absolute; background:#fff8e1; min-width:200px; box-shadow:0 2px 6px rgba(0,0,0,0.2); border-radius:8px; text-align:left; z-index:1000;">
+      <a href="nida.html" style="display:block;padding:10px;">Nous interdire d’aimer</a>
+      <a href="tss.html" style="display:block;padding:10px;">The Sound Sky : Valentine</a>
+      <a href="cqnl.html" style="display:block;padding:10px;">Ceux qui nous lient</a>
+      <a href="nmfl.html" style="display:block;padding:10px;">Noël, ma famille et lui</a>
+      <a href="ri.html" style="display:block;padding:10px;">Le recueil interdit</a>
+      <a href="asdt.html" style="display:block;padding:10px;">À un shoot de toi</a>
+    </div>
+  </div>
+
+  <a href="apropos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+<p>
+  <a href="mentions.html">Mentions légales</a> |
+  <a href="rgpd.html">Politique de confidentialité</a> |
+  <a href="cgv.html">CGV</a>
+</p>
+  <a href="panier.html" class="panier-lien">🛒 Mon panier</a>
+</nav>
+
+<script>
+  // Script pour dropdown
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  dropbtn.addEventListener("click", () => {
+    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+  });
+
+  // Fermer le dropdown si clic en dehors
+  window.addEventListener("click", function(e) {
+    if (!dropbtn.contains(e.target)) {
+      dropdownContent.style.display = "none";
+    }
+  });
+</script>
+
+
+<div class="paiement-section">
+  <h2>Récapitulatif de votre commande</h2>
+  <ul id="liste-produits"></ul>
+  <p>Frais de port : <span id="fdp">0</span> €</p>
+  <p>Total à payer : <span id="total-general">0</span> €</p>
+
+  <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="justinepottier.paypal@example.com">
+    <input type="hidden" name="item_name" id="item_name" value="">
+    <input type="hidden" name="amount" id="amount" value="0.00">
+    <input type="hidden" name="currency_code" value="EUR">
+    <button type="submit" class="btn">Payer avec PayPal</button>
+  </form>
+</div>
+
+<script>
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
+let fdp = 0;
+
+// --- Calcul frais de port ---
+function calculFdp() {
+  let totalPoids = panier.reduce((acc,item)=>acc+(item.poids||0.5),0);
+  let mode = localStorage.getItem('mode-envoi') || 'poste';
+  let pays = localStorage.getItem('pays') || 'fr';
+
+  if(mode==='mondial'){fdp=(pays==='fr'?((totalPoids<=0.5)?4.49:7.69):11.39);}
+  if(mode==='poste'){fdp=(pays==='fr'?((totalPoids<=0.5)?6.65:16.69):((totalPoids<=0.5)?14.99:32.59));}
+  if(mode==='salon'){fdp=0;}
+
+  return fdp;
+}
+
+// --- Affichage panier ---
+function afficherPanier() {
+  const ul = document.getElementById('liste-produits');
+  ul.innerHTML = panier.map(p=>`<li>${p.titre} - ${p.prix}€</li>`).join('') || "<li>Panier vide</li>";
+  
+  fdp = calculFdp();
+  document.getElementById('fdp').textContent = fdp.toFixed(2);
+  let total = panier.reduce((sum,p)=>sum+p.prix,0) + fdp;
+  document.getElementById('total-general').textContent = total.toFixed(2);
+
+  // --- Remplir formulaire PayPal ---
+  document.getElementById('item_name').value = panier.map(p=>p.titre).join(", ");
+  document.getElementById('amount').value = total.toFixed(2);
+}
+
+// --- On charge le panier et calcule ---
+afficherPanier();
+</script>
+
+<footer style="text-align:center; margin-top:50px; font-size:14px;">
+  <p>
+    <a href="/mentions-legales.html">Mentions légales</a> |
+    <a href="/rgpd.html">Politique de confidentialité</a> |
+    <a href="/cgv.html">CGV</a>
+  </p>
+  <p>&copy; 2025 Justine Pottier</p>
+</footer>
+
+</body>
+</html>

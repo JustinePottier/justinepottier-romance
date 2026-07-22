@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mentions légales - Justine Pottier</title>
+<style>
+body { 
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background: url('fondbeige.PNG') no-repeat center center fixed;
+  background-size: cover;
+  text-align:center;
+}
+
+a { color:#1A2A40; text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* --- Menu du haut centré --- */
+.menu {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu a {
+  margin: 0 20px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.5);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+.menu a:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+/* Contenu */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: transparent;
+  text-align:left;
+  padding: 20px;
+}
+
+/* Bouton retour */
+.btn-retour {
+  display: inline-block;
+  background:#1A2A40;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  margin-top:30px;
+}
+.btn-retour:hover {
+  background:#30415D;
+}
+
+footer {
+  text-align:center; 
+  margin-top:50px; 
+  font-size:14px;
+}
+
+h1, h2 { text-align:center; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .menu a {
+    margin: 0 10px;
+    padding: 6px 12px;
+  }
+  .content {
+    padding:15px;
+  }
+  .btn-retour {
+    padding:8px 16px;
+  }
+}
+@media (max-width:480px) {
+  .menu a {
+    display:block;
+    margin:5px auto;
+    padding: 8px 15px;
+  }
+  .content {
+    padding:10px;
+    font-size:0.9rem;
+  }
+  .btn-retour {
+    width:80%;
+    padding:10px;
+  }
+  .top-logo img {
+    max-height:100px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<div class="top-logo" style="text-align:center; margin-top:20px;">
+  <img src="logo.png" alt="Logo Justine Pottier" style="max-height:120px;">
+</div>
+
+<!-- Menu -->
+<nav class="menu">
+  <a href="index.html">Accueil</a>
+  <div class="dropdown">
+    <button class="dropbtn">Boutique ▼</button>
+    <div class="dropdown-content">
+      <a href="nida.html">Nous interdire d’aimer</a>
+      <a href="valentine.html">The Sound Sky : Valentine</a>
+      <a href="cqnl.html">Ceux qui nous lient</a>
+      <a href="nmfl.html">Noël, ma famille et lui</a>
+      <a href="ri.html">Le recueil interdit</a>
+      <a href="asdt.html">À un shoot de toi</a>
+    </div>
+  </div>
+  <a href="apropos.html">Qui suis-je</a>
+  <a href="contact.html">Contact</a>
+<p>
+  <a href="mentions.html">Mentions légales</a> |
+  <a href="rgpd.html">Politique de confidentialité</a> |
+  <a href="cgv.html">CGV</a>
+</p>
+ <a href="ou-me-rencontrer.html">Où me rencontrer</a>
+  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+</nav>
+
+<script>
+  // Script pour dropdown
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  dropbtn.addEventListener("click", () => {
+    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (!dropbtn.contains(e.target)) {
+      dropdownContent.style.display = "none";
+    }
+  });
+</script>
+
+<!-- Contenu Mentions légales -->
+<div class="content">
+<h1>Mentions légales</h1>
+
+<p><strong>Éditeur du site :</strong><br>
+Justine Pottier - Auteure indépendante<br>
+Micro-entreprise activité d’auteur<br>
+Adresse : Les Haut Anjou<br>
+Email : <a href="mailto:justinepottier.commande@gmail.com">justinepottier.commande@gmail.com</a></p>
+
+<p><strong>Hébergement :</strong><br>
+Ce site est hébergé par <strong>Netlify</strong><br>
+Adresse : 2325 3rd Street, Suite 215, San Francisco, California 94107<br>
+Site web : <a href="https://www.netlify.com" target="_blank">www.netlify.com</a></p>
+
+<p><strong>Propriété intellectuelle :</strong><br>
+L’ensemble des contenus présents sur ce site (textes, images, graphismes, logo, etc.) sont la propriété exclusive de Justine Pottier, sauf mention contraire.<br>
+Toute reproduction, représentation ou diffusion sans autorisation écrite préalable est interdite.</p>
+
+<p><strong>Responsabilité :</strong><br>
+L’auteure du site ne peut être tenue responsable d’un mauvais usage du contenu mis à disposition ou de tout dommage direct ou indirect résultant de l’utilisation du site.</p>
+
+<p><strong>Protection des données personnelles :</strong><br>
+Les informations collectées via le formulaire de commande sont utilisées uniquement pour la gestion des achats, des livraisons et de la communication liée aux ventes. Elles ne sont en aucun cas revendues à des tiers.<br>
+Pour toute demande de suppression ou modification de vos données, vous pouvez envoyer un message à l’adresse email ci-dessus.</p>
+
+<!-- Bouton retour -->
+<div style="text-align:center; margin-top:30px;">
+  <a href="index.html" class="btn-retour">⬅️ Retour à l’accueil</a>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>
+    <a href="mentions-legales.html">Mentions légales</a> |
+    <a href="rgpd.html">Politique de confidentialité</a> |
+    <a href="cgv.html">CGV</a>
+  </p>
+  <p>&copy; 2025 Justine Pottier</p>
+</footer>
+
+</body>
+</html>

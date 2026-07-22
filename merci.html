@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Merci - Justine Pottier</title>
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background:url('fondbeige.PNG') no-repeat center center fixed;
+  background-size:cover;
+  text-align:center;
+}
+
+/* Bannière et logo */
+.top-banner {
+  text-align:center;
+  margin-top:20px;
+}
+.top-banner img {
+  max-height:200px;
+  width:auto;
+  margin:10px;
+}
+
+/* Texte principal */
+.banner-text {
+  text-align:center;
+  color:#1A2A40;
+  font-size:2.5rem;
+  margin-top:20px;
+}
+
+/* Section centrale */
+.panier-section {
+  max-width:700px;
+  margin:50px auto;
+  background:#fff8e1;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+/* Bouton */
+.btn {
+  display:inline-block;
+  margin:20px 0;
+  padding:10px 20px;
+  background:#1A2A40;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.btn:hover {
+  background:#3c5a80;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .banner-text {
+    font-size:2rem;
+    margin:15px 10px;
+  }
+  .panier-section {
+    margin:20px 10px;
+    padding:20px;
+  }
+  .btn {
+    padding:10px 15px;
+    margin:15px 0;
+  }
+}
+@media (max-width:480px) {
+  .banner-text {
+    font-size:1.6rem;
+  }
+  .panier-section {
+    padding:15px;
+  }
+  .btn {
+    width:80%;
+    padding:10px;
+    margin:10px 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <img src="logo.png" alt="Logo Justine Pottier">
+</div>
+
+<div class="banner-text">Merci pour votre commande ! 🎉</div>
+
+<div class="panier-section">
+  <p>Vos coordonnées ont bien été envoyées et votre paiement est confirmé.</p>
+  <a href="index.html" class="btn">Retour à l'accueil</a>
+</div>
+
+<script>
+  // Vide le panier à la fin du paiement
+  localStorage.removeItem('panier');
+</script>
+
+</body>
+</html>
