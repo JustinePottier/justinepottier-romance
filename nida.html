@@ -151,8 +151,8 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 
 /* PRODUITS */
 const produits = {
-  t1: { titre: "Nous interdire d'aimer - Tome 1", prix: 16 },
-  t2: { titre: "Nous interdire d'aimer - Tome 2", prix: 15.20 }
+  t1: { titre: "Nous interdire d'aimer - Tome 1", prix: 20 },
+  t2: { titre: "Nous interdire d'aimer - Tome 2", prix: 19 }
 };
 
 /* AJOUT PANIER */
@@ -219,14 +219,14 @@ updateTotal();
 <div class="book-page">
   <img src="nia_1.webp">
   <h2>Tome 1</h2>
-  <p class="price">16€</p>
+  <p class="price">20€</p>
   <p class="stock">Stock : 1</p>
   <button class="btn" onclick="ajouterProduit('t1')">Ajouter au panier</button>
 
 <div class="book-page">
   <img src="nia_2.webp">
   <h2>Tome 2</h2>
-  <p class="price">15.20€</p>
+  <p class="price">19€</p>
   <p class="stock">Stock : 1</p>
 <button class="btn" onclick="ajouterProduit('t2')">Ajouter au panier</button>
 </div>
