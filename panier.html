@@ -185,7 +185,19 @@ background:#f2c1c1;
 .dropdown:hover .dropdown-content{
 display:block;
 }
+.conditions {
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    margin-top:20px;
+    font-size:0.95rem;
+    line-height:1.5;
+}
 
+.conditions input {
+    width:auto;
+    margin-right:8px;
+}
 </style>
 
 
@@ -431,8 +443,26 @@ ou
 
 <!-- IMPORTANT : remplacer par ton adresse Netlify -->
 <input type="hidden" name="_next" value="https://justinepottier-romance.netlify.app/merci.html">
+<div class="conditions">
 
+<label>
+<input type="checkbox" name="acceptation_cgv" value="Oui" required>
+J'accepte les 
+<a href="cgv.html" target="_blank">
+Conditions Générales de Vente
+</a>
+et je reconnais en avoir pris connaissance avant de valider ma commande.
+</label>
 
+</div>
+<div class="conditions" id="ebookCondition" style="display:none;">
+
+<label>
+<input type="checkbox" id="ebookCheckbox" name="ebook_renoncement" value="Oui">
+Pour les ebooks : je demande l’envoi du contenu numérique par email après paiement. Je reconnais qu’après l’envoi du fichier numérique par l’auteure, je ne pourrai plus exercer mon droit de rétractation concernant ce contenu numérique.
+</label>
+
+</div>
 <button class="btn" type="submit">
 Valider ma commande
 </button>
@@ -485,7 +515,7 @@ if(panier.length===0){
 liste.innerHTML="<p>Votre panier est vide</p>";
 
 calculTotal();
-
+verifierEbook();
 return;
 
 }
@@ -526,7 +556,7 @@ liste.appendChild(ligne);
 
 
 calculTotal();
-
+verifierEbook();
 
 }
 
@@ -827,12 +857,39 @@ frais.toFixed(2)+" €";
 
 
 document.getElementById("totalInput").value=
-total.toFixed(2)+" €";
-
-
+total.toFixed(2);
 
 }
 
+
+// AFFICHAGE OBLIGATOIRE POUR LES EBOOKS
+
+function verifierEbook(){
+
+let contientEbook = panier.some(livre => 
+    livre.type === "ebook"
+);
+
+
+let bloc = document.getElementById("ebookCondition");
+let checkbox = document.getElementById("ebookCheckbox");
+
+
+if(contientEbook){
+
+    bloc.style.display = "block";
+    checkbox.required = true;
+
+}
+else{
+
+    bloc.style.display = "none";
+    checkbox.required = false;
+    checkbox.checked = false;
+
+}
+
+}
 
 
 
