@@ -487,9 +487,36 @@ Politique de confidentialité
 </footer>
 
 
-
-
 <script>
+
+// Menu boutique mobile
+
+const dropbtn = document.querySelector(".dropbtn");
+const dropdown = document.querySelector(".dropdown-content");
+
+if(dropbtn){
+  dropbtn.addEventListener("click", function(e){
+    e.preventDefault();
+
+    dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
+  });
+}
+
+
+// Fermer le menu si on clique ailleurs
+
+window.addEventListener("click", function(e){
+
+  if(!e.target.matches(".dropbtn")){
+
+    if(dropdown){
+      dropdown.style.display = "none";
+    }
+
+  }
+
+});
 
 
 // Mise à jour du panier
@@ -500,13 +527,16 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 function mettreAJourTotal(){
 
 const total = panier.reduce(
-(acc, produit)=>acc + produit.prix,
+(acc, produit)=> acc + produit.prix,
 0
 );
 
 
-document.getElementById('total-panier').textContent =
-total.toFixed(2) + "€";
+const compteur = document.getElementById('total-panier');
+
+if(compteur){
+ compteur.textContent = total.toFixed(2) + "€";
+}
 
 }
 
@@ -514,10 +544,10 @@ total.toFixed(2) + "€";
 mettreAJourTotal();
 
 
-
 </script>
 
 
 </body>
+
 
 </html>
