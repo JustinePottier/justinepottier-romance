@@ -3,271 +3,521 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Où me rencontrer - Justine Pottier</title>
+
 <style>
-  body {
-    margin:0;
-    padding:0;
-    font-family:'Playfair Display', serif;
-    color:#1A2A40;
-    background:url('fondbeige.PNG') no-repeat center center fixed;
-    background-size:cover;
-    text-align:center;
-  }
 
-  /* Bannière logo */
-  .top-banner {
-    text-align:center;
-    margin-top:20px;
-  }
-  .top-banner img {
-    max-height:200px;
-    margin:10px;
-  }
-
-  /* Texte auteure */
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-  .auteur-text {
-    font-family: 'Great Vibes', cursive;
-    font-size:2rem;
-    color:#f28f8f;
-    text-shadow:1px 1px 3px rgba(0,0,0,0.2);
-    margin-top:15px;
-    transition: transform 0.3s, color 0.3s;
-  }
-  .auteur-text:hover {
-    color:#d65c5c;
-    transform: scale(1.05);
-  }
-
-  /* Menu principal */
-  .menu{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    align-items:center;
-    margin:20px 0;
-    position:relative;
-  }
-  .menu a, .dropbtn {
-    margin:0 10px;
-    text-decoration:none;
-    font-weight:bold;
-    color:#1A2A40;
-    background:none;
-    border:none;
-    cursor:pointer;
-    font-size:1rem;
-  }
-  .dropbtn {
-    padding:5px 0;
-  }
-  .menu a:hover, .dropbtn:hover { text-decoration:underline; }
-
-  .dropdown { position:relative; display:inline-block; }
-  .dropdown-content {
-    display:none;
-    position:absolute;
-    background-color:#fff8e1;
-    min-width:220px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    border-radius:10px;
-    z-index:1000;
-    top:25px;
-    left:0;
-    text-align:left;
-  }
-  .dropdown-content a {
-    display:block;
-    padding:10px 15px;
-    color:#1A2A40;
-    text-decoration:none;
-    font-weight:normal;
-  }
-  .dropdown-content a:hover { background-color:#f2c1c1; }
-
-  /* Panier */
-  .panier-lien {
-    position:absolute;
-    right:20px;
-    top:0;
-  }
-
-  /* Contenu principal */
-  .main-content {
-    max-width:900px;
-    margin:40px auto;
-    background:#fff8e1;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  }
-
-  h1 {
-    font-size:2.5rem;
-    margin-bottom:10px;
-  }
-  h2 {
-    font-size:1.8rem;
-    color:#d65c5c;
-    margin-top:40px;
-    margin-bottom:15px;
-  }
-
-  ul {
-    list-style:none;
-    padding:0;
-  }
-  li {
-    font-size:1.1rem;
-    margin:10px 0;
-  }
-
-  /* Footer */
-  footer {
-    background-color:#F5F0E6;
-    padding:40px 0;
-    text-align:center;
-    font-family:'Playfair Display', serif;
-    color:#1A2A40;
-  }
-  .social-icons { display:flex; justify-content:center; gap:25px; }
-  .social-link img { transition: transform 0.3s, filter 0.3s; width:35px; height:35px; }
-  .social-link:hover img { transform:scale(1.2); filter:brightness(1.2); }
-
-  /* Responsive */
-  @media (max-width:1024px){
-    .main-content { margin:20px; padding:20px; }
-    .menu{flex-direction:column;}
-    .dropdown-content{position:static; width:100%; box-shadow:none;}
-  }
-@media (max-width:768px){
-    h1 { font-size:2rem; }
-    h2 { font-size:1.4rem; }
-    li { font-size:1rem; }
-    .menu a, .dropbtn { margin:5px; font-size:0.9rem; }
-    .top-banner img { max-height:150px; }
-
-    /* Panier sur mobile */
-    .panier-lien {
-        position: static;
-        margin-top: 10px;
-    }
+body {
+  margin:0;
+  padding:0;
+  font-family:'Playfair Display', serif;
+  color:#1A2A40;
+  background:url('fondbeige.PNG') no-repeat center center fixed;
+  background-size:cover;
+  text-align:center;
 }
 
-@media (max-width:480px){
-    body { overflow-x: hidden; }
-    .main-content { margin:20px 10px; padding:15px; }
-    .top-banner img { max-width:90%; height:auto; }
+/* Logo */
+.top-banner {
+  text-align:center;
+  margin-top:20px;
+}
+
+.top-banner img {
+  max-height:200px;
+  margin:10px;
+}
+
+/* Signature auteure */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.auteur-text {
+  font-family:'Great Vibes', cursive;
+  font-size:2rem;
+  color:#f28f8f;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.2);
+  margin-top:15px;
+}
+
+
+/* MENU */
+
+.menu {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:20px 0;
+  position:relative;
+}
+
+.menu a,
+.dropbtn {
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+  color:#1A2A40;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:1rem;
+}
+
+.menu a:hover,
+.dropbtn:hover {
+  text-decoration:underline;
+}
+
+
+.dropdown {
+  position:relative;
+  display:inline-block;
+}
+
+
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:#fff8e1;
+  min-width:220px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  border-radius:10px;
+  z-index:1000;
+  top:25px;
+  left:0;
+  text-align:left;
+}
+
+
+.dropdown-content a {
+  display:block;
+  padding:10px 15px;
+  font-weight:normal;
+}
+
+
+.dropdown-content a:hover {
+  background:#f2c1c1;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+
+.panier-lien {
+  position:absolute;
+  right:20px;
+}
+
+
+
+/* CONTENU */
+
+.main-content {
+
+  max-width:950px;
+  margin:40px auto;
+  background:rgba(255,248,225,0.95);
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+
+}
+
+
+h1 {
+  font-size:2.6rem;
+  margin-bottom:15px;
+}
+
+
+.intro {
+  font-size:1.15rem;
+  margin-bottom:30px;
+}
+
+
+h2 {
+
+  color:#d65c5c;
+  font-size:2rem;
+  margin-top:45px;
+
+}
+
+
+/* CARTES EVENEMENTS */
+
+.event-card {
+
+  background:#fff;
+  border-radius:15px;
+  padding:18px;
+  margin:15px auto;
+  max-width:700px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  font-size:1.1rem;
+
+}
+
+
+.event-card strong {
+  color:#803020;
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu {
+ flex-direction:column;
+}
+
+.panier-lien {
+ position:static;
+ margin-top:10px;
+}
+
+.main-content {
+ margin:20px 10px;
+ padding:20px;
+}
+
+
+h1 {
+ font-size:2rem;
+}
+
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- Bannière -->
-<div class="top-banner">
-  <img src="logo.png" alt="Logo Justine Pottier">
-</div>
-<p class="auteur-text">Auteure de romances contemporaines</p>
 
-<!-- Menu principal -->
-<nav class="menu">
-  <a href="index.html">Accueil</a>
-  <div class="dropdown">
-    <button class="dropbtn">Boutique ▼</button>
-    <div class="dropdown-content">
-      <a href="nida.html">Nous interdire d’aimer</a>
-      <a href="valentine.html">The Sound Sky : Valentine</a>
-      <a href="cqnl.html">Ceux qui nous lient</a>
-      <a href="nmfl.html">Noël, ma famille et lui</a>
-      <a href="pageebook.html">Les Ebooks</a>
-      <a href="asdt.html">À un shoot de toi</a>
-    </div>
-  </div>
-  <a href="apropos.html">Qui suis-je</a>
-  <a href="contact.html">Contact</a>
-<p>
-  <a href="mentions.html">Mentions légales</a> |
-  <a href="rgpd.html">Politique de confidentialité</a> |
-  <a href="cgv.html">CGV</a>
+<div class="top-banner">
+<img src="logo.png" alt="Logo Justine Pottier">
+</div>
+
+
+<p class="auteur-text">
+Auteure de romances contemporaines
 </p>
-  <a href="ou-me-rencontrer.html" style="text-decoration:underline;">Où me rencontrer</a>
-  <a href="panier.html" class="panier-lien">🛒 Mon panier (<span id="total-panier">0€</span>)</a>
+
+
+
+<nav class="menu">
+
+<a href="index.html">Accueil</a>
+
+
+<div class="dropdown">
+
+<button class="dropbtn">
+Boutique ▼
+</button>
+
+<div class="dropdown-content">
+
+<a href="nida.html">Nous interdire d’aimer</a>
+<a href="valentine.html">The Sound Sky : Valentine</a>
+<a href="cqnl.html">Ceux qui nous lient</a>
+<a href="nmfl.html">Noël, ma famille et lui</a>
+<a href="pageebook.html">Les Ebooks</a>
+<a href="asdt.html">À un shoot de toi</a>
+
+</div>
+
+</div>
+
+
+<a href="apropos.html">Qui suis-je</a>
+
+<a href="contact.html">Contact</a>
+
+<a href="ou-me-rencontrer.html">
+Où me rencontrer
+</a>
+
+
+<a href="panier.html" class="panier-lien">
+🛒 Mon panier (<span id="total-panier">0€</span>)
+</a>
+
+
 </nav>
 
-<!-- Contenu principal -->
+
+
 <div class="main-content">
-  <h1>Où me rencontrer</h1>
-  <p>Retrouvez-moi lors de mes prochaines séances de dédicaces et salons littéraires :</p>
 
-  <h2>2025</h2>
-  <ul>
-    <li>📍 <b>Samedi 8 novembre</b> – Super U de Châteauneuf-sur-Sarthe</li>
-    <li>📍 <b>Samedi 16 novembre</b> – Marché de Noël au Gîte de la Pinstrie à Soeurdres</li>
-    <li>📍 <b>Samedi 6 décembre</b> – Cultura Espace Anjou à Angers</li>
-    <li>📍 <b>Dimanche 7 décembre</b> – Marché de Noël de Cherré</li>
-    <li>📍 <b>Samedi 13 décembre</b> – Marché de Noël de Soeurdres</li>
-  </ul>
 
-  <h2>2026</h2>
-  <ul>
-    <li>📍 <b>10 & 11 janvier</b> – Salon Stars Books à Orléans</li>
-    <li>📍 <b>14 & 15 février</b> – Breitz Romance à Noyal-Pontivy</li>
-    <li>📍 <b>11 & 12 avril</b> – Salon All Inclusive à Nointot</li>
-    <li>📍 <b>9 & 10 mai</b> – Romance Fever à Vendargues</li>
-    <li>📍 <b>4 & 5 juillet</b> – Salon Sea, Books & Love</li>
-  </ul>
+<h1>
+Où me rencontrer
+</h1>
+
+
+<p class="intro">
+Retrouvez-moi lors de mes prochaines séances de dédicaces,
+salons littéraires et événements autour de la romance.
+</p>
+
+
+
+<h2>
+📚 Mes rendez-vous
+</h2>
+
+
+
+<div class="event-card">
+📍 <strong>Samedi 8 novembre 2025</strong><br>
+Super U de Châteauneuf-sur-Sarthe
 </div>
 
-<!-- Footer -->
-<footer>
-  <p>Suivez-moi sur les réseaux sociaux :</p>
-  <div class="social-icons">
-    <a href="https://www.instagram.com/justinepottier.auteure/" target="_blank" class="social-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=100012297214034" target="_blank" class="social-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-    </a>
-    <a href="https://www.tiktok.com/@justinepottierauteure" target="_blank" class="social-link">
-      <img src="tiktok.png" alt="TikTok">
-    </a>
-  </div>
-  <p>&copy; 2025 Justine Pottier. Tous droits réservés.</p>
-  <p>
-    <a href="mentions-legales.html" style="color:#1A2A40; text-decoration:underline;">Mentions légales</a> | 
-    <a href="cgv.html" style="color:#1A2A40; text-decoration:underline;">CGV</a> | 
-    <a href="politique-confidentialite.html" style="color:#1A2A40; text-decoration:underline;">Politique de confidentialité</a>
-  </p>
+
+<div class="event-card">
+📍 <strong>Samedi 16 novembre 2025</strong><br>
+Marché de Noël au Gîte de la Pinstrie à Soeurdres
+</div>
+
+
+<div class="event-card">
+📍 <strong>Samedi 6 décembre 2025</strong><br>
+Cultura Espace Anjou à Angers
+</div>
+
+
+<div class="event-card">
+📍 <strong>Dimanche 7 décembre 2025</strong><br>
+Marché de Noël de Cherré
+</div>
+
+
+<div class="event-card">
+📍 <strong>Samedi 13 décembre 2025</strong><br>
+Marché de Noël de Soeurdres
+</div>
+
+
+
+<h2>
+✨ 2026
+</h2>
+
+
+<div class="event-card">
+📍 <strong>10 & 11 janvier 2026</strong><br>
+Salon Stars Books à Orléans
+</div>
+
+
+<div class="event-card">
+📍 <strong>14 & 15 février 2026</strong><br>
+Breitz Romance à Noyal-Pontivy
+</div>
+
+
+<div class="event-card">
+📍 <strong>11 & 12 avril 2026</strong><br>
+Salon All Inclusive à Nointot
+</div>
+
+
+<div class="event-card">
+📍 <strong>9 & 10 mai 2026</strong><br>
+Romance Fever à Vendargues
+</div>
+
+
+<div class="event-card">
+📍 <strong>4 & 5 juillet 2026</strong><br>
+Salon Sea, Books & Love
+</div>
+
+
+<div class="event-card">
+📍 <strong>27 septembre 2026</strong><br>
+Festilivre Juvardeil (49)
+</div>
+
+<!-- ENCADRE CONTACT EVENEMENTS -->
+
+<div style="
+margin-top:45px;
+padding:25px;
+background:#fdf3f3;
+border:2px solid #f2c1c1;
+border-radius:15px;
+">
+
+<h2 style="margin-top:0;">
+💌 Vous souhaitez m'inviter ?
+</h2>
+
+
+<p>
+Vous organisez une séance de dédicaces, un salon du livre,
+un marché de Noël ou un événement littéraire ?
+</p>
+
+
+<p>
+N'hésitez pas à me contacter, je serai ravie d'échanger avec vous
+et d'étudier votre proposition.
+</p>
+
+
+<p style="font-size:1.2rem;font-weight:bold;">
+
+📧
+
+<a href="mailto:justinepottier.commande@gmail.com"
+style="color:#d65c5c;text-decoration:none;">
+
+justinepottier.commande@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+
+</div>
+<!-- FIN MAIN CONTENT -->
+
+
+
+<!-- FOOTER -->
+
+<footer style="
+background:#F5F0E6;
+padding:40px 0;
+margin-top:50px;
+">
+
+
+<p>
+Suivez-moi sur les réseaux sociaux :
+</p>
+
+
+<div style="
+display:flex;
+justify-content:center;
+gap:25px;
+">
+
+
+<a href="https://www.instagram.com/justinepottier.auteure/"
+target="_blank">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+alt="Instagram"
+style="width:35px;height:35px;">
+
+</a>
+
+
+
+<a href="https://www.facebook.com/profile.php?id=100012297214034"
+target="_blank">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+alt="Facebook"
+style="width:35px;height:35px;">
+
+</a>
+
+
+
+<a href="https://www.tiktok.com/@justinepottierauteure"
+target="_blank">
+
+<img src="tiktok.png"
+alt="TikTok"
+style="width:35px;height:35px;">
+
+</a>
+
+
+</div>
+
+
+
+<p>
+&copy; 2025 Justine Pottier. Tous droits réservés.
+</p>
+
+
+<p>
+
+<a href="mentions.html"
+style="color:#1A2A40;text-decoration:underline;">
+Mentions légales
+</a>
+
+|
+
+<a href="cgv.html"
+style="color:#1A2A40;text-decoration:underline;">
+CGV
+</a>
+
+|
+
+<a href="rgpd.html"
+style="color:#1A2A40;text-decoration:underline;">
+Politique de confidentialité
+</a>
+
+</p>
+
+
 </footer>
 
+
+
+
 <script>
-  // Dropdown menu
-  const dropbtn = document.querySelector(".dropbtn");
-  const dropdownContent = document.querySelector(".dropdown-content");
 
-  dropbtn.addEventListener("click", () => {
-    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-  });
 
-  window.addEventListener("click", function(e) {
-    if (!dropbtn.contains(e.target)) {
-      dropdownContent.style.display = "none";
-    }
-  });
+// Mise à jour du panier
 
-  // Panier
-  let panier = JSON.parse(localStorage.getItem('panier')) || [];
+let panier = JSON.parse(localStorage.getItem('panier')) || [];
 
-  function mettreAJourTotal(){
-    const total = panier.reduce((acc, produit) => acc + produit.prix, 0);
-    document.getElementById('total-panier').textContent = total.toFixed(2) + "€";
-  }
 
-  mettreAJourTotal();
+function mettreAJourTotal(){
+
+const total = panier.reduce(
+(acc, produit)=>acc + produit.prix,
+0
+);
+
+
+document.getElementById('total-panier').textContent =
+total.toFixed(2) + "€";
+
+}
+
+
+mettreAJourTotal();
+
+
+
 </script>
 
+
 </body>
+
 </html>
