@@ -151,8 +151,17 @@ let panier = JSON.parse(localStorage.getItem('panier')) || [];
 
 /* PRODUITS */
 const produits = {
-  t1: { titre: "Nous interdire d'aimer - Tome 1", prix: 20 },
-  t2: { titre: "Nous interdire d'aimer - Tome 2", prix: 19 }
+  t1: {
+    titre: "Nous interdire d'aimer - Tome 1",
+    prix: 20,
+    poids: 0.75
+  },
+
+  t2: {
+    titre: "Nous interdire d'aimer - Tome 2",
+    prix: 19,
+    poids: 0.65
+  }
 };
 
 /* AJOUT PANIER */
