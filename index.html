@@ -22,6 +22,7 @@ text-align:center;
 .top-banner{
 margin-top:20px;
 }
+
 .top-banner img{
 max-height:200px;
 }
@@ -68,6 +69,7 @@ min-width:220px;
 border-radius:10px;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 text-align:left;
+z-index:10;
 }
 
 .dropdown-content a{
@@ -90,7 +92,82 @@ font-size:3rem;
 margin:30px 0;
 }
 
-/* Bloc roman */
+
+/* =================================
+   ENCART BOX DE FIN D'ANNÉE
+================================= */
+
+.box-home{
+max-width:850px;
+margin:40px auto 55px;
+padding:35px;
+background:#fff8e1;
+border-radius:18px;
+box-shadow:0 4px 15px rgba(0,0,0,0.12);
+box-sizing:border-box;
+}
+
+.box-home h2{
+font-size:2.2rem;
+margin-top:0;
+margin-bottom:15px;
+}
+
+.box-home p{
+font-size:1.15rem;
+line-height:1.7;
+}
+
+.box-home img{
+width:100%;
+max-width:650px;
+border-radius:12px;
+margin:20px 0;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.box-prix{
+font-weight:bold;
+font-size:1.15rem;
+line-height:1.8;
+margin:20px 0;
+}
+
+.box-limite{
+display:inline-block;
+background:#1A2A40;
+color:#fff8e1;
+padding:9px 20px;
+border-radius:20px;
+font-weight:bold;
+margin:10px 0 20px;
+}
+
+.bouton-box{
+display:inline-block;
+margin-top:10px;
+padding:14px 28px;
+font-size:1rem;
+border:none;
+border-radius:10px;
+background:#f2c1c1;
+color:#1A2A40;
+cursor:pointer;
+font-family:'Playfair Display', serif;
+font-weight:bold;
+text-decoration:none;
+}
+
+.bouton-box:hover{
+background:#e8a9a9;
+transform:scale(1.02);
+}
+
+
+/* =================================
+   BLOC ROMANS
+================================= */
+
 .roman-section{
 max-width:750px;
 margin:40px auto;
@@ -117,11 +194,14 @@ border-radius:10px;
 background:#f2c1c1;
 color:#1A2A40;
 cursor:pointer;
+font-family:'Playfair Display', serif;
+font-weight:bold;
 }
 
 .bouton:hover{
 background:#e8a9a9;
 }
+
 
 /* Footer */
 footer{
@@ -150,174 +230,530 @@ footer a:hover{
 text-decoration:underline;
 }
 
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:600px){
+
+.auteur-text{
+font-size:1.5rem;
+}
+
+.banner-text{
+font-size:2.2rem;
+margin:25px 15px;
+}
+
+.box-home{
+margin:30px 15px 40px;
+padding:25px 20px;
+}
+
+.box-home h2{
+font-size:1.8rem;
+}
+
+.box-home p{
+font-size:1.05rem;
+}
+
+.roman-section{
+margin:25px 15px;
+padding:25px 20px;
+}
+
+.menu a,
+.dropbtn{
+display:inline-block;
+margin:8px 10px;
+}
+
+}
+
 </style>
 
 </head>
 
+
 <body>
 
-<!-- Logo -->
+
+<!-- ================================
+     LOGO
+================================ -->
 
 <div class="top-banner">
-<img src="logo.png" alt="Logo Justine Pottier">
+
+<img
+src="logo.png"
+alt="Logo Justine Pottier"
+>
+
 </div>
 
-<p class="auteur-text">Autrice de romances contemporaines</p>
 
-<!-- Menu -->
+<p class="auteur-text">
+Autrice de romances contemporaines
+</p>
+
+
+<!-- ================================
+     MENU
+================================ -->
 
 <nav class="menu">
 
-<a href="index.html">Accueil</a>
+<a href="index.html">
+Accueil
+</a>
+
 
 <div class="dropdown">
-<button class="dropbtn">Boutique ▼</button>
+
+<button class="dropbtn">
+Boutique ▼
+</button>
+
+
 <div class="dropdown-content">
-<a href="nida.html">Nous interdire d’aimer</a>
-<a href="valentine.html">The Sound Sky : Valentine</a>
-<a href="cqnl.html">Ceux qui nous lient</a>
-<a href="nmfl.html">Noël, ma famille et lui</a>
-<a href="asdt.html">À un shoot de toi</a>
-<a href="pageebook.html">Les Ebooks</a>
-<a href="box-noel.html">🎄 Box de fin d'année</a>
-</div>
+
+<a href="nida.html">
+Nous interdire d’aimer
+</a>
+
+<a href="valentine.html">
+The Sound Sky : Valentine
+</a>
+
+<a href="cqnl.html">
+Ceux qui nous lient
+</a>
+
+<a href="nmfl.html">
+Noël, ma famille et lui
+</a>
+
+<a href="asdt.html">
+À un shoot de toi
+</a>
+
+<a href="pageebook.html">
+Les Ebooks
+</a>
+
+<a href="box-noel.html">
+🎄 Box de fin d'année
+</a>
+
 </div>
 
-<a href="apropos.html">Qui suis-je</a>
-<a href="contact.html">Contact</a>
+</div>
+
+
+<a href="apropos.html">
+Qui suis-je
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
 
 <p>
-<a href="mentions.html">Mentions légales</a> |
-<a href="rgpd.html">Politique de confidentialité</a> |
-<a href="cgv.html">CGV</a>
+
+<a href="mentions.html">
+Mentions légales
+</a>
+|
+
+<a href="rgpd.html">
+CGV
+</a>
+
 </p>
 
-<a href="ou-me-rencontrer.html">Où me rencontrer</a>
-<a href="panier.html">🛒 Mon panier</a>
+
+<a href="ou-me-rencontrer.html">
+Où me rencontrer
+</a>
+
+
+<a href="panier.html">
+🛒 Mon panier
+</a>
 
 </nav>
 
+
+<!-- ================================
+     SLOGAN
+================================ -->
+
 <div class="banner-text">
+
 Vous êtes mes marchands de rêve
+
 </div>
 
-<!-- Romans -->
+
+<!-- ================================
+     ENCART BOX DE FIN D'ANNÉE
+================================ -->
+
+<section class="box-home">
+
+<h2>
+🎄✨ Les Box de fin d'année sont là ! ✨🎄
+</h2>
+
+
+<p>
+Cette année, j'avais envie de vous proposer
+des box pensées comme de véritables petits cadeaux,
+à offrir ou à s'offrir. 🎁
+</p>
+
+
+<img
+src="Boxfindannée.jpg"
+alt="Les Box de fin d'année"
+>
+
+
+<div class="box-prix">
+
+🎄 <strong>Box Luxe Cosy</strong> — 45 €<br>
+
+❤️ <strong>Box Luxe Passion</strong> — à partir de 45 €<br>
+
+🖤 <strong>Box Luxe Sombre</strong> — 80 €
+
+</div>
+
+
+<div class="box-limite">
+
+⚠️ Seulement 5 box de chaque modèle disponibles
+
+</div>
+
+
+<p>
+
+Des romans, des créations réalisées en collaboration avec
+<strong>Bois'Art et Gravure</strong>
+et des surprises soigneusement préparées pour vous… ✨
+
+<br><br>
+
+Et pour le reste… 🤫
+<strong>une partie du contenu restera secrète jusqu'à l'ouverture !</strong>
+
+</p>
+
+
+<a
+href="box-noel.html"
+class="bouton-box"
+>
+
+🎁 Découvrir les box
+
+</a>
+
+</section>
+
+
+<!-- ================================
+     ROMANS
+================================ -->
 
 <div class="roman-section">
 
-<h2>Découvrez mes romans</h2>
+<h2>
+Découvrez mes romans
+</h2>
+
 
 <p style="font-size:1.2rem;margin-bottom:40px;">
-Chaque histoire est une invitation à ressentir, vibrer et s'évader.
+
+Chaque histoire est une invitation à ressentir,
+vibrer et s'évader.
+
+<br>
+
 Quel sera votre prochain coup de cœur ?
+
 </p>
+
 
 <hr>
 
-<h2>❤️ Nous interdire d'aimer</h2>
 
-<img src="nia_1.webp" alt="Nous interdire d'aimer">
+<h2>
+❤️ Nous interdire d'aimer
+</h2>
 
-<p><strong>Mots-clés :</strong><br>
+
+<img
+src="nia_1.webp"
+alt="Nous interdire d'aimer"
+>
+
+
+<p>
+
+<strong>Mots-clés :</strong>
+<br>
+
 Suspense • Émotions • Found Family
+
 </p>
 
-<button class="bouton" onclick="window.location.href='nida.html'">
+
+<button
+class="bouton"
+onclick="window.location.href='nida.html'"
+>
+
 Découvrir le roman
+
 </button>
+
 
 <hr style="margin:45px 0;">
 
-<h2>🎵 The Sound Sky : Valentine</h2>
 
-<img src="tss_valentine.webp" alt="The Sound Sky : Valentine">
+<h2>
+🎵 The Sound Sky : Valentine
+</h2>
 
-<p><strong>Mots-clés :</strong><br>
+
+<img
+src="tss_valentine.webp"
+alt="The Sound Sky : Valentine"
+>
+
+
+<p>
+
+<strong>Mots-clés :</strong>
+<br>
+
 Musique • Romance • Émotions
+
 </p>
 
-<button class="bouton" onclick="window.location.href='valentine.html'">
+
+<button
+class="bouton"
+onclick="window.location.href='valentine.html'"
+>
+
 Découvrir le roman
+
 </button>
+
 
 <hr style="margin:45px 0;">
 
-<h2>💙 Ceux qui nous lient</h2>
 
-<img src="cqnl_reliés.webp" alt="Ceux qui nous lient">
+<h2>
+💙 Ceux qui nous lient
+</h2>
 
-<p><strong>Mots-clés :</strong><br>
+
+<img
+src="cqnl_reliés.webp"
+alt="Ceux qui nous lient"
+>
+
+
+<p>
+
+<strong>Mots-clés :</strong>
+<br>
+
 Famille • Reconstruction • TW
+
 </p>
 
-<button class="bouton" onclick="window.location.href='cqnl.html'">
+
+<button
+class="bouton"
+onclick="window.location.href='cqnl.html'"
+>
+
 Découvrir le roman
+
 </button>
+
 
 <hr style="margin:45px 0;">
 
-<h2>🎄 Noël, ma famille et lui</h2>
 
-<img src="noel.webp" alt="Noël, ma famille et lui">
+<h2>
+🎄 Noël, ma famille et lui
+</h2>
 
-<p><strong>Mots-clés :</strong><br>
+
+<img
+src="noel.webp"
+alt="Noël, ma famille et lui"
+>
+
+
+<p>
+
+<strong>Mots-clés :</strong>
+<br>
+
 Noël • Feel-Good • Famille
+
 </p>
 
-<button class="bouton" onclick="window.location.href='nmfl.html'">
+
+<button
+class="bouton"
+onclick="window.location.href='nmfl.html'"
+>
+
 Découvrir le roman
+
 </button>
+
 
 <hr style="margin:45px 0;">
 
-<h2>🏀 À un shoot de toi</h2>
 
-<img src="cover1.png" alt="À un shoot de toi">
+<h2>
+🏀 À un shoot de toi
+</h2>
 
-<p><strong>Mots-clés :</strong><br>
+
+<img
+src="cover1.png"
+alt="À un shoot de toi"
+>
+
+
+<p>
+
+<strong>Mots-clés :</strong>
+<br>
+
 Basket • Slow Burn • Reconstruction
+
 </p>
 
-<button class="bouton" onclick="window.location.href='asdt.html'">
+
+<button
+class="bouton"
+onclick="window.location.href='asdt.html'"
+>
+
 Découvrir le roman
+
 </button>
+
 
 </div>
 
-<!-- Footer -->
+
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
 <p>
-<a href="mentions-legales.html">Mentions légales</a> |
-<a href="cgv.html">Conditions générales de vente</a> |
-<a href="rgpd.html">Politique de confidentialité</a>
+
+<a href="mentions-legales.html">
+Mentions légales
+</a>
+
+|
+
+<a href="cgv.html">
+Conditions générales de vente
+</a>
+
+|
+
+<a href="rgpd.html">
+Politique de confidentialité
+</a>
+
 </p>
 
-<p>© 2026 Justine Pottier - Tous droits réservés</p>
 
 <p>
-SIRET : 802 194 738 00042<br>
-Email : justinepottier.commande@gmail.com
+© 2026 Justine Pottier - Tous droits réservés
 </p>
+
+
+<p>
+
+SIRET : 802 194 738 00042
+
+<br>
+
+Email :
+<a href="mailto:justinepottier.commande@gmail.com">
+justinepottier.commande@gmail.com
+</a>
+
+</p>
+
 
 <div class="social-icons">
 
-<a href="https://www.instagram.com/justinepottier.auteure/" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+
+<a
+href="https://www.instagram.com/justinepottier.auteure/"
+target="_blank"
+>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+alt="Instagram"
+>
+
 </a>
 
-<a href="https://www.facebook.com/profile.php?id=100092045167682" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+
+<a
+href="https://www.facebook.com/profile.php?id=100092045167682"
+target="_blank"
+>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+alt="Facebook"
+>
+
 </a>
 
-<a href="https://www.tiktok.com/@justinepottierauteure" target="_blank">
-<img src="tiktok.png">
+
+<a
+href="https://www.tiktok.com/@justinepottierauteure"
+target="_blank"
+>
+
+<img
+src="tiktok.png"
+alt="TikTok"
+>
+
 </a>
 
 </div>
 
 </footer>
 
+
 </body>
+
 </html>
