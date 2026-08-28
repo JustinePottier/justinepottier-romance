@@ -527,7 +527,6 @@ Votre commande
 
 
 <div id="liste">
-
 </div>
 
 
@@ -594,8 +593,14 @@ Votre panier est vide. Vous devez ajouter au moins un article avant de valider v
 
 <select
 id="livraison"
+name="choix_livraison"
 onchange="calculTotal()"
+required
 >
+
+<option value="">
+-- Choisissez votre mode de réception --
+</option>
 
 <option value="mondial">
 📦 Mondial Relay — 7,99 € jusqu'à 2 kg
@@ -618,10 +623,14 @@ onchange="calculTotal()"
 Choisir votre salon :
 </label>
 
-<select id="salon">
+<select id="salon" name="salon_choisi">
 
-<option>
-À venir
+<option value="">
+-- Choisissez votre salon --
+</option>
+
+<option value="À venir">
+Salon à venir
 </option>
 
 </select>
@@ -723,26 +732,32 @@ Souhaitez-vous une dédicace ?
 <div class="radio-group">
 
 <label>
+
 <input
 type="radio"
 name="dedicace"
 value="Oui"
 required
-onchange="afficherNomDedication()"
+onchange="afficherNomDedicace()"
 >
+
 Oui
+
 </label>
 
 
 <label>
+
 <input
 type="radio"
 name="dedicace"
 value="Non"
 required
-onchange="afficherNomDedication()"
+onchange="afficherNomDedicace()"
 >
+
 Non
+
 </label>
 
 </div>
@@ -804,7 +819,6 @@ name="nom_personnalisation"
 placeholder="Prénom ou nom"
 >
 
-
 </div>
 
 
@@ -859,7 +873,8 @@ required
 Votre échéancier :
 </strong>
 
-<div id="detailsEcheancier"></div>
+<div id="detailsEcheancier">
+</div>
 
 </div>
 
@@ -888,7 +903,7 @@ Les informations nécessaires au paiement par virement ou au paiement SumUp vous
 <br><br>
 
 <strong>
-Les commandes comportant une personnalisation ou une dédicace ne sont ni annulables ni remboursables.
+Les commandes comportant une personnalisation, une création personnalisée ou une dédicace ne sont ni annulables ni remboursables.
 </strong>
 
 </div>
@@ -921,6 +936,13 @@ id="livraisonInput"
 
 <input
 type="hidden"
+name="salon"
+id="salonInput"
+>
+
+
+<input
+type="hidden"
 name="frais_port"
 id="fraisInput"
 >
@@ -937,6 +959,20 @@ id="totalInput"
 type="hidden"
 name="echeancier"
 id="echeancierInput"
+>
+
+
+<input
+type="hidden"
+name="details_dedicace"
+id="dedicaceInput"
+>
+
+
+<input
+type="hidden"
+name="personnalisation"
+id="personnalisationInput"
 >
 
 
@@ -965,12 +1001,17 @@ value="table"
 >
 
 
-<!-- REDIRECTION APRÈS COMMANDE -->
-
 <input
 type="hidden"
 name="_next"
 value="https://justinepottier-romance.netlify.app/merci.html"
+>
+
+
+<input
+type="hidden"
+name="_replyto"
+id="replyToInput"
 >
 
 
@@ -1004,7 +1045,7 @@ et je reconnais en avoir pris connaissance avant de valider ma commande.
 
 
 <!-- ================================
-     AVERTISSEMENT PERSONNALISATION
+     AVERTISSEMENT
 ================================ -->
 
 <div class="conditions">
@@ -1085,6 +1126,7 @@ SIRET : 802 194 738 00042
 <br>
 
 Email :
+
 <a href="mailto:justinepottier.commande@gmail.com">
 justinepottier.commande@gmail.com
 </a>
@@ -1167,7 +1209,8 @@ if(panier.length === 0){
 liste.innerHTML =
 "<p><strong>Votre panier est actuellement vide.</strong></p>";
 
-document.getElementById("personnalisationBox").style.display = "none";
+document.getElementById("personnalisationBox").style.display =
+"none";
 
 calculTotal();
 
@@ -1184,18 +1227,28 @@ document.createElement("div");
 ligne.className = "item";
 
 
+const titre =
+produit.titre ||
+produit.nom ||
+"Produit";
+
+
+const prix =
+Number(produit.prix || 0);
+
+
 ligne.innerHTML = `
 
 <div class="item-info">
 
 <div class="item-title">
-${produit.titre}
+${titre}
 </div>
 
 </div>
 
 <div class="item-price">
-${Number(produit.prix).toFixed(2)} €
+${prix.toFixed(2)} €
 </div>
 
 <button
@@ -1264,17 +1317,11 @@ return panier.reduce(
 
 (total,produit)=>{
 
-/*
-   IMPORTANT :
-   Les box ont déjà 2 kg grâce à leur
-   bouton d'ajout au panier.
-
-   Pour les romans classiques :
-   si aucun poids n'est défini,
-   on utilise 0,5 kg.
-*/
-
-return total + Number(produit.poids || 0.5);
+return total +
+Number(
+produit.poids ||
+0.5
+);
 
 },
 
@@ -1294,8 +1341,8 @@ function fraisMondial(poids){
 if(poids <= 0)
 return 0;
 
+
 /*
-   Tarif demandé :
    7,99 € jusqu'à 2 kg.
 */
 
@@ -1304,10 +1351,7 @@ return 7.99;
 
 
 /*
-   Au-delà de 2 kg :
-   on conserve des tranches provisoires.
-   On pourra les modifier ensuite selon
-   tes vrais tarifs.
+   Tranches supérieures provisoires.
 */
 
 if(poids <= 3)
@@ -1370,14 +1414,16 @@ let frais = 0;
 
 if(mode === "mondial"){
 
-frais = fraisMondial(poids);
+frais =
+fraisMondial(poids);
 
 }
 
 
 if(mode === "poste"){
 
-frais = fraisPoste(poids);
+frais =
+fraisPoste(poids);
 
 }
 
@@ -1403,7 +1449,7 @@ const prixProduits =
 panier.reduce(
 
 (total,produit)=>
-total + Number(produit.prix),
+total + Number(produit.prix || 0),
 
 0
 
@@ -1434,13 +1480,18 @@ calculEcheancier();
 function verifierBox(){
 
 const contientBox =
-panier.some(produit =>
+panier.some(produit => {
 
-String(produit.titre)
-.toLowerCase()
-.includes("box")
+const titre =
+String(
+produit.titre ||
+produit.nom ||
+""
+).toLowerCase();
 
-);
+return titre.includes("box");
+
+});
 
 
 const bloc =
@@ -1476,7 +1527,7 @@ champ.value = "";
    DÉDICACE
 ========================================== */
 
-function afficherNomDedication(){
+function afficherNomDedicace(){
 
 const choix =
 document.querySelector(
@@ -1492,11 +1543,8 @@ const champ =
 document.getElementById("nomDedicace");
 
 
-if(!choix){
-
+if(!choix)
 return;
-
-}
 
 
 if(choix.value === "Oui"){
@@ -1534,7 +1582,7 @@ const totalProduits =
 panier.reduce(
 
 (total,produit)=>
-total + Number(produit.prix),
+total + Number(produit.prix || 0),
 
 0
 
@@ -1582,8 +1630,7 @@ paiement === "virement3" ||
 paiement === "virement4"
 ){
 
-let nombre =
-2;
+let nombre = 2;
 
 
 if(paiement === "virement3")
@@ -1618,8 +1665,10 @@ for(let i = 1; i <= nombre; i++){
 
 let montantEcheance =
 (i === nombre)
-? derniere
-: montant;
+?
+derniere
+:
+montant;
 
 
 texte +=
@@ -1644,31 +1693,35 @@ montantEcheance.toFixed(2)
 }
 
 
-details.innerHTML = texte;
+details.innerHTML =
+texte;
 
-bloc.style.display = "block";
+bloc.style.display =
+"block";
 
 }
 
 else if(paiement === "sumup"){
 
 details.innerHTML =
-
 "<p><strong>"
 +
 total.toFixed(2)
 +
 " € à régler en une seule fois par SumUp.</strong></p>";
 
-bloc.style.display = "block";
+bloc.style.display =
+"block";
 
 }
 
 else{
 
-bloc.style.display = "none";
+bloc.style.display =
+"none";
 
-details.innerHTML = "";
+details.innerHTML =
+"";
 
 }
 
@@ -1682,7 +1735,7 @@ details.innerHTML = "";
 function preparerCommande(){
 
 /*
-   Empêche l'envoi si panier vide.
+   1. PANIER
 */
 
 if(panier.length === 0){
@@ -1701,7 +1754,56 @@ return false;
 
 
 /*
-   Vérification du paiement.
+   2. LIVRAISON
+*/
+
+const modeLivraison =
+document.getElementById("livraison").value;
+
+
+if(!modeLivraison){
+
+alert(
+"Veuillez choisir votre mode de réception avant de valider votre commande."
+);
+
+document.getElementById("livraison").focus();
+
+return false;
+
+}
+
+
+/*
+   3. SALON
+*/
+
+let nomSalon = "";
+
+
+if(modeLivraison === "salon"){
+
+nomSalon =
+document.getElementById("salon").value;
+
+
+if(!nomSalon){
+
+alert(
+"Veuillez choisir le salon lors duquel vous souhaitez récupérer votre commande."
+);
+
+document.getElementById("salon").focus();
+
+return false;
+
+}
+
+}
+
+
+/*
+   4. PAIEMENT
 */
 
 const paiement =
@@ -1714,13 +1816,15 @@ alert(
 "Veuillez choisir votre mode de paiement avant de valider votre commande."
 );
 
+document.getElementById("paiement").focus();
+
 return false;
 
 }
 
 
 /*
-   Calcul poids.
+   5. POIDS
 */
 
 const poids =
@@ -1728,12 +1832,8 @@ poidsTotal();
 
 
 /*
-   Mode livraison.
+   6. FRAIS DE PORT
 */
-
-const modeLivraison =
-document.getElementById("livraison").value;
-
 
 let frais = 0;
 
@@ -1773,14 +1873,14 @@ nomLivraison =
 
 
 /*
-   Produits.
+   7. PRIX PRODUITS
 */
 
 const prixProduits =
 panier.reduce(
 
 (total,produit)=>
-total + Number(produit.prix),
+total + Number(produit.prix || 0),
 
 0
 
@@ -1792,35 +1892,55 @@ prixProduits + frais;
 
 
 /*
-   Commande détaillée.
+   8. COMMANDE
 */
 
 const commande =
 panier.map(
 
-(produit,index)=>
+(produit,index)=>{
+
+const titre =
+produit.titre ||
+produit.nom ||
+"Produit";
+
+
+const prix =
+Number(produit.prix || 0);
+
+
+const poidsProduit =
+Number(produit.poids || 0.5);
+
+
+return (
 
 (index + 1)
 +
 ". "
 +
-produit.titre
+titre
 +
 " — "
 +
-Number(produit.prix).toFixed(2)
+prix.toFixed(2)
 +
 " € — Poids : "
 +
-Number(produit.poids || 0.5).toFixed(2)
+poidsProduit.toFixed(2)
 +
 " kg"
+
+);
+
+}
 
 ).join("\n");
 
 
 /*
-   Paiement en clair.
+   9. NOM DU PAIEMENT
 */
 
 let nomPaiement = "";
@@ -1859,7 +1979,7 @@ nomPaiement =
 
 
 /*
-   Échéancier.
+   10. ÉCHÉANCIER
 */
 
 let echeancier = "";
@@ -1896,10 +2016,12 @@ Math.round(
 
 for(let i = 1; i <= nombre; i++){
 
-let montantEcheance =
+const montantEcheance =
 (i === nombre)
-? derniere
-: montant;
+?
+derniere
+:
+montant;
 
 
 echeancier +=
@@ -1934,7 +2056,7 @@ total.toFixed(2)
 
 
 /*
-   Dédicace.
+   11. DÉDICACE
 */
 
 const choixDedicace =
@@ -1943,53 +2065,148 @@ document.querySelector(
 );
 
 
-let dedicace =
-"Non";
+if(!choixDedicace){
+
+alert(
+"Veuillez indiquer si vous souhaitez une dédicace."
+);
+
+return false;
+
+}
+
+
+const dedicace =
+choixDedicace.value;
 
 
 let nomDedicace = "";
 
 
-if(choixDedicace){
-
-dedicace =
-choixDedicace.value;
-
-}
-
-
 if(dedicace === "Oui"){
 
 nomDedicace =
-document.getElementById("nomDedicace").value;
+document.getElementById("nomDedicace")
+.value
+.trim();
+
+
+if(!nomDedicace){
+
+alert(
+"Veuillez indiquer le nom ou prénom pour la dédicace."
+);
+
+document.getElementById("nomDedicace").focus();
+
+return false;
+
+}
 
 }
 
 
 /*
-   Personnalisation.
+   12. PERSONNALISATION
 */
 
 let nomPersonnalisation = "";
 
 
-const champPersonnalisation =
-document.getElementById("nomPersonnalisation");
+const contientBox =
+panier.some(produit => {
+
+const titre =
+String(
+produit.titre ||
+produit.nom ||
+""
+).toLowerCase();
+
+return titre.includes("box");
+
+});
 
 
-if(
-champPersonnalisation &&
-champPersonnalisation.value.trim() !== ""
-){
+if(contientBox){
 
 nomPersonnalisation =
-champPersonnalisation.value.trim();
+document.getElementById("nomPersonnalisation")
+.value
+.trim();
+
+
+if(!nomPersonnalisation){
+
+alert(
+"Veuillez indiquer le nom à faire apparaître sur la création personnalisée."
+);
+
+document.getElementById("nomPersonnalisation").focus();
+
+return false;
+
+}
 
 }
 
 
 /*
-   ENVOI DES INFORMATIONS DANS LE MAIL
+   13. SALON DANS LE MAIL
+*/
+
+let texteSalon = "";
+
+
+if(modeLivraison === "salon"){
+
+texteSalon =
+"\nSalon choisi : "
++
+nomSalon;
+
+}
+
+
+/*
+   14. MAIL DÉDICACE
+*/
+
+let detailsDedicace =
+"Dédicace : "
++
+dedicace;
+
+
+if(dedicace === "Oui"){
+
+detailsDedicace +=
+"\nNom pour la dédicace : "
++
+nomDedicace;
+
+}
+
+
+/*
+   15. MAIL PERSONNALISATION
+*/
+
+let detailsPersonnalisation = "";
+
+
+if(nomPersonnalisation !== ""){
+
+detailsPersonnalisation =
+"\nNom pour la personnalisation : "
++
+nomPersonnalisation;
+
+}
+
+
+/*
+   16. REMPLISSAGE DES CHAMPS CACHÉS
 */
 
 document.getElementById("commandeInput").value =
@@ -2003,7 +2220,13 @@ poids.toFixed(2)
 
 
 document.getElementById("livraisonInput").value =
-nomLivraison;
+nomLivraison
++
+texteSalon;
+
+
+document.getElementById("salonInput").value =
+nomSalon;
 
 
 document.getElementById("fraisInput").value =
@@ -2019,44 +2242,41 @@ total.toFixed(2)
 
 
 document.getElementById("echeancierInput").value =
+
 "Mode de paiement : "
 +
 nomPaiement
 +
 "\n\n"
 +
-echeancier
-+
-"\n\nDédicace : "
-+
-dedicace
-+
-(
-dedicace === "Oui"
-?
-"\nNom de dédicace : "
-+
-nomDedicace
-:
-""
-)
-+
-(
-nomPersonnalisation !== ""
-?
-"\n\nNom pour la personnalisation : "
-+
-nomPersonnalisation
-:
-""
-);
+echeancier;
+
+
+document.getElementById("dedicaceInput").value =
+detailsDedicace;
+
+
+document.getElementById("personnalisationInput").value =
+nomPersonnalisation;
 
 
 /*
-   IMPORTANT :
-   On laisse le formulaire continuer.
-   FormSubmit reçoit donc toutes les données
-   et utilise _next pour rediriger vers merci.html.
+   17. EMAIL CLIENT
+*/
+
+const emailClient =
+document.querySelector(
+'input[name="email"]'
+).value
+.trim();
+
+
+document.getElementById("replyToInput").value =
+emailClient;
+
+
+/*
+   18. ENVOI
 */
 
 return true;
