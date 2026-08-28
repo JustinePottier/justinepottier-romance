@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les Box de fin d'année - Justine Pottier</title>
+
+<style>
+
+/* ================================
+   STYLE GÉNÉRAL
+================================ */
+
+body{
+margin:0;
+padding:0;
+font-family:'Playfair Display', serif;
+color:#1A2A40;
+background:url('fondbeige.PNG') no-repeat center center fixed;
+background-size:cover;
+text-align:center;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.top-banner{
+margin-top:20px;
+}
+
+.top-banner img{
+max-height:200px;
+max-width:90%;
+}
+
+
+/* ================================
+   TEXTE AUTEURE
+================================ */
+
+.auteur-text{
+font-size:2rem;
+color:#f28f8f;
+margin-top:10px;
+}
+
+
+/* ================================
+   MENU
+================================ */
+
+.menu{
+margin:25px 0;
+}
+
+.menu a,
+.dropbtn{
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+color:#1A2A40;
+background:none;
+border:none;
+cursor:pointer;
+font-size:1rem;
+font-family:'Playfair Display', serif;
+}
+
+.menu a:hover{
+text-decoration:underline;
+}
+
+
+/* ================================
+   MENU DÉROULANT
+================================ */
+
+.dropdown{
+display:inline-block;
+position:relative;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+background:#fff8e1;
+min-width:220px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+text-align:left;
+z-index:10;
+}
+
+.dropdown-content a{
+display:block;
+padding:10px 15px;
+margin:0;
+color:#1A2A40;
+}
+
+.dropdown-content a:hover{
+background:#f2c1c1;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+
+/* ================================
+   TITRE
+================================ */
+
+.banner-text{
+font-size:3rem;
+margin:30px 20px 15px;
+}
+
+.intro{
+max-width:750px;
+margin:0 auto 40px;
+padding:0 20px;
+font-size:1.2rem;
+line-height:1.7;
+}
+
+
+/* ================================
+   CARTES DES BOX
+================================ */
+
+.box-section{
+max-width:850px;
+margin:40px auto;
+background:#fff8e1;
+padding:35px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-sizing:border-box;
+}
+
+.box-section h2{
+font-size:2rem;
+margin-top:0;
+}
+
+.box-section img{
+max-width:500px;
+width:100%;
+border-radius:10px;
+margin:20px 0;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+
+/* ================================
+   PRIX
+================================ */
+
+.prix{
+font-size:1.8rem;
+font-weight:bold;
+color:#d97b7b;
+margin:15px 0;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.description-box{
+max-width:600px;
+margin:20px auto;
+font-size:1.15rem;
+line-height:1.8;
+}
+
+
+/* ================================
+   QUANTITÉ LIMITÉE
+================================ */
+
+.limite{
+display:inline-block;
+background:#1A2A40;
+color:#fff8e1;
+padding:8px 18px;
+border-radius:20px;
+font-weight:bold;
+margin:15px 0;
+}
+
+
+/* ================================
+   BOUTON PANIER
+================================ */
+
+.bouton{
+margin-top:20px;
+padding:14px 28px;
+font-size:1rem;
+border:none;
+border-radius:10px;
+background:#f2c1c1;
+color:#1A2A40;
+cursor:pointer;
+font-family:'Playfair Display', serif;
+font-weight:bold;
+transition:0.2s;
+}
+
+.bouton:hover{
+background:#e8a9a9;
+transform:scale(1.03);
+}
+
+
+/* ================================
+   INFORMATIONS
+================================ */
+
+.infos{
+max-width:750px;
+margin:50px auto;
+background:#fff8e1;
+padding:35px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-sizing:border-box;
+}
+
+.infos ul{
+text-align:left;
+max-width:600px;
+margin:25px auto;
+font-size:1.1rem;
+line-height:1.9;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+margin-top:60px;
+padding:40px 0;
+background:#F5F0E6;
+}
+
+.social-icons{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:15px;
+}
+
+.social-icons img{
+width:35px;
+}
+
+footer a{
+color:#1A2A40;
+text-decoration:none;
+}
+
+footer a:hover{
+text-decoration:underline;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+.auteur-text{
+font-size:1.5rem;
+}
+
+.banner-text{
+font-size:2.2rem;
+}
+
+.menu a,
+.dropbtn{
+display:inline-block;
+margin:8px 10px;
+}
+
+.box-section,
+.infos{
+margin:25px 15px;
+padding:25px 20px;
+}
+
+.box-section h2{
+font-size:1.7rem;
+}
+
+.description-box{
+font-size:1.05rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================================
+     LOGO
+================================ -->
+
+<div class="top-banner">
+
+<img src="logo.png" alt="Logo Justine Pottier">
+
+</div>
+
+<p class="auteur-text">
+Autrice de romances contemporaines
+</p>
+
+<!-- ================================
+     MENU
+================================ -->
+
+<nav class="menu">
+
+<a href="index.html">
+Accueil
+</a>
+
+<div class="dropdown">
+
+<button class="dropbtn">
+Boutique ▼
+</button>
+
+<div class="dropdown-content">
+
+<a href="nida.html">
+Nous interdire d'aimer
+</a>
+
+<a href="valentine.html">
+The Sound Sky : Valentine
+</a>
+
+<a href="cqnl.html">
+Ceux qui nous lient
+</a>
+
+<a href="nmfl.html">
+Noël, ma famille et lui
+</a>
+
+<a href="asdt.html">
+À un shoot de toi
+</a>
+
+<a href="pageebook.html">
+Les Ebooks
+</a>
+
+</div>
+
+</div>
+
+<a href="box-noel.html">
+🎄 Box de fin d'année
+</a>
+
+<a href="apropos.html">
+Qui suis-je
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<p>
+
+<a href="mentions.html">
+Mentions légales
+</a>
+|
+<a href="rgpd.html">
+Politique de confidentialité
+</a>
+|
+<a href="cgv.html">
+CGV
+</a>
+
+</p>
+
+<a href="ou-me-rencontrer.html">
+Où me rencontrer
+</a>
+
+<a href="panier.html">
+🛒 Mon panier
+</a>
+
+</nav>
+
+<!-- ================================
+     TITRE
+================================ -->
+
+<div class="banner-text">
+
+🎄 Les Box de fin d'année 🎄
+
+</div>
+
+<p class="intro">
+
+Pour les fêtes de fin d'année, découvrez mes box en édition limitée. 🎁
+
+<br><br>
+
+Des romans, des créations réalisées en collaboration avec <strong>Bois'Art et Gravure</strong>
+et d'autres surprises soigneusement sélectionnées… ✨
+
+<br><br>
+
+<strong>
+Mais chut… je ne vous dévoilerai pas tout. 🤫
+</strong>
+
+</p>
+
+<!-- ================================
+     BOX LUXE COSY
+================================ -->
+
+<section
+class="box-section"
+data-product="Box Luxe Cosy"
+data-price="45"
+data-weight="2"
+>
+
+<h2>
+🎄 Box Luxe Cosy
+</h2>
+
+<img
+src="Boxnoël.jpg"
+alt="Box Luxe Cosy"
+
+>
+
+<p class="prix">
+45 €
+</p>
+
+<p class="description-box">
+
+Une box pensée pour les amoureux de Noël,
+des histoires chaleureuses et des moments cosy. 🎄✨
+
+<br><br>
+
+Vous y retrouverez votre roman <strong>« Noël, ma famille et lui »</strong>,
+des créations réalisées par <strong>Bois'Art et Gravure</strong>
+ainsi que d'autres surprises soigneusement préparées pour vous. 🎁
+
+<br><br>
+
+<strong>
+Et pour le reste… il faudra attendre l'ouverture de la box ! 🤫
+</strong>
+
+</p>
+
+<div class="limite">
+
+Seulement 5 box disponibles
+
+</div>
+
+<br>
+
+<button
+class="bouton"
+onclick="ajouterAuPanier('Box Luxe Cosy',45,2)"
+
+>
+
+🛒 Ajouter au panier
+
+</button>
+
+</section>
+
+<!-- ================================
+     BOX LUXE PASSION
+================================ -->
+
+<section
+class="box-section"
+data-product="Box Luxe Passion"
+data-weight="2"
+>
+
+<h2>
+❤️ Box Luxe Passion
+</h2>
+
+<img
+src="Boxpassion.jpg"
+alt="Box Luxe Passion"
+
+>
+
+<p class="prix">
+À partir de 45 €
+</p>
+
+<p class="description-box">
+
+Une box imaginée pour les amoureux de belles histoires,
+de romance et de grandes émotions. ❤️
+
+<br><br>
+
+Vous pouvez choisir :
+
+<br><br>
+
+<strong>
+45 € — avec un roman au choix
+</strong>
+
+<br>
+
+📖 <em>The Sound Sky : Valentine</em>
+
+<br>
+
+🏀 <em>À un shoot de toi</em>
+
+<br><br>
+
+<strong>
+65 € — avec les deux romans
+</strong>
+
+<br><br>
+
+Des créations réalisées par <strong>Bois'Art et Gravure</strong>
+et d'autres surprises viendront compléter cette box… 🎁✨
+
+<br><br>
+
+<strong>
+Mais attention : une partie de son contenu restera secrète jusqu'à son ouverture ! 🤫
+</strong>
+
+</p>
+
+<p class="prix">
+
+45 € avec un roman <br>
+65 € avec les deux romans
+
+</p>
+
+<div class="limite">
+
+Seulement 5 box disponibles
+
+</div>
+
+<br>
+
+<button
+class="bouton"
+onclick="choisirBoxPassion()"
+
+>
+
+🛒 Ajouter au panier
+
+</button>
+
+</section>
+
+<!-- ================================
+     BOX LUXE SOMBRE
+================================ -->
+
+<section
+class="box-section"
+data-product="Box Luxe Sombre"
+data-price="80"
+data-weight="2"
+>
+
+<h2>
+🖤 Box Luxe Sombre
+</h2>
+
+<img
+src="Boxsombre.jpg"
+alt="Box Luxe Sombre"
+
+>
+
+<p class="prix">
+80 €
+</p>
+
+<p class="description-box">
+
+Une box destinée aux lecteurs qui aiment les histoires intenses,
+les émotions fortes et les romances qui ne laissent pas indemne… 🖤
+
+<br><br>
+
+Vous y retrouverez les éditions reliées de <strong>« Ceux qui nous lient »</strong>,
+des créations réalisées par <strong>Bois'Art et Gravure</strong>
+ainsi que plusieurs surprises soigneusement gardées secrètes. 🎁
+
+<br><br>
+
+<strong>
+Le contenu exact restera une surprise jusqu'à l'ouverture de votre box. 🤫
+</strong>
+
+</p>
+
+<div class="limite">
+
+Seulement 5 box disponibles
+
+</div>
+
+<br>
+
+<button
+class="bouton"
+onclick="ajouterAuPanier('Box Luxe Sombre',80,2)"
+
+>
+
+🛒 Ajouter au panier
+
+</button>
+
+</section>
+
+<!-- ================================
+     INFORMATIONS
+================================ -->
+
+<section class="infos">
+
+<h2>
+🎁 Informations importantes
+</h2>
+
+<ul>
+
+<li>
+Les box sont disponibles en quantité très limitée.
+</li>
+
+<li>
+Seulement <strong>5 exemplaires de chaque box</strong>
+sont disponibles.
+</li>
+
+<li>
+Les frais de port sont calculés séparément.
+</li>
+
+<li>
+Le poids prévu pour le calcul des frais d'expédition est de
+<strong>2 kg par box</strong>.
+</li>
+
+<li>
+Le paiement en plusieurs fois sera possible.
+</li>
+
+<li>
+Les envois sont prévus avant Noël,
+à condition que la commande soit intégralement réglée,
+frais de port inclus.
+</li>
+
+<li>
+Certaines créations pourront être personnalisées
+avec votre prénom ou celui de la personne à qui vous souhaitez offrir la box.
+</li>
+
+</ul>
+
+<p style="font-size:1.2rem;font-weight:bold;">
+
+Pour toute question, n'hésitez pas à me contacter. ❤️
+
+</p>
+
+<button
+class="bouton"
+onclick="window.location.href='contact.html'"
+
+>
+
+Me contacter
+
+</button>
+
+</section>
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer>
+
+<p>
+
+<a href="mentions-legales.html">
+Mentions légales
+</a>
+
+|
+
+<a href="cgv.html">
+Conditions générales de vente
+</a>
+
+|
+
+<a href="rgpd.html">
+Politique de confidentialité
+</a>
+
+</p>
+
+<p>
+© 2026 Justine Pottier - Tous droits réservés
+</p>
+
+<p>
+
+SIRET : 802 194 738 00042
+
+<br>
+
+Email : <a href="mailto:justinepottier.commande@gmail.com">
+[justinepottier.commande@gmail.com](mailto:justinepottier.commande@gmail.com) </a>
+
+</p>
+
+<div class="social-icons">
+
+<a
+href="https://www.instagram.com/justinepottier.auteure/"
+target="_blank"
+
+>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+alt="Instagram"
+
+>
+
+</a>
+
+<a
+href="https://www.facebook.com/profile.php?id=100092045167682"
+target="_blank"
+
+>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+alt="Facebook"
+
+>
+
+</a>
+
+<a
+href="https://www.tiktok.com/@justinepottierauteure"
+target="_blank"
+
+>
+
+<img
+src="tiktok.png"
+alt="TikTok"
+
+>
+
+</a>
+
+</div>
+
+</footer>
+
+<!-- ================================
+     PRÉPARATION DU PANIER
+================================ -->
+
+<script>
+
+/*
+Les boutons utilisent ces fonctions.
+Elles seront reliées à ton panier actuel
+lorsque nous modifierons panier.html.
+
+Le poids est déjà défini à 2 kg pour chaque box.
+*/
+
+function ajouterAuPanier(nom, prix, poids){
+
+console.log("Produit à ajouter :", {
+nom: nom,
+prix: prix,
+poids: poids
+});
+
+/*
+Le fonctionnement définitif sera raccordé
+au système de panier existant.
+*/
+
+window.location.href = "panier.html";
+
+}
+
+
+function choisirBoxPassion(){
+
+const choix = confirm(
+"OK = Box Passion avec les 2 romans (65 €)\n\nAnnuler = Box Passion avec 1 roman au choix (45 €)"
+);
+
+if(choix){
+
+ajouterAuPanier(
+"Box Luxe Passion - 2 romans",
+65,
+2
+);
+
+}else{
+
+ajouterAuPanier(
+"Box Luxe Passion - 1 roman au choix",
+45,
+2
+);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
