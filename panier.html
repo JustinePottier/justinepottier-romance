@@ -603,7 +603,7 @@ required
 </option>
 
 <option value="mondial">
-📦 Mondial Relay — 7,99 € jusqu'à 2 kg
+📦 Mondial Relay 
 </option>
 
 <option value="poste">
@@ -1341,26 +1341,25 @@ function fraisMondial(poids){
 if(poids <= 0)
 return 0;
 
+if(poids <= 0.5)
+return 4.15;
 
-/*
-   7,99 € jusqu'à 2 kg.
-*/
+if(poids <= 1)
+return 5.99;
 
 if(poids <= 2)
 return 7.99;
 
-
-/*
-   Tranches supérieures provisoires.
-*/
-
-if(poids <= 3)
-return 8.99;
+if(poids <= 4)
+return 9.99;
 
 if(poids <= 5)
-return 13.00;
+return 15.99;
 
-return 18.00;
+if(poids <= 10)
+return 15.99;
+
+return 25.99;
 
 }
 
