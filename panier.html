@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
@@ -120,43 +119,33 @@ body{
 ================================ */
 
 .panier-box{
-
     max-width:850px;
     margin:40px auto;
-
     background:#fff8e1;
-
     padding:35px;
-
     border-radius:15px;
-
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
-
     text-align:left;
-
     box-sizing:border-box;
+}
+
+h2,
+h3{
+    text-align:center;
 }
 
 
 /* ================================
-   ARTICLES
+   PRODUITS
 ================================ */
 
 .item{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:15px;
-
-    padding:15px 5px;
-
+    padding:15px 10px;
     border-bottom:1px solid #ddd;
-
-    font-size:1.05rem;
 }
 
 .item-info{
@@ -165,42 +154,34 @@ body{
 
 .item-title{
     font-weight:bold;
+    font-size:1.05rem;
 }
 
 .item-price{
     white-space:nowrap;
 }
 
-.remove-btn{
-
+.delete-btn{
     background:#ddd;
-
     border:none;
-
     padding:7px 10px;
-
     border-radius:8px;
-
     cursor:pointer;
 }
 
-.remove-btn:hover{
-    background:#f2c1c1;
+.delete-btn:hover{
+    background:#ccc;
 }
 
 
 /* ================================
-   RESUME
+   RÉCAPITULATIF
 ================================ */
 
 .resume{
-
     background:white;
-
     padding:20px;
-
     border-radius:10px;
-
     margin-top:20px;
 }
 
@@ -209,33 +190,15 @@ body{
 }
 
 .total{
-
-    font-size:1.5rem;
-
+    font-size:1.4rem;
     font-weight:bold;
-
     text-align:right;
-
     margin-top:20px;
 }
 
-
-/* ================================
-   SECTIONS
-================================ */
-
-.form-section{
-
-    margin-top:30px;
-
-    padding-top:20px;
-
-    border-top:1px solid #ddd;
-}
-
-.form-section h3{
-    text-align:center;
-    margin-bottom:20px;
+.total-final{
+    color:#d97b7b;
+    font-size:1.6rem;
 }
 
 
@@ -248,108 +211,87 @@ select,
 textarea{
 
     width:100%;
-
-    padding:12px;
-
+    padding:11px;
     margin:8px 0;
-
     border-radius:8px;
-
     border:1px solid #ccc;
-
     box-sizing:border-box;
-
     font-family:'Playfair Display', serif;
+    color:#1A2A40;
 
-    font-size:1rem;
 }
 
 textarea{
-    min-height:100px;
+    min-height:90px;
     resize:vertical;
 }
 
+label{
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+}
+
 
 /* ================================
-   BLOCS D'INFORMATION
+   BLOCS D'INFORMATIONS
 ================================ */
 
 .info{
-
     background:#eee;
-
-    padding:15px;
-
+    padding:18px;
     border-radius:10px;
-
     margin-top:15px;
-
     line-height:1.6;
 }
 
-.attention{
-
-    background:#fff0f0;
-
-    border:2px solid #d97b7b;
-
+.info-important{
+    background:#f8dddd;
     padding:18px;
-
     border-radius:10px;
-
-    margin-top:20px;
-
+    margin-top:15px;
     line-height:1.6;
 }
-
-.personnalisation{
-
-    background:#fff;
-
-    border:2px solid #f2c1c1;
-
-    padding:18px;
-
-    border-radius:10px;
-
-    margin-top:20px;
-
-    line-height:1.6;
-}
-
-
-/* ================================
-   CONDITIONS
-================================ */
 
 .conditions{
-
     background:#fff;
-
     padding:18px;
-
     border-radius:10px;
-
-    margin-top:25px;
-
+    margin-top:20px;
     font-size:0.95rem;
-
     line-height:1.6;
 }
 
 .conditions label{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
+    font-weight:normal;
+    margin:0;
 }
 
-.conditions input[type="checkbox"]{
-
+.conditions input{
     width:auto;
+    margin-right:8px;
+}
 
-    margin-top:4px;
 
-    flex-shrink:0;
+/* ================================
+   ÉCHÉANCIER
+================================ */
+
+#echeancier{
+    display:none;
+    background:#fdf1f1;
+    padding:18px;
+    border-radius:10px;
+    margin-top:15px;
+    line-height:1.8;
+}
+
+#echeancier strong{
+    color:#d97b7b;
+}
+
+.echeance{
+    padding:5px 0;
 }
 
 
@@ -360,26 +302,17 @@ textarea{
 .btn{
 
     background:#1A2A40;
-
     color:white;
-
-    padding:14px 20px;
-
+    padding:14px;
     border:none;
-
     border-radius:10px;
-
     width:100%;
-
     margin-top:20px;
-
     cursor:pointer;
-
     font-family:'Playfair Display', serif;
-
+    font-weight:bold;
     font-size:1rem;
 
-    font-weight:bold;
 }
 
 .btn:hover{
@@ -389,16 +322,12 @@ textarea{
 .small-btn{
 
     background:#ccc;
-
     border:none;
-
-    padding:9px 14px;
-
+    padding:9px 12px;
     border-radius:8px;
-
     cursor:pointer;
+    font-family:'Playfair Display', serif;
 
-    margin-top:15px;
 }
 
 .small-btn:hover{
@@ -411,24 +340,15 @@ textarea{
 ================================ */
 
 footer{
-
     margin-top:60px;
-
     padding:40px 0;
-
     background:#F5F0E6;
-
-    text-align:center;
 }
 
 .social-icons{
-
     display:flex;
-
     justify-content:center;
-
     gap:25px;
-
     margin-top:15px;
 }
 
@@ -437,9 +357,7 @@ footer{
 }
 
 footer a{
-
     color:#1A2A40;
-
     text-decoration:none;
 }
 
@@ -474,11 +392,7 @@ footer a:hover{
     }
 
     .item{
-        flex-wrap:wrap;
-    }
-
-    .total{
-        text-align:left;
+        align-items:flex-start;
     }
 
 }
@@ -487,7 +401,9 @@ footer a:hover{
 
 </head>
 
+
 <body>
+
 
 <!-- ================================
      LOGO
@@ -499,9 +415,11 @@ footer a:hover{
 
 </div>
 
+
 <p class="auteur-text">
 Autrice de romances contemporaines
 </p>
+
 
 <!-- ================================
      MENU
@@ -513,11 +431,13 @@ Autrice de romances contemporaines
 Accueil
 </a>
 
+
 <div class="dropdown">
 
 <button class="dropbtn">
 Boutique ▼
 </button>
+
 
 <div class="dropdown-content">
 
@@ -549,47 +469,34 @@ Les Ebooks
 
 </div>
 
+
 <a href="box-noel.html">
 🎄 Box de fin d'année
 </a>
+
 
 <a href="apropos.html">
 Qui suis-je
 </a>
 
+
 <a href="contact.html">
 Contact
 </a>
 
-<p>
-
-<a href="mentions.html">
-Mentions légales
-</a>
-
-|
-
-<a href="rgpd.html">
-Politique de confidentialité
-</a>
-
-|
-
-<a href="cgv.html">
-CGV
-</a>
-
-</p>
 
 <a href="ou-me-rencontrer.html">
 Où me rencontrer
 </a>
 
+
 <a href="panier.html">
 🛒 Mon panier
 </a>
 
+
 </nav>
+
 
 <!-- ================================
      TITRE
@@ -597,86 +504,90 @@ Où me rencontrer
 
 <div class="banner-text">
 
-Votre panier
+Votre panier 🛒
 
 </div>
 
-<div class="panier-box">
 
 <!-- ================================
-     LISTE PANIER
+     PANIER
 ================================ -->
 
-<h2>
-🛒 Votre commande
-</h2>
+<div class="panier-box">
+
 
 <div id="liste">
 
 </div>
 
-<button
-type="button"
-class="small-btn"
-onclick="viderPanier()"
 
->
+<div class="resume">
+
+
+<p>
+Poids total :
+<strong>
+<span id="poids">0</span> kg
+</strong>
+</p>
+
+
+<p>
+Frais de port :
+<strong>
+<span id="frais">0</span> €
+</strong>
+</p>
+
+
+<p class="total">
+
+Total :
+<span id="total" class="total-final">
+0,00 €
+</span>
+
+</p>
+
+
+</div>
+
+
+<br>
+
+
+<button
+class="small-btn"
+onclick="viderPanier()">
 
 Vider le panier
 
 </button>
 
-<!-- ================================
-     RESUME
-================================ -->
 
-<div class="resume">
+<hr>
 
-<p>
-Poids total :
-<strong>
-<span id="poids">0.00</span> kg
-</strong>
-</p>
-
-<p>
-Frais de port :
-<strong>
-<span id="frais">0.00</span> €
-</strong>
-</p>
-
-<p class="total">
-
-Total : <span id="total">0.00</span> €
-
-</p>
-
-</div>
 
 <!-- ================================
      LIVRAISON
 ================================ -->
 
-<div class="form-section">
-
 <h3>
-📦 Mode de livraison
+📦 Mode de réception
 </h3>
+
 
 <select
 id="livraison"
 onchange="calculTotal()"
-required
-
->
+required>
 
 <option value="">
--- Choisissez votre mode de livraison --
+-- Choisissez votre mode de réception --
 </option>
 
 <option value="mondial">
-📦 Mondial Relay 
+📦 Mondial Relay
 </option>
 
 <option value="poste">
@@ -684,21 +595,20 @@ required
 </option>
 
 <option value="salon">
-🤝 Retrait lors d'un salon
+🤝 Retrait salon
 </option>
 
 </select>
 
+
 <div
 id="salonBox"
-style="display:none;"
->
+style="display:none;">
 
 <label>
-<strong>
-Choisissez votre salon :
-</strong>
+Choisir votre salon :
 </label>
+
 
 <select id="salon">
 
@@ -714,70 +624,122 @@ Choisissez votre salon :
 
 </div>
 
-</div>
+
+<hr>
+
 
 <!-- ================================
-     DEDICACE
+     COORDONNÉES
 ================================ -->
 
-<div class="form-section">
+<h3>
+👤 Vos coordonnées
+</h3>
+
+
+<form
+id="form"
+action="https://formsubmit.co/justinepottier.commande@gmail.com"
+method="POST"
+onsubmit="return prepareMail();">
+
+
+<input
+type="text"
+name="nom"
+placeholder="Nom"
+required>
+
+
+<input
+type="text"
+name="prenom"
+placeholder="Prénom"
+required>
+
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+
+<input
+type="tel"
+name="telephone"
+placeholder="Téléphone"
+required>
+
+
+<input
+type="text"
+name="adresse"
+placeholder="Adresse complète"
+required>
+
+
+<input
+type="text"
+name="cp"
+placeholder="Code postal"
+required>
+
+
+<input
+type="text"
+name="ville"
+placeholder="Ville"
+required>
+
+
+<!-- ================================
+     DÉDICACE
+================================ -->
 
 <h3>
 ✍️ Dédicace
 </h3>
 
-<label for="dedicace">
-
-<strong>
-Souhaitez-vous une dédicace ?
-</strong>
-
-</label>
 
 <select
 id="dedicace"
+name="dedicace"
 onchange="gererDedicace()"
-required
-
->
+required>
 
 <option value="">
 -- Choisissez une réponse --
 </option>
 
 <option value="Non">
-Non
+Non, merci
 </option>
 
 <option value="Oui">
-Oui
+Oui, je souhaite une dédicace
 </option>
 
 </select>
 
+
 <div
-id="dedicaceBox"
-style="display:none;"
->
+id="dedicaceNomBox"
+style="display:none;">
 
-<label for="nomDedicace">
-
-<strong>
-Nom à inscrire pour la dédicace :
-</strong>
-
+<label>
+Nom / prénom à inscrire pour la dédicace :
 </label>
 
 <input
 type="text"
-id="nomDedicace"
-placeholder="Prénom ou prénom + nom"
+id="dedicaceNom"
+name="nom_dedicace"
+placeholder="Nom ou prénom de la personne">
 
->
-
-</div>
 
 </div>
+
 
 <!-- ================================
      PERSONNALISATION BOX
@@ -785,177 +747,116 @@ placeholder="Prénom ou prénom + nom"
 
 <div
 id="personnalisationBox"
-class="form-section"
-style="display:none;"
->
+style="display:none;">
 
 <h3>
-🎁 Personnalisation de votre box
+🎁 Personnalisation de la création
 </h3>
 
-<div class="personnalisation">
 
 <p>
 
-Votre commande contient une box avec une création personnalisée.
+Les créations personnalisées présentes dans les box
+seront réalisées avec le nom indiqué ci-dessous.
 
 </p>
 
-<p>
 
-<strong>
-Merci d'indiquer le nom à utiliser pour cette création :
-</strong>
+<label>
+Nom / prénom à utiliser pour la création personnalisée :
+</label>
 
-</p>
 
 <input
 type="text"
 id="nomPersonnalisation"
-placeholder="Prénom ou nom à inscrire"
+name="nom_personnalisation"
+placeholder="Nom ou prénom">
 
->
-
-</div>
 
 </div>
 
-<!-- ================================
-     COORDONNEES
-================================ -->
-
-<div class="form-section">
-
-<h3>
-👤 Vos coordonnées
-</h3>
-
-<form
-id="form"
-action="https://formsubmit.co/justinepottier.commande@gmail.com"
-method="POST"
-onsubmit="return prepareMail();"
->
-
-<input
-type="text"
-name="nom"
-placeholder="Nom"
-required
-
->
-
-<input
-type="text"
-name="prenom"
-placeholder="Prénom"
-required
-
->
-
-<input
-type="email"
-name="email"
-placeholder="Email"
-required
-
->
-
-<input
-type="tel"
-name="telephone"
-placeholder="Téléphone"
-required
-
->
-
-<input
-type="text"
-name="adresse"
-placeholder="Adresse complète"
-required
-
->
-
-<input
-type="text"
-name="cp"
-placeholder="Code postal"
-required
-
->
-
-<input
-type="text"
-name="ville"
-placeholder="Ville"
-required
-
->
 
 <!-- ================================
      PAIEMENT
 ================================ -->
 
-<div class="form-section">
-
 <h3>
 💳 Mode de paiement
 </h3>
 
+
 <select
 id="paiement"
-required
-
->
+name="paiement"
+onchange="calculEcheancier()"
+required>
 
 <option value="">
 -- Choisissez votre mode de paiement --
 </option>
 
-<option value="SumUp - paiement en une fois">
-💳 SumUp — paiement en une fois
+<option value="sumup">
+💳 Paiement en une fois par SumUp
 </option>
 
-<option value="Virement bancaire - 2 fois">
-🏦 Virement bancaire — paiement en 2 fois
+<option value="virement2">
+🏦 Paiement en 2 fois par virement
 </option>
 
-<option value="Virement bancaire - 3 fois">
-🏦 Virement bancaire — paiement en 3 fois
+<option value="virement3">
+🏦 Paiement en 3 fois par virement
 </option>
 
-<option value="Virement bancaire - 4 fois">
-🏦 Virement bancaire — paiement en 4 fois
+<option value="virement4">
+🏦 Paiement en 4 fois par virement
 </option>
 
 </select>
 
+
+<div id="echeancier">
+
+
+<strong>
+📅 Votre échéancier
+</strong>
+
+
+<div id="echeancierDetails">
+
+</div>
+
+
+</div>
+
+
 <div class="info">
 
-Après validation de votre commande, vous recevrez les informations nécessaires pour effectuer le paiement choisi.
+Après validation de votre commande, vous recevrez
+les informations nécessaires au paiement selon le mode choisi.
 
 <br><br>
 
-Pour un paiement par virement, les modalités et échéances vous seront communiquées par email.
+Pour un paiement par virement, les coordonnées bancaires
+et les modalités des différentes échéances vous seront transmises.
 
 <br><br>
 
-Pour un paiement SumUp, un lien de paiement vous sera transmis.
+Pour un paiement en une fois par SumUp,
+un lien de paiement vous sera transmis.
 
 </div>
 
-</div>
 
 <!-- ================================
-     AVERTISSEMENT PERSONNALISATION
+     AVERTISSEMENT COMMANDES PERSONNALISÉES
 ================================ -->
 
 <div
-id="attentionPersonnalisation"
-class="attention"
-style="display:none;"
->
+class="info-important"
+id="avertissementPersonnalisation"
+style="display:none;">
 
 <strong>
 ⚠️ Attention concernant les commandes personnalisées
@@ -963,22 +864,98 @@ style="display:none;"
 
 <br><br>
 
-Les commandes comportant une personnalisation, notamment une dédicace ou une création personnalisée, font l'objet d'un traitement spécifique.
+Toute commande comprenant une <strong>dédicace</strong>
+ou une <strong>création personnalisée</strong>
+est préparée spécialement pour vous.
 
 <br><br>
 
-Selon la nature de la personnalisation, le droit de rétractation peut ne pas s'appliquer aux biens confectionnés selon les spécifications du client ou nettement personnalisés.
-
-<br><br>
-
-<strong>
-Merci de vérifier attentivement les informations renseignées avant de valider votre commande.
-</strong>
+En validant votre commande, vous reconnaissez que
+les articles personnalisés ou dédicacés ne peuvent
+pas être annulés ou remboursés une fois leur préparation engagée,
+dans les limites prévues par les Conditions Générales de Vente.
 
 </div>
 
+
 <!-- ================================
-     CONDITIONS
+     DONNÉES ENVOYÉES PAR MAIL
+================================ -->
+
+<input
+type="hidden"
+name="commande"
+id="commandeInput">
+
+
+<input
+type="hidden"
+name="poids"
+id="poidsInput">
+
+
+<input
+type="hidden"
+name="livraison"
+id="livraisonInput">
+
+
+<input
+type="hidden"
+name="frais_port"
+id="fraisInput">
+
+
+<input
+type="hidden"
+name="total_commande"
+id="totalInput">
+
+
+<input
+type="hidden"
+name="echeancier"
+id="echeancierInput">
+
+
+<input
+type="hidden"
+name="salon_choisi"
+id="salonInput">
+
+
+<input
+type="hidden"
+name="type_commande"
+id="typeCommandeInput">
+
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+
+<input
+type="hidden"
+name="_subject"
+value="Nouvelle commande - Justine Pottier">
+
+
+<input
+type="hidden"
+name="_template"
+value="table">
+
+
+<input
+type="hidden"
+name="_next"
+value="https://justinepottier-romance.netlify.app/merci.html">
+
+
+<!-- ================================
+     CGV
 ================================ -->
 
 <div class="conditions">
@@ -989,159 +966,99 @@ Merci de vérifier attentivement les informations renseignées avant de valider 
 type="checkbox"
 name="acceptation_cgv"
 value="Oui"
-required
-
->
-
-<span>
+required>
 
 J'accepte les
-
 <a
 href="cgv.html"
-target="_blank"
-
->
+target="_blank">
 
 Conditions Générales de Vente
 
 </a>
 
-et je reconnais en avoir pris connaissance avant de valider ma commande.
-
-</span>
+et je reconnais en avoir pris connaissance
+avant de valider ma commande.
 
 </label>
 
 </div>
 
-<!-- ================================
-     DONNEES CACHEES
-================================ -->
-
-<input
-type="hidden"
-name="commande"
-id="commandeInput"
-
->
-
-<input
-type="hidden"
-name="poids"
-id="poidsInput"
-
->
-
-<input
-type="hidden"
-name="livraison"
-id="livraisonInput"
-
->
-
-<input
-type="hidden"
-name="salon"
-id="salonInput"
-
->
-
-<input
-type="hidden"
-name="frais_port"
-id="fraisInput"
-
->
-
-<input
-type="hidden"
-name="dedicace"
-id="dedicaceInput"
-
->
-
-<input
-type="hidden"
-name="nom_dedicace"
-id="nomDedicaceInput"
-
->
-
-<input
-type="hidden"
-name="nom_personnalisation"
-id="nomPersonnalisationInput"
-
->
-
-<input
-type="hidden"
-name="paiement"
-id="paiementInput"
-
->
-
-<input
-type="hidden"
-name="total_commande"
-id="totalInput"
-
->
-
-<input
-type="hidden"
-name="_captcha"
-value="false"
-
->
-
-<input
-type="hidden"
-name="_subject"
-value="Nouvelle commande - Justine Pottier"
-
->
-
-<input
-type="hidden"
-name="_template"
-value="table"
-
->
-
-<input
-type="hidden"
-name="_next"
-value="https://justinepottier-romance.netlify.app/merci.html"
-
->
 
 <!-- ================================
-     BOUTON
+     CONDITION EBOOK
 ================================ -->
+
+<div
+class="conditions"
+id="ebookCondition"
+style="display:none;">
+
+<label>
+
+<input
+type="checkbox"
+id="ebookCheckbox"
+name="ebook_renoncement"
+value="Oui">
+
+Pour les ebooks : je demande l’envoi du contenu numérique
+par email après paiement. Je reconnais qu’après l’envoi
+du fichier numérique par l’auteure, je ne pourrai plus exercer
+mon droit de rétractation concernant ce contenu numérique.
+
+</label>
+
+</div>
+
+
+<!-- ================================
+     CONFIRMATION PERSONNALISATION
+================================ -->
+
+<div
+class="conditions"
+id="personnalisationCondition"
+style="display:none;">
+
+<label>
+
+<input
+type="checkbox"
+id="personnalisationCheckbox"
+name="confirmation_personnalisation"
+value="Oui">
+
+Je confirme avoir renseigné le nom souhaité pour la
+création personnalisée et avoir pris connaissance
+des conditions applicables aux commandes personnalisées.
+
+</label>
+
+</div>
+
 
 <button
 class="btn"
-type="submit"
+type="submit">
 
->
-
-Valider ma commande
+✅ Valider ma commande
 
 </button>
 
+
 </form>
 
-</div>
 
 </div>
+
 
 <!-- ================================
      FOOTER
 ================================ -->
 
 <footer>
+
 
 <p>
 
@@ -1163,9 +1080,11 @@ Politique de confidentialité
 
 </p>
 
+
 <p>
 © 2026 Justine Pottier - Tous droits réservés
 </p>
+
 
 <p>
 
@@ -1181,53 +1100,47 @@ justinepottier.commande@gmail.com
 
 </p>
 
+
 <div class="social-icons">
+
 
 <a
 href="https://www.instagram.com/justinepottier.auteure/"
-target="_blank"
-
->
+target="_blank">
 
 <img
 src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-alt="Instagram"
-
->
+alt="Instagram">
 
 </a>
+
 
 <a
 href="https://www.facebook.com/profile.php?id=100092045167682"
-target="_blank"
-
->
+target="_blank">
 
 <img
 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-alt="Facebook"
-
->
+alt="Facebook">
 
 </a>
+
 
 <a
 href="https://www.tiktok.com/@justinepottierauteure"
-target="_blank"
-
->
+target="_blank">
 
 <img
 src="tiktok.png"
-alt="TikTok"
-
->
+alt="TikTok">
 
 </a>
+
 
 </div>
 
 </footer>
+
 
 <!-- ================================
      JAVASCRIPT
@@ -1236,17 +1149,47 @@ alt="TikTok"
 <script>
 
 
-/* ==========================================
-   RECUPERATION DU PANIER
-========================================== */
+/* ================================
+   RÉCUPÉRATION DU PANIER
+================================ */
 
 let panier =
 JSON.parse(localStorage.getItem("panier")) || [];
 
 
-/* ==========================================
-   AFFICHER LE PANIER
-========================================== */
+
+/* ================================
+   DÉTECTION DES BOX
+================================ */
+
+function contientBox(){
+
+    return panier.some(produit =>
+        produit.type === "box" ||
+        String(produit.titre).toLowerCase().startsWith("box")
+    );
+
+}
+
+
+
+/* ================================
+   DÉTECTION DES EBOOKS
+================================ */
+
+function contientEbook(){
+
+    return panier.some(produit =>
+        produit.type === "ebook"
+    );
+
+}
+
+
+
+/* ================================
+   AFFICHAGE DU PANIER
+================================ */
 
 function afficherPanier(){
 
@@ -1259,57 +1202,47 @@ function afficherPanier(){
     if(panier.length === 0){
 
         liste.innerHTML =
-        "<p>Votre panier est actuellement vide.</p>";
-
-        document.getElementById("personnalisationBox").style.display="none";
-
-        document.getElementById("attentionPersonnalisation").style.display="none";
+        "<p>Votre panier est vide.</p>";
 
         calculTotal();
 
+        gererOptions();
+
+        verifierEbook();
+
         return;
+
     }
 
 
-    panier.forEach((produit,index)=>{
+    panier.forEach((produit,index) => {
 
         const ligne =
         document.createElement("div");
 
-        ligne.className="item";
+        ligne.className = "item";
 
 
-        ligne.innerHTML=`
+        ligne.innerHTML = `
 
             <div class="item-info">
 
                 <div class="item-title">
-                    ${produit.titre || produit.nom || "Article"}
+                    ${produit.titre}
                 </div>
-
-                ${
-                    produit.poids
-                    ?
-                    `<small>Poids : ${produit.poids} kg</small>`
-                    :
-                    ""
-                }
 
             </div>
 
 
             <div class="item-price">
-
-                ${(Number(produit.prix) || 0).toFixed(2)} €
-
+                ${Number(produit.prix).toFixed(2)} €
             </div>
 
 
             <button
             type="button"
-            class="remove-btn"
-            onclick="supprimer(${index})"
-            >
+            class="delete-btn"
+            onclick="supprimer(${index})">
 
             ❌
 
@@ -1323,16 +1256,19 @@ function afficherPanier(){
     });
 
 
-    verifierBox();
-
     calculTotal();
+
+    gererOptions();
+
+    verifierEbook();
 
 }
 
 
-/* ==========================================
-   SUPPRIMER UN ARTICLE
-========================================== */
+
+/* ================================
+   SUPPRIMER
+================================ */
 
 function supprimer(index){
 
@@ -1348,17 +1284,14 @@ function supprimer(index){
 }
 
 
-/* ==========================================
-   VIDER LE PANIER
-========================================== */
+
+/* ================================
+   VIDER
+================================ */
 
 function viderPanier(){
 
-    if(!confirm("Voulez-vous vraiment vider votre panier ?")){
-        return;
-    }
-
-    panier=[];
+    panier = [];
 
     localStorage.removeItem("panier");
 
@@ -1367,98 +1300,119 @@ function viderPanier(){
 }
 
 
-/* ==========================================
-   CALCUL DU POIDS
-========================================== */
+
+/* ================================
+   POIDS TOTAL
+================================ */
 
 function poidsTotal(){
 
     return panier.reduce(
-
-        (total,produit)=>{
+        (total,produit) => {
 
             /*
-            Les box sont à 2 kg.
-            Les autres produits utilisent
-            leur poids enregistré.
+            Les box sont prévues à 2 kg.
+            Pour les autres produits :
+            on utilise leur poids enregistré,
+            sinon 0,5 kg par défaut.
             */
 
-            return total +
-            (
-                Number(produit.poids) ||
-                0.5
-            );
+            let poids = Number(produit.poids);
+
+            if(
+                produit.type === "box" ||
+                String(produit.titre)
+                .toLowerCase()
+                .startsWith("box")
+            ){
+
+                poids = 2;
+
+            }
+
+            if(!poids || poids <= 0){
+
+                poids = 0.5;
+
+            }
+
+            return total + poids;
 
         },
-
         0
-
     );
 
 }
 
 
-/* ==========================================
+
+/* ================================
    FRAIS MONDIAL RELAY
-========================================== */
+================================ */
 
 function fraisMondial(poids){
 
-    if(poids <= 0){
-        return 0;
-    }
+    if(poids <= 0.5)
+        return 4.20;
 
-    if(poids <= 2){
+    if(poids <= 1)
+        return 5.70;
+
+    if(poids <= 2)
         return 7.99;
-    }
 
-    if(poids <= 3){
-        return 8.10;
-    }
+    if(poids <= 3)
+        return 8.99;
 
-    if(poids <= 5){
-        return 10.00;
-    }
-
-    return 12.00;
+    return 10.00;
 
 }
 
 
-/* ==========================================
+
+/* ================================
    FRAIS COLISSIMO
-========================================== */
+================================ */
 
 function fraisPoste(poids){
 
-    if(poids <= 0){
-        return 0;
-    }
-
-    if(poids <= 0.5){
+    if(poids <= 0.5)
         return 6.70;
-    }
 
-    if(poids <= 1){
+    if(poids <= 1)
         return 8.25;
-    }
 
-    if(poids <= 2){
+    if(poids <= 2)
         return 9.55;
-    }
 
-    if(poids <= 5){
+    if(poids <= 5)
         return 14.65;
-    }
 
     return 20.00;
 
 }
 
 
-/* ==========================================
+
+/* ================================
+   TOTAL PRODUITS
+================================ */
+
+function totalProduits(){
+
+    return panier.reduce(
+        (total,produit) =>
+        total + Number(produit.prix || 0),
+        0
+    );
+
+}
+
+
+
+/* ================================
    CALCUL TOTAL
-========================================== */
+================================ */
 
 function calculTotal(){
 
@@ -1466,18 +1420,20 @@ function calculTotal(){
     poidsTotal();
 
 
-    document.getElementById("poids").textContent =
+    document.getElementById("poids")
+    .textContent =
     poids.toFixed(2);
 
 
     const mode =
-    document.getElementById("livraison").value;
+    document.getElementById("livraison")
+    .value;
 
 
-    let frais=0;
+    let frais = 0;
 
 
-    if(mode==="mondial"){
+    if(mode === "mondial"){
 
         frais =
         fraisMondial(poids);
@@ -1485,7 +1441,7 @@ function calculTotal(){
     }
 
 
-    if(mode==="poste"){
+    if(mode === "poste"){
 
         frais =
         fraisPoste(poids);
@@ -1493,173 +1449,193 @@ function calculTotal(){
     }
 
 
-    if(mode==="salon"){
+    if(mode === "salon"){
 
-        frais=0;
+        frais = 0;
 
-        document.getElementById("salonBox").style.display =
-        "block";
+        document.getElementById("salonBox")
+        .style.display = "block";
 
     }
     else{
 
-        document.getElementById("salonBox").style.display =
-        "none";
+        document.getElementById("salonBox")
+        .style.display = "none";
 
     }
 
 
-    const articles =
-    panier.reduce(
+    if(mode !== "salon"){
 
-        (total,produit)=>{
+        document.getElementById("salon")
+        .value = "";
 
-            return total +
-            (Number(produit.prix) || 0);
+    }
 
-        },
 
-        0
-
-    );
+    const produits =
+    totalProduits();
 
 
     const total =
-    articles + frais;
+    produits + frais;
 
 
-    document.getElementById("frais").textContent =
+    document.getElementById("frais")
+    .textContent =
     frais.toFixed(2);
 
 
-    document.getElementById("total").textContent =
-    total.toFixed(2);
+    document.getElementById("total")
+    .textContent =
+    total.toFixed(2) + " €";
+
+
+    calculEcheancier();
 
 }
 
 
-/* ==========================================
-   VERIFICATION DES BOX
-========================================== */
 
-function contientBox(){
+/* ================================
+   GESTION DES OPTIONS
+================================ */
 
-    return panier.some(produit => {
-
-        const titre =
-        (
-            produit.titre ||
-            produit.nom ||
-            ""
-        ).toLowerCase();
-
-        return titre.includes("box");
-
-    });
-
-}
-
-
-/* ==========================================
-   AFFICHAGE PERSONNALISATION BOX
-========================================== */
-
-function verifierBox(){
+function gererOptions(){
 
     const box =
     contientBox();
 
 
-    const bloc =
+    const blocPersonnalisation =
     document.getElementById(
         "personnalisationBox"
     );
 
 
-    const attention =
+    const blocConfirmation =
     document.getElementById(
-        "attentionPersonnalisation"
+        "personnalisationCondition"
+    );
+
+
+    const avertissement =
+    document.getElementById(
+        "avertissementPersonnalisation"
+    );
+
+
+    const champNom =
+    document.getElementById(
+        "nomPersonnalisation"
+    );
+
+
+    const checkbox =
+    document.getElementById(
+        "personnalisationCheckbox"
     );
 
 
     if(box){
 
-        bloc.style.display="block";
+        blocPersonnalisation
+        .style.display = "block";
 
-        attention.style.display="block";
+
+        blocConfirmation
+        .style.display = "block";
+
+
+        avertissement
+        .style.display = "block";
+
+
+        champNom.required = true;
+
+        checkbox.required = true;
 
     }
     else{
 
-        bloc.style.display="none";
+        blocPersonnalisation
+        .style.display = "none";
 
-        /*
-        L'avertissement reste affiché si une
-        dédicace est sélectionnée.
-        */
 
-        if(
-            document.getElementById("dedicace").value !== "Oui"
-        ){
+        blocConfirmation
+        .style.display = "none";
 
-            attention.style.display="none";
 
-        }
+        avertissement
+        .style.display = "none";
 
-        document.getElementById(
-            "nomPersonnalisation"
-        ).value="";
+
+        champNom.required = false;
+
+        champNom.value = "";
+
+        checkbox.required = false;
+
+        checkbox.checked = false;
 
     }
 
 }
 
 
-/* ==========================================
-   GESTION DEDICACE
-========================================== */
+
+/* ================================
+   DÉDICACE
+================================ */
 
 function gererDedicace(){
 
     const choix =
-    document.getElementById("dedicace").value;
+    document.getElementById("dedicace")
+    .value;
 
 
     const bloc =
-    document.getElementById("dedicaceBox");
-
-
-    const champ =
-    document.getElementById("nomDedicace");
-
-
-    const attention =
     document.getElementById(
-        "attentionPersonnalisation"
+        "dedicaceNomBox"
     );
 
 
-    if(choix==="Oui"){
+    const nom =
+    document.getElementById(
+        "dedicaceNom"
+    );
 
-        bloc.style.display="block";
 
-        champ.required=true;
+    const avertissement =
+    document.getElementById(
+        "avertissementPersonnalisation"
+    );
 
-        attention.style.display="block";
+
+    if(choix === "Oui"){
+
+        bloc.style.display = "block";
+
+        nom.required = true;
+
+        avertissement
+        .style.display = "block";
 
     }
     else{
 
-        bloc.style.display="none";
+        bloc.style.display = "none";
 
-        champ.required=false;
+        nom.required = false;
 
-        champ.value="";
+        nom.value = "";
 
 
         if(!contientBox()){
 
-            attention.style.display="none";
+            avertissement
+            .style.display = "none";
 
         }
 
@@ -1668,15 +1644,252 @@ function gererDedicace(){
 }
 
 
-/* ==========================================
-   PREPARATION DU MAIL
-========================================== */
+
+/* ================================
+   CALCUL DES ÉCHÉANCES
+================================ */
+
+function calculEcheancier(){
+
+    const paiement =
+    document.getElementById("paiement")
+    .value;
+
+
+    const bloc =
+    document.getElementById("echeancier");
+
+
+    const details =
+    document.getElementById(
+        "echeancierDetails"
+    );
+
+
+    const total =
+    totalProduits() +
+    calculFraisActuels();
+
+
+    details.innerHTML = "";
+
+
+    if(
+        !paiement ||
+        paiement === "sumup" ||
+        panier.length === 0
+    ){
+
+        bloc.style.display = "none";
+
+        return;
+
+    }
+
+
+    let nombreEcheances = 0;
+
+
+    if(paiement === "virement2")
+        nombreEcheances = 2;
+
+
+    if(paiement === "virement3")
+        nombreEcheances = 3;
+
+
+    if(paiement === "virement4")
+        nombreEcheances = 4;
+
+
+    if(nombreEcheances === 0){
+
+        bloc.style.display = "none";
+
+        return;
+
+    }
+
+
+    const centimes =
+    Math.round(total * 100);
+
+
+    const base =
+    Math.floor(
+        centimes / nombreEcheances
+    );
+
+
+    const reste =
+    centimes %
+    nombreEcheances;
+
+
+    let echeancierTexte = "";
+
+
+    for(
+        let i = 1;
+        i <= nombreEcheances;
+        i++
+    ){
+
+        let montant =
+        base;
+
+
+        /*
+        Les centimes restants sont ajoutés
+        aux premières échéances afin que
+        le total soit exactement correct.
+        */
+
+        if(i <= reste){
+
+            montant += 1;
+
+        }
+
+
+        const montantEuros =
+        (montant / 100)
+        .toFixed(2);
+
+
+        details.innerHTML += `
+
+            <div class="echeance">
+
+                Échéance ${i} :
+                <strong>
+                    ${montantEuros} €
+                </strong>
+
+            </div>
+
+        `;
+
+
+        echeancierTexte +=
+        "Échéance " +
+        i +
+        " : " +
+        montantEuros +
+        " €";
+
+
+        if(i < nombreEcheances){
+
+            echeancierTexte += "\n";
+
+        }
+
+    }
+
+
+    details.innerHTML += `
+
+        <br>
+
+        <strong>
+        Total : ${total.toFixed(2)} €
+        </strong>
+
+    `;
+
+
+    bloc.style.display = "block";
+
+}
+
+
+
+/* ================================
+   FRAIS ACTUELS
+================================ */
+
+function calculFraisActuels(){
+
+    const poids =
+    poidsTotal();
+
+
+    const mode =
+    document.getElementById("livraison")
+    .value;
+
+
+    if(mode === "mondial"){
+
+        return fraisMondial(poids);
+
+    }
+
+
+    if(mode === "poste"){
+
+        return fraisPoste(poids);
+
+    }
+
+
+    return 0;
+
+}
+
+
+
+/* ================================
+   EBOOK
+================================ */
+
+function verifierEbook(){
+
+    const contient =
+    contientEbook();
+
+
+    const bloc =
+    document.getElementById(
+        "ebookCondition"
+    );
+
+
+    const checkbox =
+    document.getElementById(
+        "ebookCheckbox"
+    );
+
+
+    if(contient){
+
+        bloc.style.display = "block";
+
+        checkbox.required = true;
+
+    }
+    else{
+
+        bloc.style.display = "none";
+
+        checkbox.required = false;
+
+        checkbox.checked = false;
+
+    }
+
+}
+
+
+
+/* ================================
+   PRÉPARATION DU MAIL
+================================ */
 
 function prepareMail(){
 
-    /* Vérification panier */
-
-    if(panier.length===0){
+    if(panier.length === 0){
 
         alert(
             "Votre panier est vide."
@@ -1687,116 +1900,110 @@ function prepareMail(){
     }
 
 
-    /* Vérification livraison */
-
     const livraison =
-    document.getElementById("livraison").value;
+    document.getElementById("livraison")
+    .value;
 
 
     if(!livraison){
 
         alert(
-            "Merci de choisir votre mode de livraison."
+            "Merci de choisir votre mode de réception."
         );
 
-        document.getElementById("livraison").focus();
+        document.getElementById("livraison")
+        .focus();
 
         return false;
 
     }
 
 
-    /* Vérification salon */
+    if(
+        livraison === "salon" &&
+        !document.getElementById("salon").value
+    ){
 
-    if(livraison==="salon"){
+        alert(
+            "Merci de choisir le salon pour le retrait."
+        );
 
-        const salon =
-        document.getElementById("salon").value;
+        document.getElementById("salon")
+        .focus();
 
-
-        if(!salon){
-
-            alert(
-                "Merci de choisir le salon où vous souhaitez retirer votre commande."
-            );
-
-            document.getElementById("salon").focus();
-
-            return false;
-
-        }
+        return false;
 
     }
 
 
-    /* Vérification dédicace */
-
     const dedicace =
-    document.getElementById("dedicace").value;
+    document.getElementById("dedicace")
+    .value;
 
 
     if(!dedicace){
 
         alert(
-            "Merci d'indiquer si vous souhaitez une dédicace."
+            "Merci de répondre à la question concernant la dédicace."
         );
 
-        document.getElementById("dedicace").focus();
+        document.getElementById("dedicace")
+        .focus();
 
         return false;
 
     }
 
 
-    /* Vérification nom dédicace */
+    if(
+        dedicace === "Oui" &&
+        !document.getElementById("dedicaceNom").value.trim()
+    ){
 
-    let nomDedicace="";
+        alert(
+            "Merci d'indiquer le nom ou prénom pour la dédicace."
+        );
 
+        document.getElementById("dedicaceNom")
+        .focus();
 
-    if(dedicace==="Oui"){
-
-        nomDedicace =
-        document.getElementById("nomDedicace").value.trim();
-
-
-        if(!nomDedicace){
-
-            alert(
-                "Merci d'indiquer le nom à inscrire pour la dédicace."
-            );
-
-            document.getElementById("nomDedicace").focus();
-
-            return false;
-
-        }
+        return false;
 
     }
-
-
-    /* Vérification personnalisation box */
-
-    let nomPersonnalisation="";
 
 
     if(contientBox()){
 
-        nomPersonnalisation =
-        document
-        .getElementById("nomPersonnalisation")
-        .value
-        .trim();
+        const nom =
+        document.getElementById(
+            "nomPersonnalisation"
+        ).value.trim();
 
 
-        if(!nomPersonnalisation){
+        if(!nom){
 
             alert(
-                "Merci d'indiquer le nom à inscrire sur la création personnalisée de votre box."
+                "Merci d'indiquer le nom ou prénom pour la création personnalisée."
             );
 
-            document
-            .getElementById("nomPersonnalisation")
-            .focus();
+            document.getElementById(
+                "nomPersonnalisation"
+            ).focus();
+
+            return false;
+
+        }
+
+
+        if(
+            !document.getElementById(
+                "personnalisationCheckbox"
+            ).checked
+        ){
+
+            alert(
+                "Merci de confirmer les informations concernant la personnalisation."
+            );
 
             return false;
 
@@ -1805,10 +2012,9 @@ function prepareMail(){
     }
 
 
-    /* Vérification paiement */
-
     const paiement =
-    document.getElementById("paiement").value;
+    document.getElementById("paiement")
+    .value;
 
 
     if(!paiement){
@@ -1817,153 +2023,244 @@ function prepareMail(){
             "Merci de choisir votre mode de paiement."
         );
 
-        document.getElementById("paiement").focus();
+        document.getElementById("paiement")
+        .focus();
 
         return false;
 
     }
 
 
-    /* ======================================
-       CALCULS
-    ====================================== */
+    if(
+        contientEbook() &&
+        !document.getElementById(
+            "ebookCheckbox"
+        ).checked
+    ){
+
+        alert(
+            "Merci d'accepter la condition concernant l'envoi des ebooks."
+        );
+
+        return false;
+
+    }
+
 
     const poids =
     poidsTotal();
 
 
-    let frais=0;
-
-
-    if(livraison==="mondial"){
-
-        frais =
-        fraisMondial(poids);
-
-    }
-
-
-    if(livraison==="poste"){
-
-        frais =
-        fraisPoste(poids);
-
-    }
-
-
-    if(livraison==="salon"){
-
-        frais=0;
-
-    }
-
-
-    const articles =
-    panier.reduce(
-
-        (total,produit)=>{
-
-            return total +
-            (Number(produit.prix) || 0);
-
-        },
-
-        0
-
-    );
+    const frais =
+    calculFraisActuels();
 
 
     const total =
-    articles + frais;
+    totalProduits() + frais;
 
 
-    /* ======================================
-       NOM DU MODE DE LIVRAISON
-    ====================================== */
-
-    let nomLivraison="";
+    let nomLivraison = "";
 
 
-    if(livraison==="mondial"){
-
+    if(livraison === "mondial")
         nomLivraison =
         "Mondial Relay";
 
-    }
 
-    if(livraison==="poste"){
-
+    if(livraison === "poste")
         nomLivraison =
         "La Poste Colissimo";
 
-    }
 
-    if(livraison==="salon"){
-
+    if(livraison === "salon")
         nomLivraison =
         "Retrait salon";
 
-    }
+
+    const salon =
+    document.getElementById("salon").value;
 
 
-    /* ======================================
-       DETAIL DE LA COMMANDE
-    ====================================== */
+    /* ================================
+       COMMANDE
+    ================================= */
 
     const commande =
-    panier.map(
+    panier.map(produit => {
 
-        (produit,index)=>{
-
-            const titre =
-            produit.titre ||
-            produit.nom ||
-            "Article";
-
-
-            const prix =
-            Number(produit.prix) || 0;
+        let ligne =
+        produit.titre +
+        " - " +
+        Number(produit.prix).toFixed(2) +
+        " €";
 
 
-            const poidsProduit =
-            Number(produit.poids) || 0.5;
+        if(produit.poids){
 
-
-            return (
-                (index+1)
-                + ". "
-                + titre
-                + " — "
-                + prix.toFixed(2)
-                + " €"
-                + " — "
-                + poidsProduit.toFixed(2)
-                + " kg"
-            );
+            ligne +=
+            " (" +
+            produit.poids +
+            " kg)";
 
         }
 
-    ).join("\n");
+
+        return ligne;
+
+    }).join("\n");
 
 
-    /* ======================================
-       SALON
-    ====================================== */
+    /* ================================
+       PAIEMENT
+    ================================= */
 
-    let nomSalon="";
+    let nomPaiement = "";
 
 
-    if(livraison==="salon"){
+    if(paiement === "sumup"){
 
-        nomSalon =
-        document.getElementById("salon").value;
+        nomPaiement =
+        "Paiement en une fois par SumUp";
 
     }
 
 
-    /* ======================================
-       REMPLISSAGE DES CHAMPS CACHES
-    ====================================== */
+    if(paiement === "virement2"){
+
+        nomPaiement =
+        "Paiement en 2 fois par virement";
+
+    }
+
+
+    if(paiement === "virement3"){
+
+        nomPaiement =
+        "Paiement en 3 fois par virement";
+
+    }
+
+
+    if(paiement === "virement4"){
+
+        nomPaiement =
+        "Paiement en 4 fois par virement";
+
+    }
+
+
+    /* ================================
+       ÉCHÉANCIER POUR LE MAIL
+    ================================= */
+
+    let echeancierMail =
+    "Paiement en une fois";
+
+
+    if(paiement !== "sumup"){
+
+        let nombre = 0;
+
+
+        if(paiement === "virement2")
+            nombre = 2;
+
+
+        if(paiement === "virement3")
+            nombre = 3;
+
+
+        if(paiement === "virement4")
+            nombre = 4;
+
+
+        const centimes =
+        Math.round(total * 100);
+
+
+        const base =
+        Math.floor(
+            centimes / nombre
+        );
+
+
+        const reste =
+        centimes % nombre;
+
+
+        echeancierMail = "";
+
+
+        for(
+            let i = 1;
+            i <= nombre;
+            i++
+        ){
+
+            let montant =
+            base;
+
+
+            if(i <= reste){
+
+                montant += 1;
+
+            }
+
+
+            echeancierMail +=
+            "Échéance " +
+            i +
+            " : " +
+            (montant / 100).toFixed(2) +
+            " €";
+
+
+            if(i < nombre){
+
+                echeancierMail += "\n";
+
+            }
+
+        }
+
+    }
+
+
+    /* ================================
+       TYPE DE COMMANDE
+    ================================= */
+
+    let typeCommande =
+    "Commande classique";
+
+
+    if(
+        contientBox() &&
+        dedicace === "Oui"
+    ){
+
+        typeCommande =
+        "Commande avec box + dédicace + personnalisation";
+
+    }
+    else if(contientBox()){
+
+        typeCommande =
+        "Commande avec box + personnalisation";
+
+    }
+    else if(dedicace === "Oui"){
+
+        typeCommande =
+        "Commande avec dédicace";
+
+    }
+
+
+    /* ================================
+       ENVOI DES INFORMATIONS
+    ================================= */
 
     document.getElementById(
         "commandeInput"
@@ -1974,8 +2271,8 @@ function prepareMail(){
     document.getElementById(
         "poidsInput"
     ).value =
-    poids.toFixed(2)
-    + " kg";
+    poids.toFixed(2) +
+    " kg";
 
 
     document.getElementById(
@@ -1985,61 +2282,58 @@ function prepareMail(){
 
 
     document.getElementById(
-        "salonInput"
-    ).value =
-    nomSalon;
-
-
-    document.getElementById(
         "fraisInput"
     ).value =
-    frais.toFixed(2)
-    + " €";
-
-
-    document.getElementById(
-        "dedicaceInput"
-    ).value =
-    dedicace;
-
-
-    document.getElementById(
-        "nomDedicaceInput"
-    ).value =
-    nomDedicace;
-
-
-    document.getElementById(
-        "nomPersonnalisationInput"
-    ).value =
-    nomPersonnalisation;
-
-
-    document.getElementById(
-        "paiementInput"
-    ).value =
-    paiement;
+    frais.toFixed(2) +
+    " €";
 
 
     document.getElementById(
         "totalInput"
     ).value =
-    total.toFixed(2)
-    + " €";
+    total.toFixed(2) +
+    " €";
 
+
+    document.getElementById(
+        "echeancierInput"
+    ).value =
+    nomPaiement +
+    "\n\n" +
+    echeancierMail;
+
+
+    document.getElementById(
+        "salonInput"
+    ).value =
+    salon || "Aucun";
+
+
+    document.getElementById(
+        "typeCommandeInput"
+    ).value =
+    typeCommande;
+
+
+    /*
+    Le formulaire peut maintenant être envoyé
+    à FormSubmit.
+    */
 
     return true;
 
 }
 
 
-/* ==========================================
+
+/* ================================
    INITIALISATION
-========================================== */
+================================ */
 
 afficherPanier();
 
 </script>
+
 
 </body>
 
