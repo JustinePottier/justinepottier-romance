@@ -1716,7 +1716,19 @@ bloc.style.display =
 "block";
 
 }
+else if(paiement === "virement1"){
 
+details.innerHTML =
+"<p><strong>"
++
+total.toFixed(2)
++
+" € à régler en une seule fois par virement bancaire.</strong></p>";
+
+bloc.style.display =
+"block";
+
+}
 else{
 
 bloc.style.display =
