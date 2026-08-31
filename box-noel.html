@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Les Box de fin d'année - Justine Pottier</title>
+
 
 <style>
 
@@ -222,6 +225,61 @@ transform:scale(1.03);
 
 
 /* ================================
+   CHOIX BOX PASSION
+================================ */
+
+.choix-passion{
+max-width:600px;
+margin:25px auto 0;
+text-align:left;
+}
+
+.choix-passion h3{
+text-align:center;
+}
+
+.formule-passion{
+display:block;
+background:#ffffff;
+border:2px solid #f2c1c1;
+border-radius:12px;
+padding:15px 20px;
+margin:12px 0;
+cursor:pointer;
+transition:0.2s;
+box-sizing:border-box;
+}
+
+.formule-passion:hover{
+background:#fff3f3;
+transform:scale(1.01);
+}
+
+.formule-passion input{
+margin-right:10px;
+cursor:pointer;
+}
+
+.formule-passion strong{
+font-size:1.05rem;
+}
+
+.format-asdt{
+display:none;
+margin:10px 0 20px 25px;
+padding:15px;
+background:#fff8e1;
+border-radius:10px;
+}
+
+.format-asdt label{
+display:block;
+margin:12px 0;
+cursor:pointer;
+}
+
+
+/* ================================
    INFORMATIONS
 ================================ */
 
@@ -309,6 +367,14 @@ font-size:1.7rem;
 font-size:1.05rem;
 }
 
+.choix-passion{
+text-align:left;
+}
+
+.format-asdt{
+margin-left:0;
+}
+
 }
 
 </style>
@@ -391,11 +457,9 @@ Les Ebooks
 🎄 Box de fin d'année
 </a>
 
-
 <a href="apropos.html">
 Qui suis-je
 </a>
-
 
 <a href="contact.html">
 Contact
@@ -427,13 +491,11 @@ CGV
 Où me rencontrer
 </a>
 
-
 <a href="panier.html">
 🛒 Mon panier
 </a>
 
 </nav>
-
 
 
 <!-- ================================
@@ -466,9 +528,8 @@ Mais chut… je ne vous dévoilerai pas tout. 🤫
 </p>
 
 
-
 <!-- ================================
-     BOX LUXE Noël
+      BOX LUXE NOËL
 ================================ -->
 
 <section
@@ -478,9 +539,8 @@ data-price="45"
 data-weight="2"
 >
 
-
 <h2>
-🎄 Box Luxe Noêl
+🎄 Box Luxe Noël
 </h2>
 
 
@@ -542,9 +602,8 @@ onclick="ajouterAuPanier(
 </section>
 
 
-
 <!-- ================================
-     BOX LUXE PASSION
+      BOX LUXE PASSION
 ================================ -->
 
 <section
@@ -552,7 +611,6 @@ class="box-section"
 data-product="Box Luxe Passion"
 data-weight="2"
 >
-
 
 <h2>
 ❤️ Box Luxe Passion
@@ -577,27 +635,8 @@ de romance et de grandes émotions. ❤️
 
 <br><br>
 
-Choisissez votre formule :
-
-<br><br>
-
-<strong>
-45 € — avec un roman au choix
-</strong>
-
-<br><br>
-
-📖 <em>The Sound Sky : Valentine</em>
-
-<br>
-
-🏀 <em>À un shoot de toi</em>
-
-<br><br>
-
-<strong>
-65 € — avec les deux romans
-</strong>
+Choisissez votre formule et le roman que vous souhaitez
+retrouver dans votre box.
 
 <br><br>
 
@@ -608,16 +647,9 @@ et d'autres surprises viendront compléter cette box… 🎁✨
 <br><br>
 
 <strong>
-Mais chut… une partie du contenu restera secrète jusqu'à l'ouverture de la box ! 🤫
+Mais chut… une partie du contenu restera secrète jusqu'à
+l'ouverture de la box ! 🤫
 </strong>
-
-</p>
-
-
-<p class="prix">
-
-45 € avec un roman<br>
-65 € avec les deux romans
 
 </p>
 
@@ -627,24 +659,154 @@ Seulement 5 box disponibles
 </div>
 
 
-<br>
+<div class="choix-passion">
+
+<h3>
+📚 Choisissez votre formule
+</h3>
+
+
+<label class="formule-passion">
+
+<input
+type="radio"
+name="formule-passion"
+value="valentine"
+>
+
+<strong>
+45 € — The Sound Sky : Valentine
+</strong>
+
+</label>
+
+
+<label class="formule-passion">
+
+<input
+type="radio"
+name="formule-passion"
+value="asdt"
+>
+
+<strong>
+45 € — À un shoot de toi
+</strong>
+
+</label>
+
+
+<!-- FORMAT À UN SHOOT DE TOI SEUL -->
+
+<div
+class="format-asdt"
+id="format-simple"
+>
+
+<strong>
+Choisissez votre format :
+</strong>
+
+
+<label>
+
+<input
+type="radio"
+name="format-simple"
+value="Broché"
+>
+
+📖 Broché
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="format-simple"
+value="Relié avec légers défauts esthétiques"
+>
+
+✨ Relié — exemplaire avec légers défauts esthétiques
+
+</label>
+
+</div>
+
+
+<label class="formule-passion">
+
+<input
+type="radio"
+name="formule-passion"
+value="deux"
+>
+
+<strong>
+65 € — Les deux romans
+</strong>
+
+</label>
+
+
+<!-- FORMAT POUR LES DEUX ROMANS -->
+
+<div
+class="format-asdt"
+id="format-deux"
+>
+
+<strong>
+Format de « À un shoot de toi » :
+</strong>
+
+
+<label>
+
+<input
+type="radio"
+name="format-deux"
+value="Broché"
+>
+
+📖 Broché
+
+</label>
+
+
+<label>
+
+<input
+type="radio"
+name="format-deux"
+value="Relié avec légers défauts esthétiques"
+>
+
+✨ Relié — exemplaire avec légers défauts esthétiques
+
+</label>
+
+</div>
 
 
 <button
 class="bouton"
-onclick="choisirBoxPassion()"
+onclick="ajouterBoxPassion()"
 >
 
-🛒 Choisir ma formule
+🛒 Ajouter ma Box Passion au panier
 
 </button>
+
+</div>
 
 </section>
 
 
-
 <!-- ================================
-     BOX LUXE SOMBRE
+      BOX LUXE SOMBRE
 ================================ -->
 
 <section
@@ -653,7 +815,6 @@ data-product="Box Luxe Sombre"
 data-price="80"
 data-weight="2"
 >
-
 
 <h2>
 🖤 Box Luxe Sombre
@@ -718,13 +879,11 @@ onclick="ajouterAuPanier(
 </section>
 
 
-
 <!-- ================================
-     INFORMATIONS
+      INFORMATIONS
 ================================ -->
 
 <section class="infos">
-
 
 <h2>
 🎁 Informations importantes
@@ -733,36 +892,28 @@ onclick="ajouterAuPanier(
 
 <ul>
 
-
 <li>
 Les box sont disponibles en quantité très limitée.
 </li>
-
 
 <li>
 Seulement <strong>5 exemplaires de chaque box</strong>
 sont disponibles.
 </li>
 
-
 <li>
 Les frais de port sont calculés séparément dans le panier.
 </li>
-
-
-
 
 <li>
 Le paiement en plusieurs fois sera possible :
 <strong>2, 3 ou 4 fois par virement bancaire</strong>.
 </li>
 
-
 <li>
 Le paiement en une fois pourra également être effectué
 par <strong>SumUp</strong>.
 </li>
-
 
 <li>
 Les envois sont prévus avant Noël,
@@ -770,12 +921,10 @@ Les envois sont prévus avant Noël,
 frais de port inclus.
 </li>
 
-
 <li>
 Une création de votre box sera personnalisée avec
 <strong>le prénom de votre choix</strong>.
 </li>
-
 
 </ul>
 
@@ -796,17 +945,14 @@ Me contacter
 
 </button>
 
-
 </section>
 
 
-
 <!-- ================================
-     FOOTER
+      FOOTER
 ================================ -->
 
 <footer>
-
 
 <p>
 
@@ -850,7 +996,6 @@ justinepottier.commande@gmail.com
 
 <div class="social-icons">
 
-
 <a
 href="https://www.instagram.com/justinepottier.auteure/"
 target="_blank"
@@ -889,25 +1034,24 @@ alt="TikTok"
 
 </a>
 
-
 </div>
 
 </footer>
 
 
-
 <!-- ================================
-     SYSTÈME PANIER
+      SYSTÈME PANIER
 ================================ -->
 
 <script>
 
 
-/* Récupération du panier actuel */
+/* ================================
+   RÉCUPÉRATION DU PANIER
+================================ */
 
 let panier =
 JSON.parse(localStorage.getItem("panier")) || [];
-
 
 
 /* ================================
@@ -916,122 +1060,214 @@ JSON.parse(localStorage.getItem("panier")) || [];
 
 function ajouterAuPanier(nom, prix, poids, type){
 
-    const produit = {
+const produit = {
 
-        titre: nom,
+titre: nom,
 
-        prix: prix,
+prix: prix,
 
-        poids: poids,
+poids: poids,
 
-        type: type
+type: type
 
-    };
-
-
-    panier.push(produit);
+};
 
 
-    localStorage.setItem(
-        "panier",
-        JSON.stringify(panier)
-    );
+panier.push(produit);
 
 
-    alert(
-        nom + " a été ajoutée à votre panier !"
-    );
+localStorage.setItem(
+"panier",
+JSON.stringify(panier)
+);
 
 
-    window.location.href = "panier.html";
+alert(
+nom + " a été ajoutée à votre panier !"
+);
+
+
+window.location.href = "panier.html";
 
 }
-
 
 
 /* ================================
-   BOX PASSION
+   AFFICHAGE DES FORMATS
 ================================ */
 
-function choisirBoxPassion(){
+document
+.querySelectorAll('input[name="formule-passion"]')
+.forEach(function(radio){
+
+radio.addEventListener(
+"change",
+function(){
+
+const formatSimple =
+document.getElementById("format-simple");
+
+const formatDeux =
+document.getElementById("format-deux");
 
 
-    const choix = prompt(
+/* On cache les deux choix */
 
-        "Choisissez votre formule :\n\n" +
+formatSimple.style.display = "none";
 
-        "1 = 45 € avec The Sound Sky : Valentine\n" +
-
-        "2 = 45 € avec À un shoot de toi\n" +
-
-        "3 = 65 € avec les deux romans"
-
-    );
+formatDeux.style.display = "none";
 
 
-    if(choix === "1"){
+/* À un shoot de toi seul */
 
-        ajouterAuPanier(
+if(this.value === "asdt"){
 
-            "Box Luxe Passion - The Sound Sky : Valentine",
-
-            45,
-
-            2,
-
-            "box"
-
-        );
-
-    }
-
-
-    else if(choix === "2"){
-
-        ajouterAuPanier(
-
-            "Box Luxe Passion - À un shoot de toi",
-
-            45,
-
-            2,
-
-            "box"
-
-        );
-
-    }
-
-
-    else if(choix === "3"){
-
-        ajouterAuPanier(
-
-            "Box Luxe Passion - Les deux romans",
-
-            65,
-
-            2,
-
-            "box"
-
-        );
-
-    }
-
-
-    else{
-
-        alert(
-            "Aucune formule sélectionnée."
-        );
-
-    }
+formatSimple.style.display = "block";
 
 }
+
+
+/* Les deux romans */
+
+if(this.value === "deux"){
+
+formatDeux.style.display = "block";
+
+}
+
+}
+
+);
+
+});
+
+
+/* ================================
+   AJOUT BOX PASSION
+================================ */
+
+function ajouterBoxPassion(){
+
+
+const formule =
+document.querySelector(
+'input[name="formule-passion"]:checked'
+);
+
+
+if(!formule){
+
+alert(
+"Veuillez choisir une formule."
+);
+
+return;
+
+}
+
+
+let titre = "";
+
+let prix = 0;
+
+
+/* ================================
+   VALENTINE
+================================ */
+
+if(formule.value === "valentine"){
+
+titre =
+"Box Luxe Passion - The Sound Sky : Valentine";
+
+prix = 45;
+
+}
+
+
+/* ================================
+   À UN SHOOT DE TOI
+================================ */
+
+if(formule.value === "asdt"){
+
+
+const format =
+document.querySelector(
+'input[name="format-simple"]:checked'
+);
+
+
+if(!format){
+
+alert(
+"Veuillez choisir le format de À un shoot de toi."
+);
+
+return;
+
+}
+
+
+titre =
+"Box Luxe Passion - À un shoot de toi - " +
+format.value;
+
+prix = 45;
+
+}
+
+
+/* ================================
+   LES DEUX ROMANS
+================================ */
+
+if(formule.value === "deux"){
+
+
+const format =
+document.querySelector(
+'input[name="format-deux"]:checked'
+);
+
+
+if(!format){
+
+alert(
+"Veuillez choisir le format de À un shoot de toi."
+);
+
+return;
+
+}
+
+
+titre =
+"Box Luxe Passion - The Sound Sky : Valentine + À un shoot de toi - " +
+format.value;
+
+prix = 65;
+
+}
+
+
+/* ================================
+   AJOUT AU PANIER
+================================ */
+
+ajouterAuPanier(
+titre,
+prix,
+2,
+"box"
+);
+
+}
+
 
 </script>
 
 
 </body>
+
 </html>
