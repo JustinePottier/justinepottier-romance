@@ -1308,8 +1308,8 @@ const codesPromo = {
     "PORTGRATUIT": {
         type: "port",
         valeur: 0,
-        debut: "2026-09-19T19:00",
-        fin: "2026-09-20T23:59"
+        debut: "2026-09-19T10:00",
+        fin: "2026-09-21T23:59"
     }
 
 
@@ -1981,7 +1981,8 @@ if(reduction > totalProduits){
 
 if(
 promoActuelle &&
-promoActuelle.type === "port"
+promoActuelle.type === "port" &&
+modeLivraison === "mondial"
 ){
 
     frais = 0;
@@ -2392,7 +2393,12 @@ nomPaiement =
 "Paiement en une fois par SumUp";
 
 }
+if(paiement === "virement1"){
 
+nomPaiement =
+"Virement bancaire en 1 fois";
+
+}
 
 if(paiement === "virement2"){
 
