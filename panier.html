@@ -340,7 +340,58 @@ label{
     margin-top:20px;
     font-weight:bold;
 }
+/* ================================
+   CODE PROMO
+================================ */
 
+.promo-box{
+    background:#fdf1f1;
+    padding:18px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.promo-box h3{
+    margin-top:0;
+}
+
+.promo-ligne{
+    display:flex;
+    gap:10px;
+}
+
+.promo-ligne input{
+    flex:1;
+    margin:0;
+}
+
+.promo-ligne button{
+    background:#1A2A40;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:0 18px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:bold;
+}
+
+.promo-ligne button:hover{
+    background:#3c5a80;
+}
+
+#messagePromo{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.promo-valide{
+    color:#2d6a4f;
+}
+
+.promo-erreur{
+    color:#721c24;
+}
 
 /* ================================
    FOOTER
@@ -548,6 +599,16 @@ Frais de port :
 </p>
 
 
+<p id="ligneReduction" style="display:none;">
+
+Réduction :
+<strong>
+<span id="reduction">0</span> €
+</strong>
+
+</p>
+
+
 <p class="total">
 
 Total :
@@ -556,7 +617,30 @@ Total :
 </p>
 
 </div>
+<div class="promo-box">
 
+<h3>🎁 Vous avez un code promo ?</h3>
+
+<div class="promo-ligne">
+
+<input
+type="text"
+id="codePromo"
+placeholder="Entrez votre code"
+>
+
+<button
+type="button"
+onclick="appliquerCodePromo()"
+>
+Appliquer
+</button>
+
+</div>
+
+<div id="messagePromo"></div>
+
+</div>
 
 <button
 type="button"
@@ -1193,7 +1277,32 @@ alt="TikTok"
 
 let panier =
 JSON.parse(localStorage.getItem("panier")) || [];
+/* ==========================================
+   CODES PROMO
+========================================== */
 
+const codesPromo = {
+
+    "TEST10": {
+        type: "pourcentage",
+        valeur: 10
+    },
+
+    "MOINS5": {
+        type: "montant",
+        valeur: 5
+    },
+
+    "PORTGRATUIT": {
+        type: "port",
+        valeur: 0
+    }
+
+};
+
+
+let promoActuelle =
+JSON.parse(localStorage.getItem("promoActuelle")) || null;
 
 /* ==========================================
    AFFICHAGE DU PANIER
@@ -1396,7 +1505,85 @@ return 20.00;
 /* ==========================================
    CALCUL TOTAL
 ========================================== */
+/* ==========================================
+   APPLICATION DU CODE PROMO
+========================================== */
 
+function appliquerCodePromo(){
+
+    const champ =
+    document.getElementById("codePromo");
+
+    const message =
+    document.getElementById("messagePromo");
+
+    const code =
+    champ.value.trim().toUpperCase();
+
+
+    if(!code){
+
+        message.textContent =
+        "Veuillez entrer un code promo.";
+
+        message.className =
+        "promo-erreur";
+
+        return;
+
+    }
+
+
+    const promo =
+    codesPromo[code];
+
+
+    if(!promo){
+
+        promoActuelle = null;
+
+        localStorage.removeItem("promoActuelle");
+
+        message.textContent =
+        "❌ Ce code promo n'est pas valide.";
+
+        message.className =
+        "promo-erreur";
+
+        calculTotal();
+
+        return;
+
+    }
+
+
+    promoActuelle = {
+
+        code: code,
+        type: promo.type,
+        valeur: promo.valeur
+
+    };
+
+
+    localStorage.setItem(
+        "promoActuelle",
+        JSON.stringify(promoActuelle)
+    );
+
+
+    message.textContent =
+    "✅ Code promo « " +
+    code +
+    " » appliqué !";
+
+    message.className =
+    "promo-valide";
+
+
+    calculTotal();
+
+}
 function calculTotal(){
 
 const poids =
@@ -1458,8 +1645,91 @@ total + Number(produit.prix || 0),
 );
 
 
+let reduction = 0;
+
+
+/* Réduction en pourcentage */
+
+if(
+promoActuelle &&
+promoActuelle.type === "pourcentage"
+){
+
+    reduction =
+    prixProduits *
+    (promoActuelle.valeur / 100);
+
+}
+
+
+/* Réduction en euros */
+
+if(
+promoActuelle &&
+promoActuelle.type === "montant"
+){
+
+    reduction =
+    promoActuelle.valeur;
+
+}
+
+
+/* La réduction ne peut pas dépasser le prix des livres */
+
+if(reduction > prixProduits){
+
+    reduction =
+    prixProduits;
+
+}
+
+
+/* Frais de port offerts */
+
+if(
+promoActuelle &&
+promoActuelle.type === "port"
+){
+
+    frais = 0;
+
+}
+
+
+/* Total final */
+
 const total =
-prixProduits + frais;
+Math.max(
+    0,
+    prixProduits - reduction + frais
+);
+
+
+/* Affichage de la réduction */
+
+const ligneReduction =
+document.getElementById("ligneReduction");
+
+
+if(reduction > 0){
+
+    ligneReduction.style.display =
+    "block";
+
+    document.getElementById("reduction").textContent =
+    reduction.toFixed(2);
+
+}
+else{
+
+    ligneReduction.style.display =
+    "none";
+
+    document.getElementById("reduction").textContent =
+    "0.00";
+
+}
 
 
 document.getElementById("frais").textContent =
@@ -1614,8 +1884,55 @@ fraisPoste(poidsTotal());
 }
 
 
+let reduction = 0;
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "pourcentage"
+){
+
+    reduction =
+    totalProduits *
+    (promoActuelle.valeur / 100);
+
+}
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "montant"
+){
+
+    reduction =
+    promoActuelle.valeur;
+
+}
+
+
+if(reduction > totalProduits){
+
+    reduction =
+    totalProduits;
+
+}
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "port"
+){
+
+    frais = 0;
+
+}
+
+
 const total =
-totalProduits + frais;
+Math.max(
+    0,
+    totalProduits - reduction + frais
+);
 
 
 const bloc =
@@ -1901,8 +2218,55 @@ total + Number(produit.prix || 0),
 );
 
 
+let reduction = 0;
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "pourcentage"
+){
+
+    reduction =
+    prixProduits *
+    (promoActuelle.valeur / 100);
+
+}
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "montant"
+){
+
+    reduction =
+    promoActuelle.valeur;
+
+}
+
+
+if(reduction > prixProduits){
+
+    reduction =
+    prixProduits;
+
+}
+
+
+if(
+promoActuelle &&
+promoActuelle.type === "port"
+){
+
+    frais = 0;
+
+}
+
+
 const total =
-prixProduits + frais;
+Math.max(
+    0,
+    prixProduits - reduction + frais
+);
 
 
 /*
@@ -2254,7 +2618,18 @@ total.toFixed(2)
 +
 " €";
 
+document.getElementById("codePromoInput").value =
+promoActuelle
+?
+promoActuelle.code
+:
+"Aucun";
 
+
+document.getElementById("reductionInput").value =
+reduction.toFixed(2)
++
+" €";
 document.getElementById("echeancierInput").value =
 
 "Mode de paiement : "
@@ -2304,7 +2679,21 @@ return true;
 
 afficherPanier();
 
-</script>
+
+if(promoActuelle){
+
+    document.getElementById("codePromo").value =
+    promoActuelle.code;
+
+    document.getElementById("messagePromo").textContent =
+    "✅ Code promo « " +
+    promoActuelle.code +
+    " » appliqué !";
+
+    document.getElementById("messagePromo").className =
+    "promo-valide";
+
+}
 
 
 </body>
