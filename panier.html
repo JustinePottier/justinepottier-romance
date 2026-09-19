@@ -1548,28 +1548,73 @@ function appliquerCodePromo(){
     }
 
 
-    const promo =
-    codesPromo[code];
+   const promo =
+codesPromo[code];
 
 
-    if(!promo){
+if(!promo){
 
-        promoActuelle = null;
+    promoActuelle = null;
 
-        localStorage.removeItem("promoActuelle");
+    localStorage.removeItem("promoActuelle");
 
-        message.textContent =
-        "❌ Ce code promo n'est pas valide.";
+    message.textContent =
+    "❌ Ce code promo n'est pas valide.";
 
-        message.className =
-        "promo-erreur";
+    message.className =
+    "promo-erreur";
 
-        calculTotal();
+    calculTotal();
 
-        return;
+    return;
 
-    }
+}
 
+
+/* Vérification de la période de validité */
+
+const maintenant = new Date();
+
+const debut = new Date(promo.debut);
+const fin = new Date(promo.fin);
+
+
+if(maintenant < debut){
+
+    promoActuelle = null;
+
+    localStorage.removeItem("promoActuelle");
+
+    message.textContent =
+    "⏳ Ce code promo n'est pas encore disponible.";
+
+    message.className =
+    "promo-erreur";
+
+    calculTotal();
+
+    return;
+
+}
+
+
+if(maintenant > fin){
+
+    promoActuelle = null;
+
+    localStorage.removeItem("promoActuelle");
+
+    message.textContent =
+    "⌛ Ce code promo a expiré.";
+
+    message.className =
+    "promo-erreur";
+
+    calculTotal();
+
+    return;
+
+}
 
     promoActuelle = {
 
